@@ -13,64 +13,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="">
+    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="第一次尝试提交">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pandar40P" beforeDir="false" afterPath="$PROJECT_DIR$/Pandar40P" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pandar40P/src/Pandar40P" beforeDir="false" afterPath="$PROJECT_DIR$/Pandar40P/src/Pandar40P" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc" beforeDir="false" afterPath="$PROJECT_DIR$/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docking_Guidance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Docking_Guidance.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/logger.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/logger.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Pandar40PSDK.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Pandar40PSDK.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/libPandar40PSDK.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/libPandar40PSDK.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/input.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/input.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p_internal.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p_internal.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Pandar40P.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Pandar40P.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalkTest.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1158">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state>
+              <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -154,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1176">
-              <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+            <state relative-caret-position="168">
+              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -233,13 +179,13 @@
         <option value="$PROJECT_DIR$/AircraftDetect.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/codeN1/Docking_Guidance.cpp" />
-        <option value="$PROJECT_DIR$/Docking_Guidance.cpp" />
         <option value="$PROJECT_DIR$/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc" />
         <option value="$PROJECT_DIR$/framework.cpp" />
         <option value="$PROJECT_DIR$/new/WalkTest.cpp" />
         <option value="$PROJECT_DIR$/WalkTest.cpp" />
-        <option value="$PROJECT_DIR$/WalkTest.h" />
         <option value="$PROJECT_DIR$/vtk_show.h" />
+        <option value="$PROJECT_DIR$/WalkTest.h" />
+        <option value="$PROJECT_DIR$/Docking_Guidance.cpp" />
       </list>
     </option>
   </component>
@@ -518,12 +464,27 @@
       <workItem from="1553569487076" duration="3000" />
       <workItem from="1553569632361" duration="157000" />
       <workItem from="1553569883400" duration="22000" />
-      <workItem from="1553569946500" duration="275000" />
+      <workItem from="1553569946500" duration="860000" />
     </task>
+    <task id="LOCAL-00001" summary="第一次尝试提交">
+      <created>1553570373454</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553570373454</updated>
+    </task>
+    <task id="LOCAL-00002" summary="第一次尝试提交">
+      <created>1553570593628</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1553570593628</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="606057000" />
+    <option name="totallyTimeSpent" value="606642000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,11 +509,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32815966" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32912722" />
       <window_info anchor="bottom" id="CMake" order="8" weight="0.32670158" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3291536" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.34174553" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.34174553" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -562,6 +523,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次尝试提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次尝试提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -801,13 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1491">
@@ -820,8 +778,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WalkTest.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1158">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state>
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
         </state>
       </provider>
     </entry>

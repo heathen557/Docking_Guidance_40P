@@ -46,21 +46,11 @@ pandar40p/point_types.h
 pcl/point_types.h
 -
 
-/home/he/CLionProjects/DockingGuidance/AircraftDetect.cpp
-AircraftDetect.h
-/home/he/CLionProjects/DockingGuidance/AircraftDetect.h
-GlobleData.h
-/home/he/CLionProjects/DockingGuidance/GlobleData.h
-
 /home/he/CLionProjects/DockingGuidance/AircraftDetect.h
 pandar40p_sdk/pandar40p_sdk.h
 /home/he/CLionProjects/DockingGuidance/pandar40p_sdk/pandar40p_sdk.h
 ProcessPointcloud.h
 /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
-
-/home/he/CLionProjects/DockingGuidance/Cluster.cpp
-Cluster.h
-/home/he/CLionProjects/DockingGuidance/Cluster.h
 
 /home/he/CLionProjects/DockingGuidance/Cluster.h
 pcl/point_types.h
@@ -120,10 +110,6 @@ GlobleData.h
 vtk_show.h
 /home/he/CLionProjects/DockingGuidance/vtk_show.h
 
-/home/he/CLionProjects/DockingGuidance/GlobleData.cpp
-GlobleData.h
-/home/he/CLionProjects/DockingGuidance/GlobleData.h
-
 /home/he/CLionProjects/DockingGuidance/GlobleData.h
 X11/Intrinsic.h
 -
@@ -133,10 +119,6 @@ zconf.h
 -
 logger.h
 /home/he/CLionProjects/DockingGuidance/logger.h
-
-/home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp
-ProcessPointcloud.h
-/home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
 
 /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
 pcl/console/time.h
@@ -204,26 +186,6 @@ pandar40p_sdk/pandar40p_sdk.h
 ProcessPointcloud.h
 /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
 
-/home/he/CLionProjects/DockingGuidance/framework.cpp
-framework.h
-/home/he/CLionProjects/DockingGuidance/framework.h
-math.h
--
-sys/socket.h
--
-sys/types.h
--
-sys/un.h
--
-unistd.h
--
-linux/tcp.h
--
-netinet/in.h
--
-GlobleData.h
-/home/he/CLionProjects/DockingGuidance/GlobleData.h
-
 /home/he/CLionProjects/DockingGuidance/framework.h
 iostream
 -
@@ -259,48 +221,6 @@ rapidjson/writer.h
 /home/he/CLionProjects/DockingGuidance/rapidjson/writer.h
 rapidjson/stringbuffer.h
 /home/he/CLionProjects/DockingGuidance/rapidjson/stringbuffer.h
-
-/home/he/CLionProjects/DockingGuidance/logger.cpp
-logger.h
-/home/he/CLionProjects/DockingGuidance/logger.h
-algorithm
--
-queue
--
-sys/timeb.h
--
-time.h
--
-process.h
--
-shlobj.h
--
-Shlwapi.h
--
-sys/stat.h
--
-sys/time.h
--
-sys/socket.h
--
-sys/ioctl.h
--
-string.h
--
-stdio.h
--
-signal.h
--
-unistd.h
--
-errno.h
--
-netdb.h
--
-net/if.h
--
-iostream
--
 
 /home/he/CLionProjects/DockingGuidance/logger.h
 winsock2.h
@@ -545,10 +465,6 @@ emmintrin.h
 -
 arm_neon.h
 -
-
-/home/he/CLionProjects/DockingGuidance/tools_function.cpp
-tools_function.h
-/home/he/CLionProjects/DockingGuidance/tools_function.h
 
 /home/he/CLionProjects/DockingGuidance/tools_function.h
 iostream
