@@ -20,7 +20,7 @@ extern pcl::visualization::PointCloudColorHandlerGenericField<pcl::PointXYZI> ha
 
 class WalkTest
 {
-    int delay_count;       //延迟20帧没有目标后 发送目标丢失命令
+    int delay_count;       //延迟20帧没有目标后 发送目标丢失命令  2019-03-25下午添加 测试正常版本
     int port_, cloud_id_;
     int lost_counter_;
     int cluster_size_min_, cluster_size_max_;
