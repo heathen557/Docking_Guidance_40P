@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpandar_grabber.a  CMakeFiles/pandar_grabber.dir/src/pandar_grabber.cpp.o
+/usr/bin/ranlib libpandar_grabber.a

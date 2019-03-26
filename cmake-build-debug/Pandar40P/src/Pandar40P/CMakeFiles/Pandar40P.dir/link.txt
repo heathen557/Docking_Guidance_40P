@@ -1,0 +1,2 @@
+/usr/bin/ar qc libPandar40P.a  CMakeFiles/Pandar40P.dir/src/input.cc.o CMakeFiles/Pandar40P.dir/src/pandar40p_internal.cc.o CMakeFiles/Pandar40P.dir/src/pandar40p.cc.o
+/usr/bin/ranlib libPandar40P.a
