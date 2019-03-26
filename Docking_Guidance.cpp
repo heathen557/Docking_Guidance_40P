@@ -5,9 +5,6 @@
 * Decription:
 */
 
-
-//just want to test the github
-
 #include <iostream>
 
 #include "AircraftDetect.h"
@@ -34,6 +31,7 @@
 #include "rapidjson/stringbuffer.h"
 
 #include "GlobleData.h"
+//#include "zlog.h"
 
 #include "vtk_show.h"
 using namespace std;
@@ -46,8 +44,8 @@ std::string typeFile("class_name.txt");
 std::string aircraftData("aircraft_data.txt");
 const char *type_file = typeFile.c_str();
 const char *aircraft_data = aircraftData.c_str();
-//std::string ip("");
-std::string ip("192.168.1.105");
+std::string ip("");
+//std::string ip("192.168.20.100");
 int port = 8080;
 pcl::visualization::PointCloudColorHandlerGenericField<pcl::PointXYZI> color_handler("intensity");
 
@@ -59,6 +57,8 @@ sqlite3 *db = NULL;     //数据库链接 声明为全局
 extern struct control_msg con_msg;  //控制信息结构体变量
 extern int workMode_ = 0;
 extern int _workstatus;
+
+extern zlog_category_t *c;
 
 void LidarHandler() {
 
@@ -243,7 +243,23 @@ int main() {
     initSqlite3Bases();
     CreateBerthInfo_table();                         //泊位号
 
-    init_log();
+//    init_log();
+
+    int rc;
+    rc = zlog_init("DockingGuidance.conf");
+    if (rc)
+    {
+        printf("zlog init failed\n");
+        return -1;
+    }
+    c = zlog_get_category("lion");
+    if(!c)
+    {
+        printf("get category fail\n");
+        zlog_fini();
+        return -2;
+    }
+
 
 //    selectInfoFromPARAMETER_TAB();
 //    std::thread recvHandler(Recvsocket_UDP);             //UDP方式接受数据
@@ -262,7 +278,9 @@ int main() {
     msgid = msgget((key_t) 1234, 0666 | IPC_CREAT);
     if (msgid == -1) {
         fprintf(stderr, "接收消息队列msgget failed with error: %d\n", errno);
-        LOG__(LOGID_I,"主线程中接收消息队列创建失败\n");
+//        LOG__(LOGID_I,"主线程中接收消息队列创建失败\n");
+        zlog_error(c,"主线程中接收消息队列创建失败\n");
+
         exit(EXIT_FAILURE);
     }
 
@@ -274,8 +292,10 @@ int main() {
     msgid_2 = msgget((key_t) 1235, 0666 | IPC_CREAT);
     if (msgid_2 == -1) {
         fprintf(stderr, "发送消息队列msgget failed with error: %d\n", errno);
-        LOG__(LOGID_I,"主线程中发送消息队列创建失败\n");
+//        LOG__(LOGID_I,"主线程中发送消息队列创建失败\n");
+        zlog_error(c,"主线程中发送消息队列创建失败!\n");
         exit(EXIT_FAILURE);
+
     }
 
     //接收网络上的传输数据
@@ -284,11 +304,13 @@ int main() {
         //读取消息队列的消息
         if (msgrcv(msgid, (void *) &some_data, BUFSIZ, msg_to_receive, 0) == -1) {
             fprintf(stderr, "msgrcv failed with error: %d\n", errno);
-            LOG__(LOGID_I,"主线程中接收消息队列接收数据失败！\n");
+//            LOG__(LOGID_I,"主线程中接收消息队列接收数据失败！\n");
+            zlog_error(c,"主线程中接收消息队列接收数据失败！\n");
             exit(EXIT_FAILURE);
         } else {
             printf("主线程接收到的消息队列的数据为： %s\n", some_data.some_text);
-            LOG__(LOGID_I,"主线程接收到的消息队列的数据为： %s\n",some_data.some_text);
+//            LOG__(LOGID_I,"主线程接收到的消息队列的数据为： %s\n",some_data.some_text);
+            zlog_info(c,"主线程接收到的消息队列的数据为： %s\n",some_data.some_text);
 
             //接收到json数据进行解析
             Document d;
@@ -302,7 +324,7 @@ int main() {
                 std::cout << "已经接收到算法发送后的返回数据" << std::endl;
 
 
-            //为机型数据库添加飞机型号类别
+                //为机型数据库添加飞机型号类别
             } else if (2 == flag) {
 
                 string err_str;
@@ -400,7 +422,7 @@ int main() {
 
                 }
 
-            //更新检测参数
+                //更新检测参数
             }else if(3 == flag)
             {
 
@@ -433,7 +455,7 @@ int main() {
                 char *zErrMsg;
                 ostrstream oss;
                 oss << at<<clustermin_<<",CLUSTERMAX="<<clustermax_<<",TOLERANCE="<<tolerance_<<",CLIPMIN="<<clipmin_
-                <<",CLIPMAX="<<clipmax_<<",CLIPLEFT="<<clipleft_<<",CLIPRIGHT="<< clipright_<<" WHERE ID=1"<<'\0';
+                    <<",CLIPMAX="<<clipmax_<<",CLIPLEFT="<<clipleft_<<",CLIPRIGHT="<< clipright_<<" WHERE ID=1"<<'\0';
                 const char *temp_ = oss.str();
                 std::cout << temp_<<"SQL语句"<<std::endl;
                 sqlite3_exec(db, temp_, 0, 0, &zErrMsg);
@@ -513,8 +535,8 @@ int main() {
                             ostrstream update_oss;
                             const char *update = "UPDATE BERTH_TAB SET STOP1_X=";
                             update_oss<<update<<stop1x_<<",STOP1_Y="<<stop1y_<<",STOP2_X="<<stop2x_<<",STOP2_Y="<<stop2y_
-                            <<",CENTER1_X="<<middle1x_<<",CENTER1_Y="<<middle1y_<<",CENTER2_X="<<middle2x_<<",CENTER2_Y="<<middle2y_
-                            <<" WHERE AIRPLANE_MODEL="<<"'"<<model<<"'"<<";"<<'\0';
+                                      <<",CENTER1_X="<<middle1x_<<",CENTER1_Y="<<middle1y_<<",CENTER2_X="<<middle2x_<<",CENTER2_Y="<<middle2y_
+                                      <<" WHERE AIRPLANE_MODEL="<<"'"<<model<<"'"<<";"<<'\0';
 
                             char *update_sql = update_oss.str();
                             std::cout << update_sql<<std::endl;
@@ -560,12 +582,13 @@ int main() {
             }else if(4 == flag)
             {
 
-            //    std::cout<<"表4 已经进来l"<<std::endl;
+                //    std::cout<<"表4 已经进来l"<<std::endl;
 
                 if(!(d.HasMember("workMode")&&d.HasMember("workCommand")&&d.HasMember("airplane")))
                 {
                     std::cout<<"接收到的命令有误，请珂珂检查之^-^"<<std::endl;
-                    LOG__(LOGID_I,"接收到的开始检测命令有误，缺少字段，请珂珂检查之^-^！\n");
+//                    LOG__(LOGID_I,"接收到的开始检测命令有误，缺少字段，请珂珂检查之^-^！\n");
+                    zlog_error(c,"接收到的开始检测命令有误，缺少字段，请珂珂检查之^-^！\n");
                     continue ;
                 }
 
@@ -597,7 +620,8 @@ int main() {
 
                     if(nrow<1){
                         std::cout<<"行人检测参数不存在；"<<std::endl;
-                        LOG__(LOGID_I,"行人检测参数在数据库中不存在\n");
+//                        LOG__(LOGID_I,"行人检测参数在数据库中不存在\n");
+                        zlog_warn(c,"行人检测参数在数据库中不存在\n");
                         continue;
 
                     }
@@ -611,8 +635,8 @@ int main() {
                     con_msg.clip_right_position = atof(azResult[15]); //CLIPRIGHT
 
                     std::cout<<con_msg.cluster_size_min<<"->"<<con_msg.cluster_size_max<<"->"<<
-                    con_msg.cluster_tolerance<<"->"<<con_msg.clip_min_height<<"->"<<con_msg.clip_max_height<<"->"<<con_msg.clip_left_position<<
-                    "->"<<con_msg.clip_right_position<<std::endl;
+                             con_msg.cluster_tolerance<<"->"<<con_msg.clip_min_height<<"->"<<con_msg.clip_max_height<<"->"<<con_msg.clip_left_position<<
+                             "->"<<con_msg.clip_right_position<<std::endl;
 
 
                     //获取机型参数
@@ -630,7 +654,8 @@ int main() {
                     if(nrow<1)
                     {
                         std::cout<<"机型输入有误，请核对之！"<<std::endl;
-                        LOG__(LOGID_I,"开始检测命令机型输入有误，数据库中不存在，请核对之\n");
+//                        LOG__(LOGID_I,"开始检测命令机型输入有误，数据库中不存在，请核对之\n");
+                        zlog_warn(c,"开始检测命令机型输入有误，数据库中不存在，请核对之\n");
                         continue;
                     }
 
@@ -657,7 +682,8 @@ int main() {
                     if(nrow<1)
                     {
                         std::cout<<"检索环境检测参数时有误，请核对之！"<<std::endl;
-                        LOG__(LOGID_I,"检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
+//                        LOG__(LOGID_I,"检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
+                        zlog_warn(c,"检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
                         continue;
                     }
 
@@ -694,7 +720,8 @@ int main() {
                 if(!(v.HasMember("CFTP") && v.HasMember("wing") && v.HasMember("engineInner") && v.HasMember("engineOuter") && v.HasMember("length") && v.HasMember("noseheight")))
                 {
                     std::cout<<"添加机型时，接收到的数据有误！！"<<std::endl;
-                    LOG__(LOGID_I,"接收到添加机型命令时，接收到的数据缺少字段！！\n");
+//                    LOG__(LOGID_I,"接收到添加机型命令时，接收到的数据缺少字段！！\n");
+                    zlog_warn(c,"接收到添加机型命令时，接收到的数据缺少字段！！\n");
                     continue;
                 }
 
@@ -734,7 +761,8 @@ int main() {
                     send_buf = "{\"@table\":6,\"@src\":\"lidar\",\"error\":\"\"}";
                 } else{
 
-                    LOG__(LOGID_I,"添加机型发生错误： %s\n",zErrMsg);
+//                    LOG__(LOGID_I,"添加机型发生错误： %s\n",zErrMsg);
+                    zlog_error(c,"添加机型发生错误： %s\n",zErrMsg);
                     const char *tmp_buf = "{\"@table\":6,\"@src\":\"lidar\",\"error\":";
                     ostrstream err_oss;
                     err_oss<<tmp_buf<<"\""<<zErrMsg<<"\"}"<<'\0';
@@ -747,10 +775,12 @@ int main() {
                 if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1)
                 {
                     fprintf(stderr, "msgsed failed\n");
-                    LOG__(LOGID_I,"向前端发送数据发生错误\n");
+//                    LOG__(LOGID_I,"向前端发送数据发生错误\n");
+                    zlog_error(c,"向前端发送数据发生错误\n");
                     exit(EXIT_FAILURE);
                 }else{
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+                    zlog_info(c,"主函数发送队列发送响应信息：%s\n",send_buf);
                     std::cout<<"主函数中已经发送消息数据～～～～～～～～～～～"<<send_buf<<std::endl;
                     continue;
                 }
@@ -766,7 +796,8 @@ int main() {
                         if(!(v.HasMember("CFTP") && v.HasMember("wing") && v.HasMember("engineInner") && v.HasMember("engineOuter") && v.HasMember("length") && v.HasMember("noseheight")))
                         {
                             std::cout<<"修改机型参数时，接收到的命令有误！！！"<<std::endl;
-                            LOG__(LOGID_I,"修改机型参数时，接收到的命令有误，缺少字段！！！\n");
+//                            LOG__(LOGID_I,"修改机型参数时，接收到的命令有误，缺少字段！！！\n");
+                            zlog_warn(c,"修改机型参数时，接收到的命令有误，缺少字段！！！\n");
                             continue;
                         }
 
@@ -803,7 +834,8 @@ int main() {
                         if(strcmp(azResult[1],"0") == 0)         //数据库表不存在该机型，向数据库中添加
                         {
                             err_str = "The AIRPLANEMODEL_TAB table doesn't have the airplaneModel,please check!!";
-                            LOG__(LOGID_I,"数据库表中不存在该机型，请检查之！！！\n");
+//                            LOG__(LOGID_I,"数据库表中不存在该机型，请检查之！！！\n");
+                            zlog_warn(c,"数据库表中不存在该机型，请检查之！！！\n");
 
                         }else  //数据库中已存在该机型，更新数据表中该机型信息
                         {
@@ -847,10 +879,12 @@ int main() {
                 if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1)
                 {
                     fprintf(stderr, "msgsed failed\n");
-                    LOG__(LOGID_I,"主函数中发送消息队列 发送信息失败！\n");
+//                    LOG__(LOGID_I,"主函数中发送消息队列 发送信息失败！\n");
+                    zlog_error(c,"主函数中发送消息队列 发送信息失败！\n");
                     exit(EXIT_FAILURE);
                 }else{
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+                    zlog_info(c,"主函数发送队列发送响应信息：%s\n",send_buf);
                     std::cout<<"主函数中已经发送消息数据～～～～～～～～～～～"<<send_buf<<std::endl;
                     continue;
                 }
@@ -862,10 +896,11 @@ int main() {
 
 
                 if (!(v.HasMember("CFTP") && v.HasMember("stop1x") && v.HasMember("stop1y") && v.HasMember("stop2x") && v.HasMember("stop2y") && v.HasMember("middle1x")
-                    && v.HasMember("middle1y") && v.HasMember("middle2x") && v.HasMember("middle2y")))
+                      && v.HasMember("middle1y") && v.HasMember("middle2x") && v.HasMember("middle2y")))
                 {
                     std::cout<<"添加机型检测参数时，接收的命令有误！！ "<<std::endl;
-                    LOG__(LOGID_I,"添加机型检测参数时，接收的命令有误！！ \n");
+//                    LOG__(LOGID_I,"添加机型检测参数时，接收的命令有误！！ \n");
+                    zlog_warn(c,"添加机型检测参数时，接收的命令有误！！ \n");
                     continue;
                 }
 
@@ -928,10 +963,12 @@ int main() {
                 if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1)
                 {
                     fprintf(stderr, "msgsed failed\n");
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息发生错误！！ \n");
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息发生错误！！ \n");
+                    zlog_error(c,"主函数发送队列发送响应信息发生错误！！ \n");
                     exit(EXIT_FAILURE);
                 }else{
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+                    zlog_info(c,"主函数发送队列发送响应信息：%s\n",send_buf);
                     std::cout<<"主函数中已经发送消息数据～～～～～～～～～～～"<<send_buf<<std::endl;
                     continue;
                 }
@@ -946,10 +983,11 @@ int main() {
                         assert(v.IsObject());
 
                         if(!(v.HasMember("CFTP") && v.HasMember("stop1x") && v.HasMember("stop1y") && v.HasMember("stop2x") && v.HasMember("stop2y")
-                            && v.HasMember("middle1x") && v.HasMember("middle1y") && v.HasMember("middle2x") && v.HasMember("middle2y")))
+                             && v.HasMember("middle1x") && v.HasMember("middle1y") && v.HasMember("middle2x") && v.HasMember("middle2y")))
                         {
                             std::cout<<"修改机型检测参数时，接收命令有误！！！"<<std::endl;
-                            LOG__(LOGID_I, "修改机型检测参数时，接收命令有误,缺少字段！！！\n");
+//                            LOG__(LOGID_I, "修改机型检测参数时，接收命令有误,缺少字段！！！\n");
+                            zlog_warn(c,"修改机型检测参数时，接收命令有误,缺少字段！！！\n");
                             continue;
                         }
 
@@ -1035,11 +1073,13 @@ int main() {
                 if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1)
                 {
                     fprintf(stderr, "msgsed failed\n");
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息发生错误！！ \n");
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息发生错误！！ \n");
+                    zlog_error(c,"主函数发送队列发送响应信息发生错误！！ \n");
                     exit(EXIT_FAILURE);
                 }else{
                     std::cout<<"主函数中已经发送消息数据～～～～～～～～～～～"<<send_buf<<std::endl;
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+                    zlog_info(c, "主函数发送队列发送响应信息：%s\n",send_buf);
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
                     continue;
                 }
 
@@ -1049,10 +1089,11 @@ int main() {
                 std::cout<<"修改行人检测参数 函数已经进来了"<<std::endl;
 
                 if(!(d.HasMember("clustermin") && d.HasMember("clustermax") && d.HasMember("tolerance") && d.HasMember("clipmin") && d.HasMember("clipmmax")
-                    && d.HasMember("clipleft") && d.HasMember("clipright")))
+                     && d.HasMember("clipleft") && d.HasMember("clipright")))
                 {
                     std::cout<<"修改行人检测参数时，接收到的命令有误！！！ "<<std::endl;
-                    LOG__(LOGID_I, "修改行人检测参数时，接收到的命令有误，缺少字段！！！  \n");
+//                    LOG__(LOGID_I, "修改行人检测参数时，接收到的命令有误，缺少字段！！！  \n");
+                    zlog_warn(c,"修改行人检测参数时，接收到的命令有误，缺少字段！！！  \n");
                     continue ;
                 }
 
@@ -1086,7 +1127,8 @@ int main() {
 
                 if(NULL != zErrMsg)
                 {
-                    LOG__(LOGID_I, "更新行人检测参数表格时 错误信息为:%s \n",zErrMsg);
+//                    LOG__(LOGID_I, "更新行人检测参数表格时 错误信息为:%s \n",zErrMsg);
+                    zlog_warn(c,"更新行人检测参数表格时 错误信息为:%s \n",zErrMsg);
                     std::cout<<"更新行人检测参数表格时 错误信息为:"<<zErrMsg<<std::endl;
                     err_str = string(zErrMsg) + string("/");
 
@@ -1113,12 +1155,14 @@ int main() {
                 strcpy(some_data_2.some_text, send_buf);
                 if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1)
                 {
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息发生错误！！");
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息发生错误！！");
+                    zlog_error(c,"主函数发送队列发送响应信息发生错误！！");
                     fprintf(stderr, "msgsed failed\n");
                     exit(EXIT_FAILURE);
                 }else{
                     std::cout<<"主函数中已经发送消息数据～～～～～～～～～～～"<<send_buf<<std::endl;
-                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+//                    LOG__(LOGID_I, "主函数发送队列发送响应信息：%s\n",send_buf);
+                    zlog_info(c,"主函数发送队列发送响应信息：%s\n",send_buf);
                     continue;
                 }
 
@@ -1128,10 +1172,11 @@ int main() {
                 std::cout<<"修改环境配置参数函数已经进来了"<<std::endl;
 
                 if (!(d.HasMember("right_point0x") && d.HasMember("right_point0y") && d.HasMember("right_point1x") && d.HasMember("right_point1y") && d.HasMember("left_point0x")
-                    && d.HasMember("left_point0y") && d.HasMember("left_point1x") && d.HasMember("left_point1y") && d.HasMember("height_distance_threshold")))
+                      && d.HasMember("left_point0y") && d.HasMember("left_point1x") && d.HasMember("left_point1y") && d.HasMember("height_distance_threshold")))
                 {
                     std::cout<<" 修改环境配置参数,接收到的命令有误！！！ "<<std::endl;
-                    LOG__(LOGID_I, "修改环境配置参数,接收到的命令有误！！！\n");
+//                    LOG__(LOGID_I, "修改环境配置参数,接收到的命令有误！！！\n");
+                    zlog_warn(c,"修改环境配置参数,接收到的命令有误！！！\n");
                     continue;
                 }
 
@@ -1172,7 +1217,9 @@ int main() {
                 if(NULL != zErrMsg)
                 {
                     std::cout<<"更新环境检测参数表格时 错误信息为:"<<zErrMsg<<std::endl;
-                    LOG__(LOGID_I, "更新环境检测参数表格时 错误信息为:%s\n",zErrMsg);
+//                    LOG__(LOGID_I, "更新环境检测参数表格时 错误信息为:%s\n",zErrMsg);
+                    zlog_warn(c,"更新环境检测参数表格时 错误信息为:%s\n",zErrMsg);
+
                     err_str = string(zErrMsg) + string("/");
 
                 }
@@ -1199,11 +1246,13 @@ int main() {
                 if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1)
                 {
                     fprintf(stderr, "msgsed failed\n");
-                    LOG__(LOGID_I, "主函数发送消息队列发送信息失败\n");
+//                    LOG__(LOGID_I, "主函数发送消息队列发送信息失败\n");
+                    zlog_error(c,"主函数发送消息队列发送信息失败\n");
                     exit(EXIT_FAILURE);
                 }else{
                     std::cout<<"主函数中已经发送消息数据～～～～～～～～～～～"<<send_buf<<std::endl;
-                    LOG__(LOGID_I, "主函数发送消息队列发送信息成功:%s\n",send_buf);
+//                    LOG__(LOGID_I, "主函数发送消息队列发送信息成功:%s\n",send_buf);
+                    zlog_info(c,"主函数发送消息队列发送信息成功:%s\n",send_buf);
                     continue;
                 }
             }

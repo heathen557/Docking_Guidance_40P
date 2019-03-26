@@ -338,33 +338,6 @@ framework.cpp.s:
 	$(MAKE) -f CMakeFiles/Docking_Guidance2.dir/build.make CMakeFiles/Docking_Guidance2.dir/framework.cpp.s
 .PHONY : framework.cpp.s
 
-logger.o: logger.cpp.o
-
-.PHONY : logger.o
-
-# target to build an object file
-logger.cpp.o:
-	$(MAKE) -f CMakeFiles/Docking_Guidance2.dir/build.make CMakeFiles/Docking_Guidance2.dir/logger.cpp.o
-.PHONY : logger.cpp.o
-
-logger.i: logger.cpp.i
-
-.PHONY : logger.i
-
-# target to preprocess a source file
-logger.cpp.i:
-	$(MAKE) -f CMakeFiles/Docking_Guidance2.dir/build.make CMakeFiles/Docking_Guidance2.dir/logger.cpp.i
-.PHONY : logger.cpp.i
-
-logger.s: logger.cpp.s
-
-.PHONY : logger.s
-
-# target to generate assembly for a file
-logger.cpp.s:
-	$(MAKE) -f CMakeFiles/Docking_Guidance2.dir/build.make CMakeFiles/Docking_Guidance2.dir/logger.cpp.s
-.PHONY : logger.cpp.s
-
 tools_function.o: tools_function.cpp.o
 
 .PHONY : tools_function.o
@@ -424,9 +397,6 @@ help:
 	@echo "... framework.o"
 	@echo "... framework.i"
 	@echo "... framework.s"
-	@echo "... logger.o"
-	@echo "... logger.i"
-	@echo "... logger.s"
 	@echo "... tools_function.o"
 	@echo "... tools_function.i"
 	@echo "... tools_function.s"

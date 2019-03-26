@@ -7,7 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o"
   "CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o"
   "CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o"
-  "CMakeFiles/Docking_Guidance2.dir/logger.cpp.o"
   "Docking_Guidance2.pdb"
   "Docking_Guidance2"
 )

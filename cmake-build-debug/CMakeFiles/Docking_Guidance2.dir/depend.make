@@ -10,7 +10,6 @@ CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../Cluster.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../GlobleData.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../ProcessPointcloud.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../framework.h
-CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../logger.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../rapidjson/allocators.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../rapidjson/document.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../rapidjson/encodedstream.h
@@ -875,7 +874,6 @@ CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../GlobleData.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../ProcessPointcloud.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../WalkTest.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../framework.h
-CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../logger.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../rapidjson/allocators.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../rapidjson/document.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../rapidjson/encodedstream.h
@@ -1446,7 +1444,6 @@ CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-
 
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o: ../GlobleData.cpp
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o: ../GlobleData.h
-CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o: ../logger.h
 
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: ../Cluster.h
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: ../ProcessPointCloud.cpp
@@ -2028,7 +2025,6 @@ CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../ProcessPointcloud.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../WalkTest.cpp
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../WalkTest.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../framework.h
-CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../logger.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../rapidjson/allocators.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../rapidjson/document.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../rapidjson/encodedstream.h
@@ -2599,7 +2595,6 @@ CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../GlobleData.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../framework.cpp
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../framework.h
-CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../logger.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/allocators.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/document.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/encodedstream.h
@@ -2625,9 +2620,6 @@ CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/reader.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/stream.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/stringbuffer.h
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../rapidjson/writer.h
-
-CMakeFiles/Docking_Guidance2.dir/logger.cpp.o: ../logger.cpp
-CMakeFiles/Docking_Guidance2.dir/logger.cpp.o: ../logger.h
 
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o: ../framework.h
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o: ../rapidjson/allocators.h

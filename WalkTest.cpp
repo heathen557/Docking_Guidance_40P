@@ -2,12 +2,14 @@
 // Created by luffy7n on 18-11-5.
 //
 
+#include "zlog.h"
 #include "WalkTest.h"
 #include "GlobleData.h"
 extern struct control_msg con_msg;
 extern bool _run_flag;
 extern int _workstatus;
 
+extern zlog_category_t *c;
 WalkTest *WalkTest::pThis_ = NULL;
 
 void WalkTest::setParameter()
@@ -77,6 +79,12 @@ void WalkTest::setParameter()
 
 void WalkTest::initializeParameter()
 {
+
+    zlog_warn(c,"test warn");
+    zlog_debug(c,"test debug");
+    zlog_error(c,"test error");
+
+
     cloud_id_ = 0;
     lost_counter_ = 21;
     detect_flag_ = false;
@@ -309,6 +317,7 @@ ClusterPtr WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr)//, ClusterP
         else
         {
             cout << "removefloor failue" << endl;
+            zlog_warn(c,"过滤地面出现异常,removefloor failue！");
             succed_detect_ = false;
             return empty_cluster;
         }
@@ -316,6 +325,7 @@ ClusterPtr WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr)//, ClusterP
     else
     {
         cout << "Region has no point cloud" << endl;
+        zlog_warn(c,"区域没有点云数据，Region has no point cloud");
         succed_detect_ = false;
         return empty_cluster;
     }
@@ -360,6 +370,9 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
                 float track_similarity = calculateSimilarity(track_feature, model_feature_);
                 float similarity_difference = track_similarity - detect_similarity;
                 cout <<"*************************" << "detect: " << detect_similarity << "  " << "track: " << track_similarity << endl;
+
+                zlog_info(c,"detect = %d,    track = %d",detect_similarity,track_similarity);
+
                 if (pre_target_cloud_->empty())//pre_target_cloud_->empty()//pre_target_indices_.empty()
                 {
                     pcl::copyPointCloud(*detect_target_cluster->getCloud(), *pre_target_cloud_);
@@ -443,7 +456,9 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
             if (choose_detect)
             {
                 cout << "choose detect..." << endl;
-                LOG__(LOGID_I, "Status: detect Feature: length: %f width: %f height: %f\n", detect_target_cluster->getLength(), detect_target_cluster->getWidth(), detect_target_cluster->getHeight());
+//                LOG__(LOGID_I, "Status: detect Feature: length: %f width: %f height: %f\n", detect_target_cluster->getLength(), detect_target_cluster->getWidth(), detect_target_cluster->getHeight());
+                zlog_info(c,"Status: detect Feature: length: %f width: %f height: %f\n", detect_target_cluster->getLength(), detect_target_cluster->getWidth(), detect_target_cluster->getHeight());
+
                 //current_target_indices = detect_target_indices;
                 origin_distance_ = detect_target_distance;
                 status_ud = Plane_Straight_line_UD(end_point0_, end_point1_, detect_cen);
@@ -466,7 +481,9 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
                 if (succed_find)
                 {
                     cout << "choose track..." << endl;
-                    LOG__(LOGID_I, "Status: track Feature: length: %f width: %f height: %f\n", track_target_cluster_->getLength(), track_target_cluster_->getWidth(), track_target_cluster_->getHeight());
+//                    LOG__(LOGID_I, "Status: track Feature: length: %f width: %f height: %f\n", track_target_cluster_->getLength(), track_target_cluster_->getWidth(), track_target_cluster_->getHeight());
+                    zlog_info(c,"Status: track Feature: length: %f width: %f height: %f\n", track_target_cluster_->getLength(), track_target_cluster_->getWidth(), track_target_cluster_->getHeight());
+
                     //current_target_indices = track_target_indices;
                     origin_distance_ = track_target_distance;
                     status_ud = Plane_Straight_line_UD(end_point0_, end_point1_, track_cen);

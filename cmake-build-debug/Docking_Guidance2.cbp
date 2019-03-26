@@ -295,12 +295,6 @@
 		<Unit filename="/home/he/CLionProjects/DockingGuidance/framework.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/logger.cpp">
-			<Option target="Docking_Guidance2"/>
-		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/logger.h">
-			<Option target="Docking_Guidance2"/>
-		</Unit>
 		<Unit filename="/home/he/CLionProjects/DockingGuidance/tools_function.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>

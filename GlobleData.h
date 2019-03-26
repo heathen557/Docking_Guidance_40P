@@ -8,18 +8,18 @@
 
 #include <iostream>
 #include <zconf.h>
-#include "logger.h"
+//#include "logger.h"
 
 #ifndef DOCKING_GUIDANCE_GLOBLEDATA_H
 #define DOCKING_GUIDANCE_GLOBLEDATA_H
 
-#define LOGID_I "info"
-#define LOGID_C "custom"
-#define LOGID_B "bin"
+//#define LOGID_I "info"
+//#define LOGID_C "custom"
+//#define LOGID_B "bin"
 
 
 
-void  init_log();
+//void  init_log();
 
 
 /*

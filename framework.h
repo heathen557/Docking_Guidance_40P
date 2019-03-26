@@ -16,6 +16,7 @@
 #include <sys/msg.h>
 #include <errno.h>
 #include <unistd.h>
+#include <zlog.h>
 
 
 #include "rapidjson/document.h"
@@ -34,7 +35,7 @@ typedef struct DISPLAYINFO{
 
 
 
-
+extern zlog_category_t *c;
 extern std::mutex _mtx;
 extern int _READYTOSENDFLAG;
 extern DISPLAYINFO _displayinfo;

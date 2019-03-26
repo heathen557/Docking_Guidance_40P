@@ -265,7 +265,8 @@ void Send_localsocket(){
             doc.Accept(writer);
 
             std::cout<<"要发送的数据为："<<buffer.GetString()<<std::endl;
-            LOG__(LOGID_I, "要发送的数据为： %s\n", buffer.GetString());
+//            LOG__(LOGID_I, "要发送的数据为： %s\n", buffer.GetString());
+            zlog_info(c,"上传的数据为：%s", buffer.GetString());
 
 
 

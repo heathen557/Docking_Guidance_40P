@@ -11,7 +11,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o"
   "/home/he/CLionProjects/DockingGuidance/WalkTest.cpp" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o"
   "/home/he/CLionProjects/DockingGuidance/framework.cpp" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o"
-  "/home/he/CLionProjects/DockingGuidance/logger.cpp" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/logger.cpp.o"
   "/home/he/CLionProjects/DockingGuidance/tools_function.cpp" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -11,7 +11,6 @@ CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o
  /home/he/CLionProjects/DockingGuidance/GlobleData.h
  /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
  /home/he/CLionProjects/DockingGuidance/framework.h
- /home/he/CLionProjects/DockingGuidance/logger.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/allocators.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/document.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/encodedstream.h
@@ -876,7 +875,6 @@ CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o
  /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
  /home/he/CLionProjects/DockingGuidance/WalkTest.h
  /home/he/CLionProjects/DockingGuidance/framework.h
- /home/he/CLionProjects/DockingGuidance/logger.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/allocators.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/document.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/encodedstream.h
@@ -1447,7 +1445,6 @@ CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o
  /home/he/CLionProjects/DockingGuidance/GlobleData.cpp
  /home/he/CLionProjects/DockingGuidance/GlobleData.h
- /home/he/CLionProjects/DockingGuidance/logger.h
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o
  /home/he/CLionProjects/DockingGuidance/Cluster.h
  /home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp
@@ -2029,7 +2026,6 @@ CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o
  /home/he/CLionProjects/DockingGuidance/WalkTest.cpp
  /home/he/CLionProjects/DockingGuidance/WalkTest.h
  /home/he/CLionProjects/DockingGuidance/framework.h
- /home/he/CLionProjects/DockingGuidance/logger.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/allocators.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/document.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/encodedstream.h
@@ -2600,7 +2596,6 @@ CMakeFiles/Docking_Guidance2.dir/framework.cpp.o
  /home/he/CLionProjects/DockingGuidance/GlobleData.h
  /home/he/CLionProjects/DockingGuidance/framework.cpp
  /home/he/CLionProjects/DockingGuidance/framework.h
- /home/he/CLionProjects/DockingGuidance/logger.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/allocators.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/document.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/encodedstream.h
@@ -2626,9 +2621,6 @@ CMakeFiles/Docking_Guidance2.dir/framework.cpp.o
  /home/he/CLionProjects/DockingGuidance/rapidjson/stream.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/stringbuffer.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/writer.h
-CMakeFiles/Docking_Guidance2.dir/logger.cpp.o
- /home/he/CLionProjects/DockingGuidance/logger.cpp
- /home/he/CLionProjects/DockingGuidance/logger.h
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o
  /home/he/CLionProjects/DockingGuidance/framework.h
  /home/he/CLionProjects/DockingGuidance/rapidjson/allocators.h

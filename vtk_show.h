@@ -11,6 +11,7 @@
 #include <pcl/console/parse.h>
 #include <pcl/common/time.h>
 #include <pcl/search/kdtree.h>
+#include "zlog.h"
 
 //#include <pcl/segmentation/sac_segmentation.h>
 //#include <pcl/filters/extract_indices.h>
@@ -37,6 +38,7 @@
 #ifndef DOCKING_GUIDANCE2_VTK_SHOW_H
 #define DOCKING_GUIDANCE2_VTK_SHOW_H
 
+zlog_category_t *c;
 typedef pcl::PointXYZI PointType;
 typedef pcl::PointCloud<PointType> Cloud;
 typedef Cloud::Ptr CloudPtr;
