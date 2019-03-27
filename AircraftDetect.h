@@ -11,6 +11,11 @@
 
 class AircraftDetect
 {
+    bool angleGreater45_flag;
+
+
+
+    int line_count;
     int port_,cloud_id_;
     int detect_flag_;
     int cluster_size_min_, cluster_size_max_;
@@ -48,31 +53,47 @@ class AircraftDetect
     vector<ClusterPtr> aircraft_;
     //pcl::visualization::CloudViewer viewer_;
     boost::shared_ptr<pcl::visualization::PCLVisualizer> cloud_viewer_;
-    pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler_;
+//    pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler_;
     //pcl::PandarGrabber interface_;
     Pandar40PSDK pandar40p_;
     static AircraftDetect *pThis_;
 
 public:
-    AircraftDetect(string &calib_file, string &pcap_file, const char *type_file, const char *aircraft_data, pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler);
-    AircraftDetect(std::string &calib_file, const char *type_file, const char *aircraft_data, std::string &ip, int port, pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler);
-    void setParameter();
-    void initializeParameter();
+
     void loadAircraftData(const char *type_file, const char *aircraft_data);
     virtual ~AircraftDetect();
-
     vector<float> extractClusterFeature(ClusterPtr cluster);
     ClusterPtr detectTarget(const CloudConstPtr &in_cloud_ptr);
-    ClusterPtr detectAircraftSide(const CloudConstPtr &in_cloud_ptr);
     bool detectAircraftParameter(const CloudPtr &in_cloud_ptr, float *wing_span, float *engine_distance);
     char *recognizeType(std::vector<float> feature);
     void processCloud(const CloudConstPtr &cloud);
-    void flowCloud(const CloudConstPtr cloud);
-    static void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp);
-    static void gpsCallback(int timestamp);
     void rawCloud(const boost::shared_ptr<const pcl::PointCloud<pcl::PointXYZI> >& cloud);
     void viewPointCloud();
+
+
+
+    //new 2019-03-27
+    AircraftDetect(string &calib_file, string &pcap_file, pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler);
+    AircraftDetect(string &calib_file, string &ip, int port, pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler);
+    static void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp);
+    static void gpsCallback(int timestamp);
+    void setParameter();
+    void initializeParameter();
     void run();
+    void flowCloud(const CloudConstPtr cloud);
+    void calculate_angle(const CloudConstPtr &cloud);
+    void calculate_aircraftLength(const CloudConstPtr &cloud);
+    ClusterPtr detectAircraftSide(const CloudConstPtr &in_cloud_ptr);
+    void target_detectionAndTrack(const CloudConstPtr &cloud);
+    bool preprocessCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr);
+
+
+
+
+
+
+
+
 
 };
 

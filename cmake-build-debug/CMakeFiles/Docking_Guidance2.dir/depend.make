@@ -433,8 +433,10 @@ CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter.hpp
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter_indices.hpp
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/passthrough.hpp
+CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/statistical_outlier_removal.hpp
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/passthrough.h
+CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/statistical_outlier_removal.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/voxel_grid.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/for_each_type.h
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: /usr/local/include/pcl-1.8/pcl/geometry/planar_polygon.h
@@ -1298,8 +1300,10 @@ CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter.hpp
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter_indices.hpp
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/passthrough.hpp
+CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/statistical_outlier_removal.hpp
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/passthrough.h
+CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/statistical_outlier_removal.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/voxel_grid.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/for_each_type.h
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: /usr/local/include/pcl-1.8/pcl/geometry/planar_polygon.h
@@ -1872,8 +1876,10 @@ CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter.hpp
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter_indices.hpp
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/passthrough.hpp
+CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/statistical_outlier_removal.hpp
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/passthrough.h
+CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/statistical_outlier_removal.h
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/voxel_grid.h
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/for_each_type.h
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: /usr/local/include/pcl-1.8/pcl/geometry/planar_polygon.h
@@ -2448,8 +2454,10 @@ CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter.hpp
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/filter_indices.hpp
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/passthrough.hpp
+CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/statistical_outlier_removal.hpp
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/passthrough.h
+CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/statistical_outlier_removal.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/filters/voxel_grid.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/for_each_type.h
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: /usr/local/include/pcl-1.8/pcl/geometry/planar_polygon.h

@@ -30,6 +30,7 @@
 #include <pcl/registration/correspondence_rejection_sample_consensus.h>
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/filters/approximate_voxel_grid.h>
+#include <pcl/filters/statistical_outlier_removal.h>
 
 
 #include "Cluster.h"

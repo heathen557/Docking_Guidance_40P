@@ -160,6 +160,8 @@ WalkTest::WalkTest(std::string &calib_file, std::string &ip, int port,
 //, interface_(boost::asio::ip::address::from_string(ip_), port_, calibration_file_)
 , pandar40p_(ip_, 2368, 10110, lidarCallback, gpsCallback, 15000, 0,  string("hesai40"))
 {
+    std::cout<<"行人检测的构造函数已经进来了"<<std::endl;
+
     pThis_ = this;
     //cv::generateColors(colors_, 100);
     setParameter();

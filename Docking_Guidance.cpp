@@ -44,8 +44,8 @@ std::string typeFile("class_name.txt");
 std::string aircraftData("aircraft_data.txt");
 const char *type_file = typeFile.c_str();
 const char *aircraft_data = aircraftData.c_str();
-std::string ip("");
-//std::string ip("192.168.20.100");
+//std::string ip("");
+std::string ip("192.168.20.100");
 int port = 8080;
 pcl::visualization::PointCloudColorHandlerGenericField<pcl::PointXYZI> color_handler("intensity");
 
@@ -65,12 +65,12 @@ void LidarHandler() {
     if (1 == workMode_) {
         if (ip == "") {
             std::cout << pcapFile << std::endl;
-            AircraftDetect aircraft_detect(hdlCalibration, pcapFile, type_file, aircraft_data, color_handler);
+            AircraftDetect aircraft_detect(hdlCalibration, pcapFile,color_handler);
             _workstatus = 3;
             aircraft_detect.run();
         } else {
             std::cout << "ip: " << ip << "port: " << port << std::endl;
-            AircraftDetect aircraft_detect(hdlCalibration, type_file, aircraft_data, ip, port, color_handler);
+            AircraftDetect aircraft_detect(hdlCalibration,  ip, port, color_handler);
             _workstatus = 3;
             aircraft_detect.run();
         }
