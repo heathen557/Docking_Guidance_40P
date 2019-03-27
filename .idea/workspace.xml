@@ -13,38 +13,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="日志修改为zlog模块">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docking_Guidance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Docking_Guidance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GlobleData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GlobleData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GlobleData.h" beforeDir="false" afterPath="$PROJECT_DIR$/GlobleData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WalkTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/framework.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework.h" beforeDir="false" afterPath="$PROJECT_DIR$/framework.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vtk_show.h" beforeDir="false" afterPath="$PROJECT_DIR$/vtk_show.h" afterDir="false" />
-    </list>
+    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="日志修改为zlog模块" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GlobleData.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+            <state relative-caret-position="84">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="e#44#70#0" expanded="true" />
               </folding>
@@ -508,7 +477,7 @@
       <workItem from="1553569632361" duration="157000" />
       <workItem from="1553569883400" duration="22000" />
       <workItem from="1553569946500" duration="1158000" />
-      <workItem from="1553588050780" duration="3489000" />
+      <workItem from="1553588050780" duration="4303000" />
     </task>
     <task id="LOCAL-00001" summary="第一次尝试提交">
       <created>1553570373454</created>
@@ -531,11 +500,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553570938923</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="日志修改为zlog模块">
+      <created>1553593296138</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553593296138</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610429000" />
+    <option name="totallyTimeSpent" value="611243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,18 +524,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1744" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49487555" visible="true" weight="0.14515236" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2492276" />
       <window_info id="Favorites" order="2" sideWeight="0.50512445" side_tool="true" weight="0.22826087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23764458" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23764458" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2961039" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32815966" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32912722" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32912722" />
       <window_info anchor="bottom" id="CMake" order="8" weight="0.32670158" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3291536" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -573,6 +550,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一次尝试提交" />
@@ -850,8 +837,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GlobleData.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        <state relative-caret-position="84">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#44#70#0" expanded="true" />
           </folding>
