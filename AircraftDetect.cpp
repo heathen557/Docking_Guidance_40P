@@ -14,6 +14,9 @@ void AircraftDetect::setParameter()
 {
 
     angleGreater45_flag = false;
+    succed_track_ = false;
+    start_track_ = false;
+    succed_detect_front_head_ = false;
 
     cloud_id_ = 0;
     //orign_distance_ = 0;
@@ -441,7 +444,7 @@ bool AircraftDetect::preprocessCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr
     else
     {
         zlog_warn(c,"点云预处理，要处理的区域内区域内没有点云数据\n");
-        cout << "Region has no point cloud" << endl;
+        cout << "点云预处理，要处理的区域内区域内没有点云数据\n" << endl;
         return false;
     }
 
@@ -454,10 +457,175 @@ bool AircraftDetect::preprocessCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr
  */
 void AircraftDetect::target_detectionAndTrack(const CloudConstPtr &cloud)
 {
+    /**********跟踪机头参数**********/
+    bool aircraft_status_front = false;    //是否机头跟踪成功
+    vector<int> track_target_indices;       //跟踪到的飞机（机头）的点云序列
+    vector<int> current_target_indices;     //当前的飞机（机头）的点云序列
+//    ClusterPtr current_target_cluster;     //必须(new Cluster())吗？
+
+    /**********检测机头参数************/
+    ClusterPtr aircraft_front_head_cluster(new Cluster());
+
+
+
     if (preprocessCloud(cloud, nofloor_cloud_))
     {
+        cout << "滤出地面后的点云大小 nofloor_cloud_ : " << nofloor_cloud_->points.size() << endl;
+        zlog_debug(c, "滤出地面后的点云大小 nofloor_cloud_ :%d = ", nofloor_cloud_->points.size());
 
+        if (succed_track_ || start_track_) //会出现类似步测时的跟丢的情况吗|| lost_counter_ < 20 需要考虑再次重新检测的情况吗 分析
+        {
+            cout << "track search for target..." << endl;
+            if (findTarget(nofloor_cloud_, pre_target_centroid_, head_radius_,
+                           &track_target_indices)) //搜索半径如何确定 机身宽度吗，如何保证能搜索全 还有机头区域不规则的情况 检测是不是更稳定一些 //检测优先版后再完善
+            {
+                succed_target_ = true;
+                succed_track_ = true;
+                aircraft_status_front = true;
+                int cluster_id = 0;
+                ClusterPtr cluster(new Cluster());
+                cluster->setCloud(nofloor_cloud_, track_target_indices, cluster_id, 255, 0, 0);
+                track_target_cluster_ = cluster;
+                current_target_indices = track_target_indices;
+                setTargetColor(nofloor_cloud_, current_target_indices, drawed_cloud_, 255, 0, 0);
+                // 此不太好放在下面汇总部分，汇总部分不包含检测与跟踪的过程，汇总部分拆分在这边可能又会重复代码了
+                pre_target_centroid_.x = cluster->getCentroid().x;
+                pre_target_centroid_.y = cluster->getCentroid().y;
+                pre_target_centroid_.z = cluster->getCentroid().z;
+
+
+                zlog_debug(c, "跟踪飞机机头成功，其特征值为长度=%f,  宽度=%f,  高度=%f", track_target_cluster_->getLength(),
+                           track_target_cluster_->getWidth(), track_target_cluster_->getHeight());
+                std::cout << "跟踪飞机机头成功，其特征值为长度=" << track_target_cluster_->getLength() << "   宽度="
+                          << track_target_cluster_->getWidth() <<
+                          "高度=%" << track_target_cluster_->getHeight() << std::endl;
+
+                zlog_debug(c, "跟踪飞机机头成功，目标中心位置为(%f,  %f,  %f)", pre_target_centroid_.x,
+                           pre_target_centroid_.y, pre_target_centroid_.z);
+                std::cout << "跟踪飞机机头成功，目标中心位置为(" << pre_target_centroid_.x << ",  " << pre_target_centroid_.y <<
+                          ", " << pre_target_centroid_.z << ")" << std::endl;
+            } else {
+                succed_target_ = false;//若是在此处跟踪不到就宣告未检测到目标吗？
+                start_track_ = false;
+                succed_track_ = false;
+                aircraft_status_front = false;   // 机头跟踪失败标识
+                zlog_debug(c, "跟踪目标时 ,目标丢失\n");
+                std::cout << "跟踪目标时 ,目标丢失\n" << std::endl;
+
+            }
+        }//跟踪目标
+        else {
+            cout << "detect for target..." << endl;
+            aircraft_front_head_cluster = detectTarget(nofloor_cloud_); // 可否改函数直接返回bool类型
+            if (succed_detect_front_head_) {
+                succed_target_ = true;
+                aircraft_status_front = true;
+
+                zlog_debug(c, "目标检测开启（检测到机头），长度=%f,  宽度=%f,  高度=%f \n", aircraft_front_head_cluster->getLength(),
+                           aircraft_front_head_cluster->getWidth(), aircraft_front_head_cluster->getHeight());
+
+                current_target_indices = aircraft_front_head_cluster->getPointIndices();
+                setTargetColor(nofloor_cloud_, current_target_indices, drawed_cloud_, 0, 255, 0);
+
+                //vector<float> detect_feature = extractClusterFeature(detect_target_cluster);
+                //检测与跟踪的特征相似度需要比较切换吗
+                if (pre_target_cloud_->empty()) {
+                    pcl::copyPointCloud(*aircraft_front_head_cluster->getCloud(), *pre_target_cloud_);
+                    //pre_target_indices_ = detect_target_indices;
+                    pre_target_centroid_.x = aircraft_front_head_cluster->getCentroid().x;
+                    pre_target_centroid_.y = aircraft_front_head_cluster->getCentroid().y;
+                    pre_target_centroid_.z = aircraft_front_head_cluster->getCentroid().z;
+                }
+
+                pre_target_centroid_.x = aircraft_front_head_cluster->getCentroid().x;
+                pre_target_centroid_.y = aircraft_front_head_cluster->getCentroid().y;
+                pre_target_centroid_.z = aircraft_front_head_cluster->getCentroid().z;
+                start_track_ = true;
+            } else      //或者判断是否检测到侧面机身
+            {
+                start_track_ = false;   //  新增，标识需要重置？
+                zlog_debug(c, "检测目标时 ,没有检测到目标\n");
+                std::cout << "检测目标时 ,没有检测到目标\n" << std::endl;
+            }
+        }//检测目标
+
+
+        /****************以上是跟踪与目标检测*****************************/
+        if (true == succed_target_) {
+            targetToProcess(current_target_indices, aircraft_front_head_cluster);
+        } else {
+            zlog_debug(c, "没有检测目标 需要处理\n");
+        }
+
+    }//preprocessCloud()
+}
+
+/*
+ * 1、确定有目标以后，计算机头到雷达的距离；
+ * 2、计算引擎间距 翼展长度 并与标准长度做判断机型是否相符
+ */
+void AircraftDetect::targetToProcess(vector<int> currentTarget_indices, ClusterPtr aircraftFrontHeadCluster) {
+    ClusterPtr currentTargetCluster;
+    vector<float> feature;
+    int cluster_id = 0;
+    ClusterPtr cluster(new Cluster());
+    cluster->setCloud(nofloor_cloud_, currentTarget_indices, cluster_id, 255, 0, 0);
+    currentTargetCluster = cluster;
+
+    float head_cen_distance = currentTargetCluster->getCentroid().y;
+    float nose_y = currentTargetCluster->getMaxPoint().y;  //一个点可能不稳定 考虑 机鼻点周围的点（最大的几个点）求平均值 //跟踪搜索时会不会出现靠近机头区域的对象也搜索进去了，此时检测也会包含进去其他对象
+    orign_distance_ = nose_y;
+    //target_distance_ = front_aircraft_head_->getMaxPoint().y; //使用Plane_Straight_line_up()
+    //Input_Num nose_point();
+    head_centroid_location_.push_back(head_cen_distance);
+    if (head_centroid_location_.size() == 5) {
+        velocity_ = calculateVelocity(head_centroid_location_);
+        /*if ()// v = 0 && end_distance = 0
+        {
+            _workstatus = 4;
+        }*/
+        cout << "velocity: " << velocity_ << endl;   //速率
+        vector<float>::iterator First_Ele = head_centroid_location_.begin();
+        head_centroid_location_.erase(First_Ele);
     }
+    Input_Num nose_coord = {currentTargetCluster->getCentroid().x,
+                            currentTargetCluster->getMaxPoint().y}; //front_aircraft_head->getCentroid().x该为对应的机鼻点或者就这样// 后改为nose_y
+    POSINFO status_ud = Plane_Straight_line_UD(end_point0_, end_point1_, nose_coord);
+    end_distance_ = status_ud.offset; // 正负方向判断
+    Input_Num head_cen = {aircraftFrontHeadCluster->getCentroid().x,
+                          aircraftFrontHeadCluster->getCentroid().y};//用centroid更穩定些
+    POSINFO status_lr = Plane_Straight_line_LR(mild_point0_, mild_point1_, head_cen);
+    position_ = status_lr.position;
+    offset_ = status_lr.offset;
+    front_aircraft_.reset(new Cloud);
+    string field_name = "y";
+    passthroughCloud(nofloor_cloud_, front_aircraft_, (nose_y + 0.5 - 23/*standard_fuselage_length_*/),
+                     (nose_y + 0.5), field_name,
+                     false); //35 可改位計算出的機身長度，nose_y_再分析穩定性 (nose_y+0.5-aircraft_length_-5), (nose_y+0.5)//若是未知机型则做何处理
+    if (fabs(nose_y) >= 50 && fabs(nose_y) <= 60) // nose_y 改为end_distance_ 具体范围再调节设置
+    {
+        float wing_span = 0;
+        float engine_interval = 0;
+        if (detectAircraftParameter(front_aircraft_, &wing_span, &engine_interval))// 若速度不够可否另开啥并行处理  // 引擎检测限制左右空间加前后空间
+        {
+            sum_wing_span_ += wing_span;
+            sum_engine_interval_ += engine_interval;
+            sum_detect_parameter_++;
+            if (abs(nose_y) >= 50 && abs(nose_y) <= 55) {
+                feature.clear();
+                wing_span_ = sum_wing_span_ / sum_detect_parameter_;
+                engine_interval_ = sum_engine_interval_ / sum_detect_parameter_;
+                cout << "wing_span : " << wing_span_ << "m" << endl;
+                cout << "engine_interval : " << engine_interval_ << "m" << endl;
+                feature.push_back(wing_span_);
+                feature.push_back(engine_interval_);
+                feature.push_back(aircraft_length_);
+                type_ = recognizeType(feature); //改为确认机型
+                cout << "type: " << type_ << endl;
+            }
+        }
+    }
+
 }
 
 
