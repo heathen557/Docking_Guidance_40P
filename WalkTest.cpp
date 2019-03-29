@@ -768,6 +768,8 @@ void WalkTest::viewPointCloud() //參照github上相關例程優化顯示
 
 void WalkTest::run()
 {
+    show_personOrAircarft = 1;
+
     //pdsk_.start();
     pandar40p_.Start();
     viewPointCloud();

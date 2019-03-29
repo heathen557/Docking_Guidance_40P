@@ -8,6 +8,7 @@ extern struct control_msg con_msg;
 extern int _workstatus;
 extern bool _run_flag;
 
+
 AircraftDetect *AircraftDetect::pThis_ = NULL;
 
 void AircraftDetect::setParameter()
@@ -84,7 +85,7 @@ void AircraftDetect::initializeParameter()
     succed_detect_head_counter_ = 0;
     succed_detect_head_ = false;
     succed_detect_side_ = false;
-    cloud_viewer_.reset(new pcl::visualization::PCLVisualizer("3D Viewer"));
+//    cloud_viewer_.reset(new pcl::visualization::PCLVisualizer("3D Viewer"));
     cloud_viewer_->addLine(mild_p0_, mild_p1_, "mildline");
     cloud_viewer_->addLine(mild_p0l_, mild_p1l_, "mildline1");
     cloud_viewer_->addLine(mild_p0r_, mild_p1r_, "mildline2");
@@ -1003,6 +1004,8 @@ void AircraftDetect::viewPointCloud()
 
 void AircraftDetect::run()
 {
+    show_personOrAircarft = 2;
+
     //pdsk_.start();
     pandar40p_.Start();
     viewPointCloud();
@@ -1014,5 +1017,6 @@ void AircraftDetect::run()
 
 AircraftDetect::~AircraftDetect()
 {
+    std::cout << "  飞机检测线程退出了！！～" << std::endl;
     // TODO Auto-generated destructor stub
 }

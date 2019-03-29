@@ -15,6 +15,7 @@ extern CloudPtr src_cloud_;
 extern pcl::PointCloud<pcl::PointXYZRGB>::Ptr drawed_cloud_;
 extern boost::shared_ptr<pcl::visualization::PCLVisualizer> cloud_viewer_;
 extern pcl::visualization::PointCloudColorHandlerGenericField<pcl::PointXYZI> handler_;
+extern int show_personOrAircarft;
 
 
 

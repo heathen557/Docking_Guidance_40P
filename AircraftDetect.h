@@ -9,6 +9,13 @@
 #include "pandar40p_sdk/pandar40p_sdk.h"
 #include "ProcessPointcloud.h"
 
+extern int show_personOrAircarft;
+extern boost::shared_ptr<pcl::visualization::PCLVisualizer> cloud_viewer_;
+
+extern CloudPtr src_cloud_;
+extern CloudPtr front_aircraft_;
+extern CloudPtr side_aircraft_;
+
 class AircraftDetect
 {
     bool angleGreater45_flag;
@@ -51,16 +58,16 @@ class AircraftDetect
     vector<vector<float>> vec_dict_;
 
     pcl::PointXYZ mild_p0_, mild_p1_, end_p0_, end_p1_,  mild_p0l_, mild_p1l_, end_p0u_, end_p1u_,  mild_p0r_, mild_p1r_, end_p0d_, end_p1d_;//后考虑如何自动确定中心线;
-    CloudPtr src_cloud_;
+//    CloudPtr src_cloud_;                          //note 2019-3-29
     CloudPtr prev_cloud_;
     CloudPtr nofloor_cloud_, nofloor_cloud2_;
-    CloudPtr front_aircraft_, side_aircraft_;
+//    CloudPtr front_aircraft_, side_aircraft_;     //note 2019-3-29
     CloudPtr find_target_;
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr drawed_cloud_;
     vector<ClusterPtr> target_;
     vector<ClusterPtr> aircraft_;
     //pcl::visualization::CloudViewer viewer_;
-    boost::shared_ptr<pcl::visualization::PCLVisualizer> cloud_viewer_;
+//    boost::shared_ptr<pcl::visualization::PCLVisualizer> cloud_viewer_;
 //    pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler_;
     //pcl::PandarGrabber interface_;
     Pandar40PSDK pandar40p_;
