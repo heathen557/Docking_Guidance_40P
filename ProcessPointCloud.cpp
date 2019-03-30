@@ -104,7 +104,7 @@ CloudPtr getCloudByIndices(const CloudPtr &in_cloud_ptr, vector<int> cloud_indic
 }
 
 void passthroughCloud(const CloudPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, float min_limit,
-                                     float max_limit, std::string &field_name, bool select)
+                      float max_limit, std::string &field_name, bool select)
 {
     pcl::PassThrough<PointType> pass;
     pass.setFilterFieldName(field_name);
@@ -154,8 +154,20 @@ void removePointsUpto(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr,
     }
 }
 
+void clipCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, float min_x, float max_x, float min_y,
+               float max_y) // 后考虑与下面的clipCloud合并
+{
+    out_cloud_ptr->points.clear();
+    for (size_t i = 0; i < in_cloud_ptr->points.size(); i++) {
+        if (in_cloud_ptr->points[i].x > min_x && in_cloud_ptr->points[i].x < max_x && in_cloud_ptr->points[i].y > min_y
+            && in_cloud_ptr->points[i].y < max_y) {
+            out_cloud_ptr->points.push_back(in_cloud_ptr->points[i]);
+        }
+    }
+}
+
 void clipCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, bool direction, float min_height,
-                         float max_height, float right_pos, float left_pos, float bottom_pos)
+               float max_height, float right_pos, float left_pos, float bottom_pos)
 {
     out_cloud_ptr->points.clear();
     if (direction)
@@ -183,7 +195,7 @@ void clipCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, bool d
 }
 
 void removeFloor(const CloudPtr &in_cloud_ptr, CloudPtr out_nofloor_cloud_ptr,
-                           CloudPtr out_onlyfloor_cloud_ptr, float in_max_height, float in_floor_max_angle)
+                 CloudPtr out_onlyfloor_cloud_ptr, float in_max_height, float in_floor_max_angle)
 {
     pcl::SACSegmentation<pcl::PointXYZI> seg;
     pcl::PointIndices::Ptr inliers(new pcl::PointIndices);
@@ -249,7 +261,7 @@ vector<pcl::PointIndices> regiongrowingSegmentation(const CloudPtr &in_cloud_ptr
 }
 
 vector<pcl::PointIndices> euclideanCluster(const CloudPtr &in_cloud_ptr, int cluster_size_min,
-                                                          int cluster_size_max, float cluster_tolerance)
+                                           int cluster_size_max, float cluster_tolerance)
 {
     //pcl::PointCloud<pcl::PointXYZI>::Ptr cluster_cloud(new pcl::PointCloud<pcl::PointXYZI>);
     pcl::search::KdTree<pcl::PointXYZI>::Ptr kdtree(new pcl::search::KdTree<pcl::PointXYZI>);
@@ -273,7 +285,7 @@ vector<pcl::PointIndices> euclideanCluster(const CloudPtr &in_cloud_ptr, int clu
 }
 
 bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radius,
-                                  Eigen::VectorXf *coefficients, CloudPtr out_cloud_ptr)
+                  Eigen::VectorXf *coefficients, CloudPtr out_cloud_ptr)
 {
     std::vector<int> inliers_indicies;
     pcl::SampleConsensusModelCircle3D<PointType>::Ptr model_circle(
@@ -344,9 +356,9 @@ bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, std::vector<pcl::PointInd
 }
 
 bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices> cluster_indices,
-                                                      float target_min_height, float target_max_height,
-                                                      float target_min_width, float target_max_width,
-                                                      vector<ClusterPtr> *target)//std::vector<int> *target_indices)  //默认参数变量如何写
+                         float target_min_height, float target_max_height,
+                         float target_min_width, float target_max_width,
+                         vector<ClusterPtr> *target)//std::vector<int> *target_indices)  //默认参数变量如何写
 {
     int cluster_id = 0;
     //std::vector<Cloud> clustered_clouds;
@@ -378,7 +390,8 @@ bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices>
     }
     if (target->size() != 0)
     {
-        cout << "Number of targets is " << target->size() << endl;
+        cout << "检测到符合几何参数的目标的个数为 " << target->size() << endl;
+        zlog_info(c, "检测到符合几何参数的目标的个数为:%d \n ", target->size());
         //all_cluster_cloud_ = all_cluster_cloud;
         return true;
     }

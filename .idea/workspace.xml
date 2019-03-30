@@ -13,15 +13,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="飞机逻辑完成第一版，没有测试的版本">
+    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="飞机逻辑完成第二版， vtk部分增加，没有测试的版本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftDetect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftDetect.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftDetect.h" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftDetect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WalkTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/WalkTest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProcessPointCloud.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessPointCloud.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProcessPointcloud.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessPointcloud.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vtk_show.h" beforeDir="false" afterPath="$PROJECT_DIR$/vtk_show.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/framework.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="770" column="30" selection-start-line="770" selection-start-column="30" selection-end-line="770" selection-end-column="30" />
+            <state relative-caret-position="447">
+              <caret line="600" column="20" selection-start-line="600" selection-start-column="4" selection-end-line="600" selection-end-column="20" />
               <folding>
                 <element signature="e#41#58#0" expanded="true" />
               </folding>
@@ -51,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalkTest.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="74" />
+            <state relative-caret-position="210">
+              <caret line="14" column="59" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -60,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="70" column="16" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
+            <state relative-caret-position="42">
+              <caret line="252" column="18" lean-forward="true" selection-start-line="252" selection-start-column="18" selection-end-line="252" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -69,17 +73,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+            <state relative-caret-position="179">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="e#174#214#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3261">
+              <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
+              <folding>
+                <element signature="e#42#69#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+              <folding>
+                <element signature="e#43#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
+        <entry file="file://$PROJECT_DIR$/framework.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="1006" column="30" lean-forward="true" selection-start-line="1006" selection-start-column="30" selection-end-line="1006" selection-end-column="30" />
+            <state relative-caret-position="80">
+              <caret line="272" column="23" selection-start-line="272" selection-start-column="23" selection-end-line="272" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProcessPointcloud.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProcessPointCloud.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-903">
+              <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -87,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vtk_show.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-71">
-              <caret line="81" column="59" lean-forward="true" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
+            <state relative-caret-position="399">
+              <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="59" />
               <folding>
                 <element signature="e#37#66#0" expanded="true" />
               </folding>
@@ -100,17 +149,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clipCloud</find>
-      <find>mild_point0_</find>
-      <find>***************</find>
-      <find>src_cloud_</find>
-      <find>out_cloud_ptr</find>
-      <find>setTargetColor</find>
-      <find>addLine</find>
-      <find>removeflo</find>
       <find>pre_distance_</find>
       <find>right_point0_</find>
-      <find>pre_target_cloud_</find>
       <find>pre_target_centroid_</find>
       <find>clipped</find>
       <find>getCloudFromCluster</find>
@@ -130,6 +170,15 @@
       <find>succed_detect_side_</find>
       <find>run()</find>
       <find>front_aircraft_</find>
+      <find>flowCloud</find>
+      <find>addPointCloud</find>
+      <find>cost</find>
+      <find>The coordinate of target is</find>
+      <find>drawed_cloud_</find>
+      <find>pre_target_cloud_</find>
+      <find>滤出地面后的点云大小</find>
+      <find>angleGreater45_flag</find>
+      <find>_READYTOSENDFLAG</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -146,31 +195,31 @@
         <option value="$PROJECT_DIR$/pandar_grabber/src/pandar_grabber.cpp" />
         <option value="$PROJECT_DIR$/lidar_detect.h" />
         <option value="$PROJECT_DIR$/Cluster.h" />
-        <option value="$PROJECT_DIR$/ProcessPointCloud.cpp" />
         <option value="$PROJECT_DIR$/codeN1/Docking_Guidance.cpp" />
         <option value="$PROJECT_DIR$/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc" />
         <option value="$PROJECT_DIR$/new/WalkTest.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/framework.h" />
-        <option value="$PROJECT_DIR$/framework.cpp" />
         <option value="$PROJECT_DIR$/GlobleData.cpp" />
         <option value="$PROJECT_DIR$/GlobleData.h" />
-        <option value="$PROJECT_DIR$/ProcessPointcloud.h" />
         <option value="$PROJECT_DIR$/Docking_Guidance.cpp" />
         <option value="$PROJECT_DIR$/WalkTest.h" />
         <option value="$PROJECT_DIR$/WalkTest.cpp" />
-        <option value="$PROJECT_DIR$/AircraftDetect.h" />
         <option value="$PROJECT_DIR$/vtk_show.h" />
+        <option value="$PROJECT_DIR$/AircraftDetect.h" />
+        <option value="$PROJECT_DIR$/ProcessPointcloud.h" />
+        <option value="$PROJECT_DIR$/ProcessPointCloud.cpp" />
         <option value="$PROJECT_DIR$/AircraftDetect.cpp" />
+        <option value="$PROJECT_DIR$/framework.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1745" />
-    <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="x" value="1744" />
+    <option name="y" value="-11" />
+    <option name="width" value="1857" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -178,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,7 +239,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,7 +492,8 @@
       <workItem from="1553569946500" duration="1158000" />
       <workItem from="1553588050780" duration="4303000" />
       <workItem from="1553656076342" duration="23470000" />
-      <workItem from="1553752613630" duration="14596000" />
+      <workItem from="1553752613630" duration="15233000" />
+      <workItem from="1553842084297" duration="14548000" />
     </task>
     <task id="LOCAL-00001" summary="第一次尝试提交">
       <created>1553570373454</created>
@@ -487,11 +537,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553772041112</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="飞机逻辑完成第二版， vtk部分增加，没有测试的版本">
+      <created>1553837518736</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1553837518736</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="654726000" />
+    <option name="totallyTimeSpent" value="669911000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,24 +560,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1745" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="1744" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49487555" visible="true" weight="0.14293629" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49487555" visible="true" weight="0.14459834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2492276" />
       <window_info id="Favorites" order="2" sideWeight="0.50512445" side_tool="true" weight="0.22826087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25762355" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2961039" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29127234" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35856992" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32815966" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3270242" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3280757" />
       <window_info anchor="bottom" id="CMake" order="8" weight="0.28391168" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3291536" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.2039958" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3743428" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -587,7 +644,8 @@
     <MESSAGE value="日志修改为zlog模块" />
     <MESSAGE value="飞机逻辑程序进行中，点云预处理部分了" />
     <MESSAGE value="飞机逻辑完成第一版，没有测试的版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="飞机逻辑完成第一版，没有测试的版本" />
+    <MESSAGE value="飞机逻辑完成第二版， vtk部分增加，没有测试的版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="飞机逻辑完成第二版， vtk部分增加，没有测试的版本" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -743,13 +801,6 @@
     <entry file="file://$PROJECT_DIR$/稳定版/WalkTest.cpp" />
     <entry file="file://$PROJECT_DIR$/new/WalkTest.cpp" />
     <entry file="file://$PROJECT_DIR$/WalkTest (copy).cpp" />
-    <entry file="file://$PROJECT_DIR$/ProcessPointCloud.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7602">
-          <caret line="362" column="26" selection-start-line="362" selection-start-column="9" selection-end-line="362" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/error" />
     <entry file="file://$PROJECT_DIR$/lidar_detect.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -764,23 +815,6 @@
           <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
           <folding>
             <element signature="e#833#859#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="267" selection-start-line="267" selection-end-line="267" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#43#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -809,30 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProcessPointcloud.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="70" column="16" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="770" column="30" selection-start-line="770" selection-start-column="30" selection-end-line="770" selection-end-column="30" />
-          <folding>
-            <element signature="e#41#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pandar40P/src/pandar40p_sdk.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
@@ -840,34 +850,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ProcessPointCloud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-903">
+          <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#174#214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="600" column="20" selection-start-line="600" selection-start-column="4" selection-end-line="600" selection-end-column="20" />
+          <folding>
+            <element signature="e#41#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WalkTest.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="74" />
+        <state relative-caret-position="210">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="252" column="18" lean-forward="true" selection-start-line="252" selection-start-column="18" selection-end-line="252" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProcessPointcloud.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vtk_show.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="81" column="59" lean-forward="true" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
+        <state relative-caret-position="399">
+          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="59" />
           <folding>
             <element signature="e#37#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
+    <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        <state relative-caret-position="3261">
+          <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
+          <folding>
+            <element signature="e#42#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
+    <entry file="file://$PROJECT_DIR$/framework.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="1006" column="30" lean-forward="true" selection-start-line="1006" selection-start-column="30" selection-end-line="1006" selection-end-column="30" />
+        <state relative-caret-position="80">
+          <caret line="272" column="23" selection-start-line="272" selection-start-column="23" selection-end-line="272" selection-end-column="23" />
         </state>
       </provider>
     </entry>

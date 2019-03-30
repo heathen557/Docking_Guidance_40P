@@ -27,6 +27,7 @@ class AircraftDetect
     ClusterPtr track_target_cluster_;   //跟踪到飞机的点云数据
     bool succed_detect_front_head_;     //是否检测到机头的标识
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr pre_target_cloud_;    //前面跟踪到的机头的点云数据
+    float nose_passenger_door_;
 
 
 
@@ -103,6 +104,8 @@ public:
     bool preprocessCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr);
 
     void targetToProcess(vector<int> currentTarget_indices, ClusterPtr aircraftFrontHeadCluster);
+
+    void localfileTest();
 
 
 

@@ -126,6 +126,9 @@ void socket_UDP() {
 //本地socket发送数据
 void Send_localsocket(){
 
+
+    std::cout << "本地发送socket已经开启了！" << std::endl;
+
     int connect_fd;
     int ret;
     char send_buff[1024];
@@ -182,7 +185,6 @@ void Send_localsocket(){
     while (1) {
 
 
-
         //接收到主线程的返回信息，并将相关信息发送给前端；
         if (msgrcv(msgid_2, (void *) &some_data_2, BUFSIZ, msg_to_receive_2, IPC_NOWAIT) == -1)
         {
@@ -190,10 +192,13 @@ void Send_localsocket(){
 //            exit(EXIT_FAILURE);
         } else
         {
-            printf("发送线程接收到的消息队列的数据为： %s\n", some_data_2.some_text);
+//            printf("发送线程接收到的消息队列的数据为： %s\n", some_data_2.some_text);
+            std::cout << "发送线程接收到的消息队列的数据为： %s\n" << some_data_2.some_text << std::endl;
+
             connect_fd=socket(PF_UNIX,SOCK_STREAM,0);
             if(connect_fd<0){
                 perror("cannot creat socket");
+                zlog_error(c, "发送时初始化本地socket失败！！");
                 break;
             }
             srv_addr.sun_family=AF_UNIX;
@@ -204,6 +209,7 @@ void Send_localsocket(){
             if (ret<0){
 //          perror("cannot connect server");
                 printf("cannot connect to 控制软件\n");
+                zlog_error(c, "cannot connect to 控制软件\n");
                 close(connect_fd);
 //            break;
                 continue;
@@ -216,17 +222,15 @@ void Send_localsocket(){
 
         }
 
-
-
-//        _READYTOSENDFLAG = 0;
         //发送算法的结果数据
+
+
+
         if (_READYTOSENDFLAG)
         {
-//          std::cout<<"ready"<<std::endl;
-//            _mtx.lock();
-            _READYTOSENDFLAG = 0;
-//            _mtx.unlock();
+            std::cout << "发送本地socket时,标识位~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
+            _READYTOSENDFLAG = 0;
 
 
             connect_fd=socket(PF_UNIX,SOCK_STREAM,0);
@@ -240,10 +244,10 @@ void Send_localsocket(){
 
             ret=connect(connect_fd,(struct sockaddr*)&srv_addr,sizeof(srv_addr));
             if (ret<0){
-//          perror("cannot connect server");
+                zlog_warn(c, "未能链接到服务器 ，退出发送");
+                std::cout << "未能链接到服务器 ，退出发送" << std::endl;
                 close(connect_fd);
-//            break;
-                continue;
+//                continue;
             }
 
             //---------------------------------------------
@@ -264,9 +268,9 @@ void Send_localsocket(){
             Writer<StringBuffer> writer(buffer);
             doc.Accept(writer);
 
-            std::cout<<"要发送的数据为："<<buffer.GetString()<<std::endl;
+            std::cout << "上传的数据为：" << buffer.GetString() << std::endl;
 //            LOG__(LOGID_I, "要发送的数据为： %s\n", buffer.GetString());
-            zlog_info(c,"上传的数据为：%s", buffer.GetString());
+            zlog_debug(c, "上传的数据为：%s", buffer.GetString());
 
 
 
