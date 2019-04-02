@@ -30,15 +30,18 @@ void AircraftDetect::setParameter()
     cluster_size_min_ = 100;
     cluster_size_max_ = 750;
     remove_points_upto_ = 0.0;
-    clip_min_height_ = -20;
+    clip_min_height_ = -20;         // 后再确定如何设定 根据安装高度设定
     clip_max_height_ = 10;
-    clip_right_pos_ = -22;
-    clip_left_pos_ = 20;
-    cluster_tolerance_ = 0.8;
-    target_min_height_ = 1.5;
+    clip_right_pos_ = -22;          // 根据安装位置 假定激光雷达对齐中心线 左右加 待泊位机型的半翼展+1 或者 划定的停机位 （事先根据可视化的点云场景设置好）
+    clip_left_pos_ = 20;            // 加入前后截止线 防止远处或者近处的目标干扰
+    cluster_tolerance_ = 0.8;       // 设定 更 合理些
+    target_min_height_ = 1.5;       // 可能屏蔽 因为可能扫入机轮影响检测
     target_max_height_ = 4.5;
-    target_min_width_ = 3.0;
+    target_min_width_ = 3.0;        // 传入 机型机身宽度
     target_max_width_ = 4.0;
+    head_radius_ = 2.5;             // 后从外传入 可以传入不同机型的标准值或者不同机型的效果测试值// 和速度也有关系  可否搜索时选择以(前一帧中心点+ velocity×0.1s)搜索// 检测与跟踪合并 提升稳定性
+    standard_fuselage_length_ = 35; // 后从外传入标志值
+    nose_passenger_door_ = 5.02; //后从外传入标志值
     max_y_ = 100;
     mild_point0_ = {con_msg.mild_point0_x, con_msg.mild_point0_y};
     mild_point1_ = {con_msg.mild_point1_x, con_msg.mild_point1_y};
@@ -85,6 +88,22 @@ void AircraftDetect::initializeParameter()
     sum_engine_interval_ = 0;
     sum_detect_parameter_ = 0;
     succed_detect_head_counter_ = 0;
+
+    succed_detect_front_head_ = false;
+    start_track_ = false;
+    succed_track_ = false;
+    succed_detect_side_ = false;
+    succed_target_ = false;
+//    pre_end_distance_ = 0;
+//    pre_offset_ = 0;
+//    pre_position_ = "MILD";
+//    pre_target_indices_.clear();
+    pre_target_centroid_.x = 0;
+    pre_target_centroid_.y = 0;
+    pre_target_centroid_.z = 0;
+    track_target_cluster_.reset(new Cluster());
+
+
     succed_detect_head_ = false;
     succed_detect_side_ = false;
 //    cloud_viewer_.reset(new pcl::visualization::PCLVisualizer("3D Viewer"));
@@ -254,7 +273,7 @@ void AircraftDetect::flowCloud(const CloudConstPtr cloud)
 //            processCloud(cloud);
             target_detectionAndTrack(cloud);
         }
-        cout << "处理第" << cloud_id_ << "帧PCD文件花费时间为 " << time.toc() << "ms." << endl;
+        cout << "处理第" << cloud_id_ << "帧PCD文件花费时间为 " << time.toc() << "ms.\n\n" << endl;
         zlog_info(c, "处理第%d 帧PCD文件花费时间为 %f ms", cloud_id_, time.toc());
     }
 
@@ -388,6 +407,8 @@ void AircraftDetect::calculate_aircraftLength(const CloudConstPtr &cloud)
         side_aircraft_ = getCloudByIndices(nofloor_cloud2_, aircraft_indices);
         float aircraft_length = calculateSideLength(side_aircraft_);//sqrtf((cluster->getMaxPoint().x-cluster->getMinPoint().x)*(cluster->getMaxPoint().x-cluster->getMinPoint().x)+
         //(cluster->getMaxPoint().y-cluster->getMinPoint().y)*(cluster->getMaxPoint().y-cluster->getMinPoint().y));
+        aircraft_length_ = aircraft_length;
+
         cout << "检测到的机身长度为： " << aircraft_length << endl;
         zlog_debug(c, "检测到的机身长度为：%f", aircraft_length);
         length_.push_back(aircraft_length);
@@ -583,7 +604,7 @@ void AircraftDetect::target_detectionAndTrack(const CloudConstPtr &cloud)
             {
                 start_track_ = false;   //  新增，标识需要重置？
                 zlog_debug(c, "检测目标时 ,没有检测到目标\n");
-                std::cout << "检测目标时 ,没有检测到目标\n" << std::endl;
+                std::cout << "检测目标时 ,没有检测到目标" << std::endl;
             }
         }//检测目标
 
@@ -657,15 +678,13 @@ ClusterPtr AircraftDetect::detectTarget(const CloudConstPtr &in_cloud_ptr) {
 }
 
 
-
-
 /*
  * 1、确定有目标以后，计算机头到雷达的距离；
  * 2、计算引擎间距 翼展长度 并与标准长度做判断机型是否相符
  */
 void AircraftDetect::targetToProcess(vector<int> currentTarget_indices, ClusterPtr aircraftFrontHeadCluster) {
 
-    std::cout << "算法已经进入到目标处理函数当中\n" << std::endl;
+    std::cout << "算法已经进入到目标处理函数当中" << std::endl;
 
 
     ClusterPtr currentTargetCluster;
@@ -683,11 +702,7 @@ void AircraftDetect::targetToProcess(vector<int> currentTarget_indices, ClusterP
     head_centroid_location_.push_back(head_cen_distance);
     if (head_centroid_location_.size() == 5) {
         velocity_ = calculateVelocity(head_centroid_location_);
-        /*if ()// v = 0 && end_distance = 0
-        {
-            _workstatus = 4;
-        }*/
-        cout << "velocity: " << velocity_ << endl;   //速率
+        cout << "检测到飞机的速率velocity_ 为 =  " << velocity_ << endl;   //速率
         vector<float>::iterator First_Ele = head_centroid_location_.begin();
         head_centroid_location_.erase(First_Ele);
     }
@@ -702,7 +717,7 @@ void AircraftDetect::targetToProcess(vector<int> currentTarget_indices, ClusterP
     offset_ = status_lr.offset;
     front_aircraft_.reset(new Cloud);
     string field_name = "y";
-    passthroughCloud(nofloor_cloud_, front_aircraft_, (nose_y + 0.5 - 23/*standard_fuselage_length_*/),
+    passthroughCloud(nofloor_cloud_, front_aircraft_, (nose_y + 0.5 - standard_fuselage_length_),
                      (nose_y + 0.5), field_name,
                      false); //35 可改位計算出的機身長度，nose_y_再分析穩定性 (nose_y+0.5-aircraft_length_-5), (nose_y+0.5)//若是未知机型则做何处理
     if (fabs(nose_y) >= 50 && fabs(nose_y) <= 60) // nose_y 改为end_distance_ 具体范围再调节设置
@@ -760,10 +775,25 @@ bool AircraftDetect::detectAircraftParameter(const CloudPtr &in_cloud_ptr, float
               (orign_distance_ - nose_passenger_door_));//
     cout << "right cloud: " << right_cloud->points.size() << endl;
     Eigen::VectorXf left_circle_coefficients, right_circle_coefficients;
+
+    if ((0 == left_cloud->points.size()) || (0 == right_cloud->points.size())) {
+        std::cout << "******(ncen_x+2)=" << ncen_x_ + 2 << "   max_point.x=" << max_point.x
+                  << "   (orign_distance_ - aircraft_length_)" << (orign_distance_ - aircraft_length_)
+                  << "   (orign_distance_ -nose_passenger_door_)" << orign_distance_ - nose_passenger_door_
+                  << std::endl;
+        std::cout << "******orign_distance_" << orign_distance_ << "     aircraft_length_" << aircraft_length_
+                  << std::endl;
+        std::cout
+                << "先不进行圆的检测，因为点云数据为空！！！！！！！！！！！！！！！！！！！！！！！～～～～～*****************************************************～～～～～～～in_cloud_ptr.size="
+                << in_cloud_ptr->size() << std::endl;
+        return true;
+    }
+
+
     if (detectCircle(left_cloud, min_radius, max_radius, &left_circle_coefficients, left_circle)
         && detectCircle(right_cloud, min_radius, max_radius, &right_circle_coefficients, right_circle))
     {
-        *engine_distance = left_circle_coefficients(0) - right_circle_coefficients(0);
+//        *engine_distance = left_circle_coefficients(0) - right_circle_coefficients(0);
         return true;
     }
 

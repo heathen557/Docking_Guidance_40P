@@ -28,6 +28,7 @@ class AircraftDetect
     bool succed_detect_front_head_;     //是否检测到机头的标识
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr pre_target_cloud_;    //前面跟踪到的机头的点云数据
     float nose_passenger_door_;
+    float standard_fuselage_length_;
 
 
 

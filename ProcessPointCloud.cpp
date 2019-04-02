@@ -287,6 +287,7 @@ vector<pcl::PointIndices> euclideanCluster(const CloudPtr &in_cloud_ptr, int clu
 bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radius,
                   Eigen::VectorXf *coefficients, CloudPtr out_cloud_ptr)
 {
+
     std::vector<int> inliers_indicies;
     pcl::SampleConsensusModelCircle3D<PointType>::Ptr model_circle(
             new pcl::SampleConsensusModelCircle3D<PointType>(in_cloud_ptr));
@@ -298,7 +299,8 @@ bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radi
     ransac_circle.getInliers(inliers_indicies);
     if (inliers_indicies.size() == 0)
     {
-        std::cout << "Can not detect circle" << std::endl;
+        std::cout << "没有检测到圆 Can not detect circle" << std::endl;
+        zlog_warn(c, "没有检测到圆 Can not detect circle");
         return false;
     }
     else
@@ -307,6 +309,8 @@ bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radi
         pcl::copyPointCloud<PointType>(*in_cloud_ptr, inliers_indicies, *out_cloud_ptr);
         return true;
     }
+
+
 }
 
 bool findTarget(const CloudPtr &in_cloud_ptr, PointType centre, float radius, vector<int> *cloud_indices)
