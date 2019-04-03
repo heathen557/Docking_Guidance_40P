@@ -273,7 +273,7 @@ void AircraftDetect::flowCloud(const CloudConstPtr cloud)
 //            processCloud(cloud);
             target_detectionAndTrack(cloud);
         }
-        cout << "处理第" << cloud_id_ << "帧PCD文件花费时间为 " << time.toc() << "ms.\n\n" << endl;
+        cout << "处理第" << cloud_id_ << "帧PCD文件花费时间为 " << time.toc() << "ms" << endl;
         zlog_info(c, "处理第%d 帧PCD文件花费时间为 %f ms", cloud_id_, time.toc());
     }
 
@@ -686,7 +686,6 @@ void AircraftDetect::targetToProcess(vector<int> currentTarget_indices, ClusterP
 
     std::cout << "算法已经进入到目标处理函数当中" << std::endl;
 
-
     ClusterPtr currentTargetCluster;
     vector<float> feature;
     int cluster_id = 0;
@@ -793,7 +792,7 @@ bool AircraftDetect::detectAircraftParameter(const CloudPtr &in_cloud_ptr, float
     if (detectCircle(left_cloud, min_radius, max_radius, &left_circle_coefficients, left_circle)
         && detectCircle(right_cloud, min_radius, max_radius, &right_circle_coefficients, right_circle))
     {
-//        *engine_distance = left_circle_coefficients(0) - right_circle_coefficients(0);
+        *engine_distance = left_circle_coefficients(0) - right_circle_coefficients(0);
         return true;
     }
 
