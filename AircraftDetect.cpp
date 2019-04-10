@@ -8,6 +8,9 @@ extern struct control_msg con_msg;
 extern int _workstatus;
 extern bool _run_flag;
 
+extern bool isDetec_AirplaneLength;   //是否检测机身长度
+extern bool isDetec_DoubleScene;       //是否检测双引擎
+
 
 AircraftDetect *AircraftDetect::pThis_ = NULL;
 
@@ -265,14 +268,20 @@ void AircraftDetect::flowCloud(const CloudConstPtr cloud)
     if (cloud_id_ > 10 && cloud_id_ % 1 == 0)
     {
         time.tic();
-        if(false ==  angleGreater45_flag)   //小于45度，计算机身长度
+        //如果要计算机身长度 按照原来的方式（判断机身角度、 根据角度来决定测试机身还是跟踪目标）
+        if (isDetec_AirplaneLength) {
+            if (false == angleGreater45_flag)   //小于45度，计算机身长度
+            {
+                calculate_angle(cloud);
+            } else {
+                target_detectionAndTrack(cloud);
+            }
+        } else    //否则直接跟踪目标，而不进行长度的判断
         {
-            calculate_angle(cloud);
-        } else{
-
-//            processCloud(cloud);
             target_detectionAndTrack(cloud);
         }
+
+
         cout << "处理第" << cloud_id_ << "帧PCD文件花费时间为 " << time.toc() << "ms" << endl;
         zlog_info(c, "处理第%d 帧PCD文件花费时间为 %f ms", cloud_id_, time.toc());
     }

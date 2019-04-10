@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Docking_Guidance.cpp" line="1297" />
+    <bookmark url="file://$PROJECT_DIR$/Docking_Guidance.cpp" line="1351" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Docking_Guidance2" targetName="Docking_Guidance2" />
       <config projectName="Docking_Guidance2" targetName="Pandar40P" />
+      <config projectName="Docking_Guidance2" targetName="Docking_Guidance2" />
       <config projectName="Docking_Guidance2" targetName="Pandar40PSDK" />
     </generated>
   </component>
@@ -18,10 +18,64 @@
   <component name="ChangeListManager">
     <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="检测区域部分：1、数据库中添加存储检测点的数据表；&#10;2、开启检测时，留有接口（检测点个数、具体检测值）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftDetect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftDetect.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Docking_Guidance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Docking_Guidance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GlobleData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GlobleData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.1/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.1/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.1/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.1/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.1/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.1/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/logger.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Docking_Guidance2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Pandar40PSDK.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/Pandar40PSDK.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/libPandar40PSDK.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/libPandar40PSDK.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/input.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/input.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p_internal.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/src/pandar40p_internal.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Pandar40P.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/Pandar40P.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10185">
-              <caret line="485" column="65" selection-start-line="485" selection-start-column="65" selection-end-line="485" selection-end-column="65" />
+            <state relative-caret-position="270">
+              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
               <folding>
                 <element signature="e#41#58#0" expanded="true" />
               </folding>
@@ -51,17 +105,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalkTest.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="59" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="59" />
+            <state relative-caret-position="345">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="726" lean-forward="true" selection-start-line="726" selection-end-line="726" />
+            <state relative-caret-position="11640">
+              <caret line="776" column="47" selection-start-line="776" selection-start-column="47" selection-end-line="776" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GlobleData.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#44#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GlobleData.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -69,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2226">
+            <state relative-caret-position="1590">
               <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
               <folding>
                 <element signature="e#174#214#0" expanded="true" />
@@ -81,8 +156,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4053">
-              <caret line="193" column="7" selection-start-line="193" selection-start-column="7" selection-end-line="193" selection-end-column="93" />
+            <state relative-caret-position="4215">
+              <caret line="281" column="44" selection-start-line="281" selection-start-column="44" selection-end-line="281" selection-end-column="44" />
               <folding>
                 <element signature="e#42#69#0" expanded="true" />
               </folding>
@@ -91,28 +166,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProcessPointCloud.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6468">
-              <caret line="308" column="88" selection-start-line="308" selection-start-column="88" selection-end-line="308" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/framework.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5943">
-              <caret line="283" column="9" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vtk_show.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+            <state relative-caret-position="615">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#37#66#0" expanded="true" />
               </folding>
@@ -124,7 +181,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>detect_flag_</find>
       <find>clip_bottom_pos_</find>
       <find>remove_points_upto_</find>
       <find>lost_counter_</find>
@@ -154,6 +210,7 @@
       <find>文件花费时间为</find>
       <find>aircraft_length</find>
       <find>engine_interval</find>
+      <find>workMode_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,7 +232,6 @@
         <option value="$PROJECT_DIR$/new/WalkTest.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/framework.h" />
-        <option value="$PROJECT_DIR$/GlobleData.cpp" />
         <option value="$PROJECT_DIR$/GlobleData.h" />
         <option value="$PROJECT_DIR$/WalkTest.h" />
         <option value="$PROJECT_DIR$/WalkTest.cpp" />
@@ -184,14 +240,15 @@
         <option value="$PROJECT_DIR$/AircraftDetect.h" />
         <option value="$PROJECT_DIR$/ProcessPointCloud.cpp" />
         <option value="$PROJECT_DIR$/framework.cpp" />
-        <option value="$PROJECT_DIR$/AircraftDetect.cpp" />
+        <option value="$PROJECT_DIR$/GlobleData.cpp" />
         <option value="$PROJECT_DIR$/Docking_Guidance.cpp" />
+        <option value="$PROJECT_DIR$/AircraftDetect.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1745" />
+    <option name="x" value="65" />
     <option name="y" value="-4" />
     <option name="width" value="1855" />
     <option name="height" value="1084" />
@@ -473,7 +530,12 @@
       <workItem from="1554079591821" duration="598000" />
       <workItem from="1554085623654" duration="24894000" />
       <workItem from="1554684014240" duration="4773000" />
-      <workItem from="1554689691116" duration="7529000" />
+      <workItem from="1554689691116" duration="8007000" />
+      <workItem from="1554709853865" duration="1519000" />
+      <workItem from="1554771626019" duration="13338000" />
+      <workItem from="1554795579364" duration="3467000" />
+      <workItem from="1554808770249" duration="1486000" />
+      <workItem from="1554858626668" duration="249000" />
     </task>
     <task id="LOCAL-00001" summary="第一次尝试提交">
       <created>1553570373454</created>
@@ -545,11 +607,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554258051189</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="检测区域部分：1、数据库中添加存储检测点的数据表；&#10;2、开启检测时，留有接口（检测点个数、具体检测值）">
+      <created>1554704009599</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1554704009599</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="708969000" />
+    <option name="totallyTimeSpent" value="729506000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -561,23 +630,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1745" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49487555" visible="true" weight="0.15623268" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49487555" visible="true" weight="0.166759" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2492276" />
       <window_info id="Favorites" order="2" sideWeight="0.50512445" side_tool="true" weight="0.22826087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2628812" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32386962" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35856992" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32815966" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3270242" />
-      <window_info anchor="bottom" id="CMake" order="8" weight="0.2513144" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32912722" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.21871714" />
+      <window_info anchor="bottom" id="CMake" order="8" weight="0.2513089" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3387271" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.39957938" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.29652998" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -669,13 +739,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/include/pcl-1.8/pcl/io/grabber.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4680">
-          <caret line="260" selection-start-line="260" selection-end-line="260" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/pcl-trunk/visualization/src/pcl_visualizer.cpp" />
     <entry file="file://$PROJECT_DIR$/pandar_grabber/include/pandar_grabber/pandar_grabber.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -823,27 +886,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GlobleData.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#44#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="267" selection-start-line="15" selection-start-column="267" selection-end-line="15" selection-end-column="267" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GlobleData.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -854,16 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
-          <folding>
-            <element signature="e#43#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProcessPointcloud.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -871,10 +907,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/framework.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rapidjson/document.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1768" selection-start-line="1768" selection-end-line="1768" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProcessPointCloud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="308" column="88" selection-start-line="308" selection-start-column="88" selection-end-line="308" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="283" column="9" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10185">
-          <caret line="485" column="65" selection-start-line="485" selection-start-column="65" selection-end-line="485" selection-end-column="65" />
+        <state relative-caret-position="270">
+          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
           <folding>
             <element signature="e#41#58#0" expanded="true" />
           </folding>
@@ -883,14 +950,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WalkTest.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="59" />
+        <state relative-caret-position="345">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11640">
+          <caret line="776" column="47" selection-start-line="776" selection-start-column="47" selection-end-line="776" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GlobleData.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#44#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GlobleData.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2226">
+        <state relative-caret-position="1590">
           <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
           <folding>
             <element signature="e#174#214#0" expanded="true" />
@@ -900,42 +991,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4053">
-          <caret line="193" column="7" selection-start-line="193" selection-start-column="7" selection-end-line="193" selection-end-column="93" />
+        <state relative-caret-position="4215">
+          <caret line="281" column="44" selection-start-line="281" selection-start-column="44" selection-end-line="281" selection-end-column="44" />
           <folding>
             <element signature="e#42#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProcessPointCloud.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6468">
-          <caret line="308" column="88" selection-start-line="308" selection-start-column="88" selection-end-line="308" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5943">
-          <caret line="283" column="9" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vtk_show.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+        <state relative-caret-position="615">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#37#66#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="726" lean-forward="true" selection-start-line="726" selection-end-line="726" />
         </state>
       </provider>
     </entry>

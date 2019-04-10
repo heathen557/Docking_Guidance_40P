@@ -10,7 +10,7 @@
 
 ../Pandar40P/./src/util.h
 
-/home/he/CLionProjects/DockingGuidance/Pandar40P/src/tcp_command_client.c
+/home/he/桌面/DockingGuidance/Pandar40P/src/tcp_command_client.c
 arpa/inet.h
 -
 errno.h
@@ -52,11 +52,11 @@ net/if.h
 sys/ioctl.h
 -
 src/util.h
-/home/he/CLionProjects/DockingGuidance/Pandar40P/src/src/util.h
+/home/he/桌面/DockingGuidance/Pandar40P/src/src/util.h
 src/tcp_command_client.h
-/home/he/CLionProjects/DockingGuidance/Pandar40P/src/src/tcp_command_client.h
+/home/he/桌面/DockingGuidance/Pandar40P/src/src/tcp_command_client.h
 
-/home/he/CLionProjects/DockingGuidance/Pandar40P/src/util.c
+/home/he/桌面/DockingGuidance/Pandar40P/src/util.c
 arpa/inet.h
 -
 errno.h
@@ -94,5 +94,5 @@ syslog.h
 unistd.h
 -
 src/util.h
-/home/he/CLionProjects/DockingGuidance/Pandar40P/src/src/util.h
+/home/he/桌面/DockingGuidance/Pandar40P/src/src/util.h
 

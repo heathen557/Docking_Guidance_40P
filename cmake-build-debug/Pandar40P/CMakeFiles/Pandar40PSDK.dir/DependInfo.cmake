@@ -5,8 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/he/CLionProjects/DockingGuidance/Pandar40P/src/tcp_command_client.c" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o"
-  "/home/he/CLionProjects/DockingGuidance/Pandar40P/src/util.c" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o"
+  "/home/he/桌面/DockingGuidance/Pandar40P/src/tcp_command_client.c" "/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o"
+  "/home/he/桌面/DockingGuidance/Pandar40P/src/util.c" "/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -19,7 +19,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/include/eigen3"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/he/CLionProjects/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc" "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o"
+  "/home/he/桌面/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc" "/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -34,7 +34,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/DependInfo.cmake"
+  "/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/CMakeFiles/Pandar40P.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

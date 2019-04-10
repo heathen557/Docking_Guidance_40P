@@ -55,10 +55,13 @@ bool _run_flag = false;
 sqlite3 *db = NULL;     //数据库链接 声明为全局
 
 extern struct control_msg con_msg;  //控制信息结构体变量
-extern int workMode_ = 0;
+int workMode_ = 0;
 extern int _workstatus;
 
 extern zlog_category_t *c;
+
+extern bool isDetec_AirplaneLength;
+extern bool isDetec_DoubleScene;
 
 void LidarHandler() {
 
@@ -173,12 +176,24 @@ void initSqlite3Bases() {
     cout << zErrMsg << endl;
 
 
-    /***************创建存储监测区域 的数据表 *******************************/
+    /***************创建存储监测区域 的数据表 2019-4-8*******************************/
     sql = "CREATE TABLE DATECTIONAREA_TAB(AREA_x float, AREA_Y float)";
     sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
     zlog_error(c, zErrMsg);
     cout << zErrMsg << endl;
 
+
+
+    /****************创建存储场景参数 数据表  2019-4-9****************************************************/
+    sql = "CREATE TABLE SCENEPARA_TAB(ID int PRIMARY KEY,FUSELAGEDETECT int ,APRONSCENE int)";
+    sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
+    zlog_error(c, zErrMsg);
+    cout << zErrMsg << endl;
+    //插入数据
+    sql = "INSERT INTO \"SCENEPARA_TAB\" VALUES(1, 1, 0);";
+    sqlite3_exec(db, sql, 0, 0, &zErrMsg);
+    zlog_error(c, zErrMsg);
+    cout << zErrMsg << endl;
 
 }
 
@@ -723,6 +738,45 @@ int main() {
                         zlog_info(c, "when this time the azREsult[%d] = %s \n", i, azResult[i]);
 
                     }
+
+                    /*************************从场景检测参数中获取 检测信息 机身长度(0:不检测  1：检测)，引擎个数（0：双个引擎， 1：单个引擎）********************************/
+                    nrow = 0;
+                    ncolumn = 0;
+                    sql = "SELECT * FROM  SCENEPARA_TAB";
+                    sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
+                    if (nrow < 1) {
+                        std::cout << "检索场景检测参数时有误，请核对之！" << std::endl;
+                        zlog_warn(c, "检索场景检测参数时出现错误，数据库中不存在，请核对之\n");
+                        continue;
+                    }
+                    for (int i = 0; i < (nrow + 1) * ncolumn; i++) {
+                        printf("azResult[%d] = %s\n", i, azResult[i]);
+                        zlog_info(c, "sceneParameter the  azREsult[%d] = %s \n", i, azResult[i]);
+
+                    }
+                    if (0 == atoi(azResult[4]))  //检测机身长度
+                    {
+                        std::cout << "开启检测机身长度" << std::endl;
+                        isDetec_AirplaneLength = true;
+
+
+                    } else if (1 == atoi(azResult[4]))   //不检测机身长度
+                    {
+                        std::cout << "不检测机身长度" << std::endl;
+                        isDetec_AirplaneLength = false;
+                    }
+
+                    if (0 == atoi(azResult[5]))          //检测两个引擎
+                    {
+                        std::cout << "检测两个引擎" << std::endl;
+                        isDetec_DoubleScene = true;
+
+                    } else if (1 == atoi(azResult[5]))    //检测单个引擎
+                    {
+                        isDetec_DoubleScene = false;
+                        std::cout << "检测单个引擎" << std::endl;
+                    }
+
 
 
                     _run_flag = true;    //”1“：算法开始检测
@@ -1280,7 +1334,7 @@ int main() {
 
                 //  清空已经有的数据
                 char *zErrMsg;
-                char *sql = "DELETE FROM DATECTIONAREA_TAB";
+                const char *sql = "DELETE FROM DATECTIONAREA_TAB";
                 sqlite3_exec(db, sql, 0, 0, &zErrMsg);
                 zlog_error(c, zErrMsg);
                 cout << zErrMsg << endl;
@@ -1307,7 +1361,7 @@ int main() {
                         zlog_info(c, "coordinates_x = %f,coordinates_y = %f", coordinates_x, coordinates_y);
 
                         //插入到数据表当中
-                        char *temp = "INSERT INTO \"DATECTIONAREA_TAB\" VALUES(";
+                        const char *temp = "INSERT INTO \"DATECTIONAREA_TAB\" VALUES(";
                         ostrstream oss;
                         oss << temp << coordinates_x << "," << coordinates_y << ");" << '\0';
                         sql = oss.str();
@@ -1345,13 +1399,70 @@ int main() {
 
                     }
                 }
+            } else if (18 == flag)     //修改场景参数的命令
+            {
+                if (!d.HasMember("fuselagedetect") || !d.HasMember("apronscene")) {
+                    zlog_error(c, "接收到修改场景参数的命令中，字段有误，请核查之～！！");
+                    std::cout << "接收到修改场景参数的命令中，字段有误，请核查之～！！" << std::endl;
+                    continue;
+                }
+
+                Value &fuselagedetect = d["fuselagedetect"];
+                Value &apronscene = d["apronscene"];
+
+                int fuselagedetect_ = fuselagedetect.GetInt();
+                int apronscene_ = apronscene.GetInt();
+
+
+                std::cout << "接收到的场景数据：" << fuselagedetect_ << " " << "   apronscene_ =" << apronscene_ << std::endl;
+                zlog_debug(c, "接收到的场景数据fuselagedetect_=%d ,   apronscene_ = %d \n", fuselagedetect_, apronscene_);
+
+
+                //更新参数表格
+                const char *at = "UPDATE SCENEPARA_TAB SET FUSELAGEDETECT = ";
+                char *zErrMsg;
+                ostrstream oss;
+                oss << at << fuselagedetect_ << ",APRONSCENE=" << apronscene_ << " WHERE ID=1" << '\0';
+                const char *temp_ = oss.str();
+                std::cout << temp_ << "SQL语句" << std::endl;
+                sqlite3_exec(db, temp_, 0, 0, &zErrMsg);
+
+                if (NULL != zErrMsg) {
+                    std::cout << "更新环境检测参数表格时 错误信息为:" << zErrMsg << std::endl;
+                    zlog_warn(c, "更新环境检测参数表格时 错误信息为:%s\n", zErrMsg);
+                }
+
+                oss.clear();
+
+                const char *send_buf;
+                if (NULL == zErrMsg) {
+                    send_buf = "{\"@table\":14,\"@src\":\"lidar\",\"error\":\"\"}";
+                } else {
+
+                    const char *tmp_buf = "{\"@table\":14,\"@src\":\"lidar\",\"error\":";
+                    ostrstream err_oss;
+                    err_oss << tmp_buf << "\"" << zErrMsg << "\"}" << '\0';
+                    send_buf = err_oss.str();
+                }
+
+                //回应前端信息  （写入到消息队列）
+                some_data_2.my_msg_type = 1;
+                strcpy(some_data_2.some_text, send_buf);
+                if (msgsnd(msgid_2, (void *) &some_data_2, 1024, 0) == -1) {
+                    fprintf(stderr, "msgsed failed\n");
+                    zlog_error(c, "主函数发送消息队列发送信息失败\n");
+                    exit(EXIT_FAILURE);
+                } else {
+                    std::cout << "主函数中已经发送消息数据～～～～～～～～～～～" << send_buf << std::endl;
+                    zlog_info(c, "主函数发送消息队列发送信息成功:%s\n", send_buf);
+                    continue;
+                }
+
             }
 
 
 
         }
-
-
         usleep(500 * 1000);
 
     }

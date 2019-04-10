@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wno-deprecated -g    -march=native -msse4.2 -mfpmath=sse  -fext-n
 
 CXX_DEFINES = -DDISABLE_DAVIDSDK -DDISABLE_DSSDK -DDISABLE_ENSENSO -DDISABLE_LIBUSB_1_0 -DDISABLE_OPENNI -DDISABLE_OPENNI2 -DDISABLE_PCAP -DDISABLE_PNG -DDISABLE_RSSDK -DFLANN_STATIC -Dqh_QHpointer
 
-CXX_INCLUDES = -I/usr/include/vtk-5.8 -I/usr/local/include/pcl-1.8 -I/usr/include/eigen3 -I/home/he/CLionProjects/DockingGuidance/Pandar40P/include -I/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include 
+CXX_INCLUDES = -I/usr/include/vtk-5.8 -I/usr/local/include/pcl-1.8 -I/usr/include/eigen3 -I/home/he/桌面/DockingGuidance/Pandar40P/include -I/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include 
 

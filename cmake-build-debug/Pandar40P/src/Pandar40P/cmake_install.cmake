@@ -1,4 +1,4 @@
-# Install script for directory: /home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P
+# Install script for directory: /home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

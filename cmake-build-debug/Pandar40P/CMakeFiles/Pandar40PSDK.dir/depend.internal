@@ -4,16 +4,16 @@
 Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o
  ../Pandar40P/./src/tcp_command_client.h
  ../Pandar40P/./src/util.h
- /home/he/CLionProjects/DockingGuidance/Pandar40P/src/tcp_command_client.c
+ /home/he/桌面/DockingGuidance/Pandar40P/src/tcp_command_client.c
 Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o
  ../Pandar40P/./src/util.h
- /home/he/CLionProjects/DockingGuidance/Pandar40P/src/util.c
+ /home/he/桌面/DockingGuidance/Pandar40P/src/util.c
 Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o
  ../Pandar40P/./src/tcp_command_client.h
  ../Pandar40P/include/pandar40p_sdk/pandar40p_sdk.h
  ../Pandar40P/src/Pandar40P/include/pandar40p/pandar40p.h
  ../Pandar40P/src/Pandar40P/include/pandar40p/point_types.h
- /home/he/CLionProjects/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc
+ /home/he/桌面/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/Eigen2Support

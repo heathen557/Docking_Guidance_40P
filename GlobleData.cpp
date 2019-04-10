@@ -9,6 +9,8 @@ struct control_msg con_msg;
 
 int workCommand_;
 
+bool isDetec_AirplaneLength = true;
+bool isDetec_DoubleScene = true;
 
 
 //void  init_log()

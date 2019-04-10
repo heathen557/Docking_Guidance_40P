@@ -1,4 +1,4 @@
-/home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/he/CLionProjects/DockingGuidance
+/home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/he/桌面/DockingGuidance
 -- Boost version: 1.54.0
 -- Boost version: 1.54.0
 -- Found the following Boost libraries:
@@ -26,7 +26,7 @@ CMake Warning (dev) at Pandar40P/src/Pandar40P/CMakeLists.txt:6 (find_package):
   For compatibility, CMake is ignoring the variable.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at /home/he/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:1673 (if):
+CMake Warning (dev) at /home/he/下载/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:1673 (if):
   Policy CMP0054 is not set: Only interpret if() arguments as variables or
   keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
   details.  Use the cmake_policy command to set the policy and suppress this
@@ -42,7 +42,7 @@ Call Stack (most recent call first):
   Pandar40P/src/Pandar40P/CMakeLists.txt:6 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at /home/he/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:1805 (if):
+CMake Warning (dev) at /home/he/下载/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:1805 (if):
   Policy CMP0054 is not set: Only interpret if() arguments as variables or
   keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
   details.  Use the cmake_policy command to set the policy and suppress this
@@ -58,7 +58,7 @@ Call Stack (most recent call first):
   Pandar40P/src/Pandar40P/CMakeLists.txt:6 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at /home/he/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:1858 (if):
+CMake Warning (dev) at /home/he/下载/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:1858 (if):
   Policy CMP0054 is not set: Only interpret if() arguments as variables or
   keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
   details.  Use the cmake_policy command to set the policy and suppress this
@@ -77,7 +77,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Boost version: 1.54.0
 -- Found the following Boost libraries:
 --   system
-CMake Warning (dev) at /home/he/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:2093 (if):
+CMake Warning (dev) at /home/he/下载/clion-2018.3.1/bin/cmake/linux/share/cmake-3.13/Modules/FindBoost.cmake:2093 (if):
   Policy CMP0054 is not set: Only interpret if() arguments as variables or
   keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
   details.  Use the cmake_policy command to set the policy and suppress this
@@ -152,15 +152,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Could NOT find openni (missing: OPENNI_LIBRARY OPENNI_INCLUDE_DIRS) 
 ** WARNING ** apps features related to openni will be disabled
 -- looking for PCL_COMMON
--- looking for PCL_KDTREE
+-- looking for PCL_GEOMETRY
 -- looking for PCL_OCTREE
--- looking for PCL_SEARCH
 -- looking for PCL_IO
--- looking for PCL_STEREO
+-- looking for PCL_KDTREE
+-- looking for PCL_SEARCH
 -- looking for PCL_SAMPLE_CONSENSUS
 -- looking for PCL_FILTERS
--- looking for PCL_TRACKING
--- looking for PCL_GEOMETRY
 -- looking for PCL_2D
 -- looking for PCL_FEATURES
 -- looking for PCL_ML
@@ -169,11 +167,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- looking for PCL_SURFACE
 -- looking for PCL_REGISTRATION
 -- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
 -- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
 -- looking for PCL_APPS
 -- looking for PCL_OUTOFCORE
 -- looking for PCL_PEOPLE
--- Found PCL: /usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;-lpthread;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/local/lib/libpcl_common.so;debug;/usr/local/lib/libpcl_common.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;optimized;/usr/local/lib/libpcl_kdtree.so;debug;/usr/local/lib/libpcl_kdtree.so;optimized;/usr/local/lib/libpcl_octree.so;debug;/usr/local/lib/libpcl_octree.so;optimized;/usr/local/lib/libpcl_search.so;debug;/usr/local/lib/libpcl_search.so;vtkCommon;vtkFiltering;vtkImaging;vtkGraphics;vtkGenericFiltering;vtkIO;vtkRendering;vtkVolumeRendering;vtkHybrid;vtkWidgets;vtkParallel;vtkInfovis;vtkGeovis;vtkViews;vtkCharts;optimized;/usr/local/lib/libpcl_io.so;debug;/usr/local/lib/libpcl_io.so;optimized;/usr/local/lib/libpcl_stereo.so;debug;/usr/local/lib/libpcl_stereo.so;optimized;/usr/local/lib/libpcl_sample_consensus.so;debug;/usr/local/lib/libpcl_sample_consensus.so;optimized;/usr/local/lib/libpcl_filters.so;debug;/usr/local/lib/libpcl_filters.so;optimized;/usr/local/lib/libpcl_tracking.so;debug;/usr/local/lib/libpcl_tracking.so;optimized;/usr/local/lib/libpcl_features.so;debug;/usr/local/lib/libpcl_features.so;optimized;/usr/local/lib/libpcl_ml.so;debug;/usr/local/lib/libpcl_ml.so;optimized;/usr/local/lib/libpcl_segmentation.so;debug;/usr/local/lib/libpcl_segmentation.so;optimized;/usr/local/lib/libpcl_visualization.so;debug;/usr/local/lib/libpcl_visualization.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/local/lib/libpcl_surface.so;debug;/usr/local/lib/libpcl_surface.so;optimized;/usr/local/lib/libpcl_registration.so;debug;/usr/local/lib/libpcl_registration.so;optimized;/usr/local/lib/libpcl_keypoints.so;debug;/usr/local/lib/libpcl_keypoints.so;optimized;/usr/local/lib/libpcl_recognition.so;debug;/usr/local/lib/libpcl_recognition.so;optimized;/usr/local/lib/libpcl_apps.so;debug;/usr/local/lib/libpcl_apps.so;optimized;/usr/local/lib/libpcl_outofcore.so;debug;/usr/local/lib/libpcl_outofcore.so;optimized;/usr/local/lib/libpcl_people.so;debug;/usr/local/lib/libpcl_people.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;-lpthread;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;vtkCommon;vtkFiltering;vtkImaging;vtkGraphics;vtkGenericFiltering;vtkIO;vtkRendering;vtkVolumeRendering;vtkHybrid;vtkWidgets;vtkParallel;vtkInfovis;vtkGeovis;vtkViews;vtkCharts  
+-- Found PCL: /usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;-lpthread;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/local/lib/libpcl_common.so;debug;/usr/local/lib/libpcl_common.so;optimized;/usr/local/lib/libpcl_octree.so;debug;/usr/local/lib/libpcl_octree.so;vtkCommon;vtkFiltering;vtkImaging;vtkGraphics;vtkGenericFiltering;vtkIO;vtkRendering;vtkVolumeRendering;vtkHybrid;vtkWidgets;vtkParallel;vtkInfovis;vtkGeovis;vtkViews;vtkCharts;optimized;/usr/local/lib/libpcl_io.so;debug;/usr/local/lib/libpcl_io.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;optimized;/usr/local/lib/libpcl_kdtree.so;debug;/usr/local/lib/libpcl_kdtree.so;optimized;/usr/local/lib/libpcl_search.so;debug;/usr/local/lib/libpcl_search.so;optimized;/usr/local/lib/libpcl_sample_consensus.so;debug;/usr/local/lib/libpcl_sample_consensus.so;optimized;/usr/local/lib/libpcl_filters.so;debug;/usr/local/lib/libpcl_filters.so;optimized;/usr/local/lib/libpcl_features.so;debug;/usr/local/lib/libpcl_features.so;optimized;/usr/local/lib/libpcl_ml.so;debug;/usr/local/lib/libpcl_ml.so;optimized;/usr/local/lib/libpcl_segmentation.so;debug;/usr/local/lib/libpcl_segmentation.so;optimized;/usr/local/lib/libpcl_visualization.so;debug;/usr/local/lib/libpcl_visualization.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/local/lib/libpcl_surface.so;debug;/usr/local/lib/libpcl_surface.so;optimized;/usr/local/lib/libpcl_registration.so;debug;/usr/local/lib/libpcl_registration.so;optimized;/usr/local/lib/libpcl_keypoints.so;debug;/usr/local/lib/libpcl_keypoints.so;optimized;/usr/local/lib/libpcl_tracking.so;debug;/usr/local/lib/libpcl_tracking.so;optimized;/usr/local/lib/libpcl_recognition.so;debug;/usr/local/lib/libpcl_recognition.so;optimized;/usr/local/lib/libpcl_stereo.so;debug;/usr/local/lib/libpcl_stereo.so;optimized;/usr/local/lib/libpcl_apps.so;debug;/usr/local/lib/libpcl_apps.so;optimized;/usr/local/lib/libpcl_outofcore.so;debug;/usr/local/lib/libpcl_outofcore.so;optimized;/usr/local/lib/libpcl_people.so;debug;/usr/local/lib/libpcl_people.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;-lpthread;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;vtkCommon;vtkFiltering;vtkImaging;vtkGraphics;vtkGenericFiltering;vtkIO;vtkRendering;vtkVolumeRendering;vtkHybrid;vtkWidgets;vtkParallel;vtkInfovis;vtkGeovis;vtkViews;vtkCharts  
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/he/CLionProjects/DockingGuidance/cmake-build-debug
+-- Build files have been written to: /home/he/桌面/DockingGuidance/cmake-build-debug

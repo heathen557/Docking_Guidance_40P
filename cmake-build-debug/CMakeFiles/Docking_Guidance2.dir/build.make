@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/he/CLionProjects/DockingGuidance
+CMAKE_SOURCE_DIR = /home/he/桌面/DockingGuidance
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/he/CLionProjects/DockingGuidance/cmake-build-debug
+CMAKE_BINARY_DIR = /home/he/桌面/DockingGuidance/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Docking_Guidance2.dir/depend.make
@@ -59,107 +59,107 @@ include CMakeFiles/Docking_Guidance2.dir/flags.make
 
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.o: ../framework.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Docking_Guidance2.dir/framework.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/framework.cpp.o -c /home/he/CLionProjects/DockingGuidance/framework.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Docking_Guidance2.dir/framework.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/framework.cpp.o -c /home/he/桌面/DockingGuidance/framework.cpp
 
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/framework.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/framework.cpp > CMakeFiles/Docking_Guidance2.dir/framework.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/framework.cpp > CMakeFiles/Docking_Guidance2.dir/framework.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/framework.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/framework.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/framework.cpp -o CMakeFiles/Docking_Guidance2.dir/framework.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/framework.cpp -o CMakeFiles/Docking_Guidance2.dir/framework.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o: ../Docking_Guidance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o -c /home/he/CLionProjects/DockingGuidance/Docking_Guidance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.o -c /home/he/桌面/DockingGuidance/Docking_Guidance.cpp
 
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/Docking_Guidance.cpp > CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/Docking_Guidance.cpp > CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/Docking_Guidance.cpp -o CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/Docking_Guidance.cpp -o CMakeFiles/Docking_Guidance2.dir/Docking_Guidance.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o: ../ProcessPointCloud.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o -c /home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.o -c /home/he/桌面/DockingGuidance/ProcessPointCloud.cpp
 
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp > CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/ProcessPointCloud.cpp > CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp -o CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/ProcessPointCloud.cpp -o CMakeFiles/Docking_Guidance2.dir/ProcessPointCloud.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o: ../WalkTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o -c /home/he/CLionProjects/DockingGuidance/WalkTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.o -c /home/he/桌面/DockingGuidance/WalkTest.cpp
 
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/WalkTest.cpp > CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/WalkTest.cpp > CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/WalkTest.cpp -o CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/WalkTest.cpp -o CMakeFiles/Docking_Guidance2.dir/WalkTest.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o: ../Cluster.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o -c /home/he/CLionProjects/DockingGuidance/Cluster.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o -c /home/he/桌面/DockingGuidance/Cluster.cpp
 
 CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/Cluster.cpp > CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/Cluster.cpp > CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/Cluster.cpp -o CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/Cluster.cpp -o CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o: ../tools_function.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o -c /home/he/CLionProjects/DockingGuidance/tools_function.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.o -c /home/he/桌面/DockingGuidance/tools_function.cpp
 
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/tools_function.cpp > CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/tools_function.cpp > CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/tools_function.cpp -o CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/tools_function.cpp -o CMakeFiles/Docking_Guidance2.dir/tools_function.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o: ../AircraftDetect.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o -c /home/he/CLionProjects/DockingGuidance/AircraftDetect.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.o -c /home/he/桌面/DockingGuidance/AircraftDetect.cpp
 
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/AircraftDetect.cpp > CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/AircraftDetect.cpp > CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/AircraftDetect.cpp -o CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/AircraftDetect.cpp -o CMakeFiles/Docking_Guidance2.dir/AircraftDetect.cpp.s
 
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o: CMakeFiles/Docking_Guidance2.dir/flags.make
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o: ../GlobleData.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o -c /home/he/CLionProjects/DockingGuidance/GlobleData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.o -c /home/he/桌面/DockingGuidance/GlobleData.cpp
 
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/CLionProjects/DockingGuidance/GlobleData.cpp > CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/he/桌面/DockingGuidance/GlobleData.cpp > CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.i
 
 CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/CLionProjects/DockingGuidance/GlobleData.cpp -o CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/he/桌面/DockingGuidance/GlobleData.cpp -o CMakeFiles/Docking_Guidance2.dir/GlobleData.cpp.s
 
 # Object files for target Docking_Guidance2
 Docking_Guidance2_OBJECTS = \
@@ -195,15 +195,13 @@ Docking_Guidance2: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 Docking_Guidance2: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 Docking_Guidance2: /usr/lib/x86_64-linux-gnu/libboost_regex.so
 Docking_Guidance2: /usr/local/lib/libpcl_common.so
+Docking_Guidance2: /usr/local/lib/libpcl_octree.so
+Docking_Guidance2: /usr/local/lib/libpcl_io.so
 Docking_Guidance2: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
 Docking_Guidance2: /usr/local/lib/libpcl_kdtree.so
-Docking_Guidance2: /usr/local/lib/libpcl_octree.so
 Docking_Guidance2: /usr/local/lib/libpcl_search.so
-Docking_Guidance2: /usr/local/lib/libpcl_io.so
-Docking_Guidance2: /usr/local/lib/libpcl_stereo.so
 Docking_Guidance2: /usr/local/lib/libpcl_sample_consensus.so
 Docking_Guidance2: /usr/local/lib/libpcl_filters.so
-Docking_Guidance2: /usr/local/lib/libpcl_tracking.so
 Docking_Guidance2: /usr/local/lib/libpcl_features.so
 Docking_Guidance2: /usr/local/lib/libpcl_ml.so
 Docking_Guidance2: /usr/local/lib/libpcl_segmentation.so
@@ -212,7 +210,9 @@ Docking_Guidance2: /usr/lib/x86_64-linux-gnu/libqhull.so
 Docking_Guidance2: /usr/local/lib/libpcl_surface.so
 Docking_Guidance2: /usr/local/lib/libpcl_registration.so
 Docking_Guidance2: /usr/local/lib/libpcl_keypoints.so
+Docking_Guidance2: /usr/local/lib/libpcl_tracking.so
 Docking_Guidance2: /usr/local/lib/libpcl_recognition.so
+Docking_Guidance2: /usr/local/lib/libpcl_stereo.so
 Docking_Guidance2: /usr/local/lib/libpcl_apps.so
 Docking_Guidance2: /usr/local/lib/libpcl_outofcore.so
 Docking_Guidance2: /usr/local/lib/libpcl_people.so
@@ -232,13 +232,9 @@ Docking_Guidance2: /usr/lib/libvtkGeovis.so.5.8.0
 Docking_Guidance2: /usr/lib/libvtkCharts.so.5.8.0
 Docking_Guidance2: Pandar40P/src/Pandar40P/libPandar40P.a
 Docking_Guidance2: /usr/local/lib/libpcl_kdtree.so
-Docking_Guidance2: /usr/local/lib/libpcl_octree.so
 Docking_Guidance2: /usr/local/lib/libpcl_search.so
-Docking_Guidance2: /usr/local/lib/libpcl_io.so
-Docking_Guidance2: /usr/local/lib/libpcl_stereo.so
 Docking_Guidance2: /usr/local/lib/libpcl_sample_consensus.so
 Docking_Guidance2: /usr/local/lib/libpcl_filters.so
-Docking_Guidance2: /usr/local/lib/libpcl_tracking.so
 Docking_Guidance2: /usr/local/lib/libpcl_features.so
 Docking_Guidance2: /usr/local/lib/libpcl_ml.so
 Docking_Guidance2: /usr/local/lib/libpcl_segmentation.so
@@ -246,7 +242,9 @@ Docking_Guidance2: /usr/local/lib/libpcl_visualization.so
 Docking_Guidance2: /usr/local/lib/libpcl_surface.so
 Docking_Guidance2: /usr/local/lib/libpcl_registration.so
 Docking_Guidance2: /usr/local/lib/libpcl_keypoints.so
+Docking_Guidance2: /usr/local/lib/libpcl_tracking.so
 Docking_Guidance2: /usr/local/lib/libpcl_recognition.so
+Docking_Guidance2: /usr/local/lib/libpcl_stereo.so
 Docking_Guidance2: /usr/local/lib/libpcl_apps.so
 Docking_Guidance2: /usr/local/lib/libpcl_outofcore.so
 Docking_Guidance2: /usr/local/lib/libpcl_people.so
@@ -273,7 +271,7 @@ Docking_Guidance2: /usr/lib/libvtkFiltering.so.5.8.0
 Docking_Guidance2: /usr/lib/libvtkCommon.so.5.8.0
 Docking_Guidance2: /usr/lib/libvtksys.so.5.8.0
 Docking_Guidance2: CMakeFiles/Docking_Guidance2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Docking_Guidance2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Docking_Guidance2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Docking_Guidance2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -286,6 +284,6 @@ CMakeFiles/Docking_Guidance2.dir/clean:
 .PHONY : CMakeFiles/Docking_Guidance2.dir/clean
 
 CMakeFiles/Docking_Guidance2.dir/depend:
-	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/he/CLionProjects/DockingGuidance /home/he/CLionProjects/DockingGuidance /home/he/CLionProjects/DockingGuidance/cmake-build-debug /home/he/CLionProjects/DockingGuidance/cmake-build-debug /home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/he/桌面/DockingGuidance /home/he/桌面/DockingGuidance /home/he/桌面/DockingGuidance/cmake-build-debug /home/he/桌面/DockingGuidance/cmake-build-debug /home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Docking_Guidance2.dir/depend
 

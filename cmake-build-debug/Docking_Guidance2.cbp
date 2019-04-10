@@ -8,33 +8,32 @@
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\pcl-1.8\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\vtk-5.8\;CMake Files\..\..\..\..\usr\lib\vtk-5.8\CMake\;CMake Files\Pandar40P\;CMake Files\Pandar40P\src\;CMake Files\Pandar40P\src\Pandar40P\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Docking_Guidance2">
-				<Option output="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Docking_Guidance2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug"/>
+				<Option output="/home/he/桌面/DockingGuidance/cmake-build-debug/Docking_Guidance2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add option="-DFLANN_STATIC"/>
 					<Add option="-DDISABLE_OPENNI"/>
 					<Add option="-DDISABLE_OPENNI2"/>
 					<Add option="-DDISABLE_ENSENSO"/>
@@ -43,13 +42,14 @@
 					<Add option="-DDISABLE_PCAP"/>
 					<Add option="-DDISABLE_PNG"/>
 					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DFLANN_STATIC"/>
 					<Add option="-DDISABLE_RSSDK"/>
 					<Add option="-Dqh_QHpointer"/>
 					<Add directory="/usr/include/vtk-5.8"/>
 					<Add directory="/usr/local/include/pcl-1.8"/>
 					<Add directory="/usr/include/eigen3"/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/include"/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
 					<Add directory="/usr/include/c++/4.8"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
 					<Add directory="/usr/include/c++/4.8/backward"/>
@@ -60,20 +60,19 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 Docking_Guidance2"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 Docking_Guidance2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Docking_Guidance2/fast">
-				<Option output="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Docking_Guidance2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug"/>
+				<Option output="/home/he/桌面/DockingGuidance/cmake-build-debug/Docking_Guidance2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add option="-DFLANN_STATIC"/>
 					<Add option="-DDISABLE_OPENNI"/>
 					<Add option="-DDISABLE_OPENNI2"/>
 					<Add option="-DDISABLE_ENSENSO"/>
@@ -82,13 +81,14 @@
 					<Add option="-DDISABLE_PCAP"/>
 					<Add option="-DDISABLE_PNG"/>
 					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DFLANN_STATIC"/>
 					<Add option="-DDISABLE_RSSDK"/>
 					<Add option="-Dqh_QHpointer"/>
 					<Add directory="/usr/include/vtk-5.8"/>
 					<Add directory="/usr/local/include/pcl-1.8"/>
 					<Add directory="/usr/include/eigen3"/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/include"/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
 					<Add directory="/usr/include/c++/4.8"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
 					<Add directory="/usr/include/c++/4.8/backward"/>
@@ -99,32 +99,32 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 Docking_Guidance2/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 Docking_Guidance2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Pandar40PSDK">
-				<Option output="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/libPandar40PSDK.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P"/>
+				<Option output="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/libPandar40PSDK.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/."/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/include"/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/."/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
 					<Add directory="/usr/local/include/pcl-1.8"/>
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/usr/include/c++/4.8"/>
@@ -137,22 +137,22 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40PSDK"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40PSDK"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Pandar40PSDK/fast">
-				<Option output="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/libPandar40PSDK.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P"/>
+				<Option output="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/libPandar40PSDK.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/."/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/include"/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/."/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
 					<Add directory="/usr/local/include/pcl-1.8"/>
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/usr/include/c++/4.8"/>
@@ -165,21 +165,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40PSDK/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40PSDK/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Pandar40P">
-				<Option output="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P"/>
+				<Option output="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/."/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/."/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
 					<Add directory="/usr/local/include/pcl-1.8"/>
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/usr/include/c++/4.8"/>
@@ -192,21 +192,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40P"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40P"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Pandar40P/fast">
-				<Option output="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P"/>
+				<Option output="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/."/>
-					<Add directory="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/."/>
+					<Add directory="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include"/>
 					<Add directory="/usr/local/include/pcl-1.8"/>
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/usr/include/c++/4.8"/>
@@ -219,131 +219,131 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40P/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 Pandar40P/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/src/Pandar40P/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/AircraftDetect.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/AircraftDetect.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/AircraftDetect.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/AircraftDetect.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Cluster.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/Cluster.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Cluster.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/Cluster.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Docking_Guidance.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/Docking_Guidance.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/GlobleData.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/GlobleData.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/GlobleData.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/GlobleData.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/input.cc">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/input.cc">
 			<Option target="Pandar40P"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/input.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/input.h">
 			<Option target="Pandar40P"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p.cc">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p.cc">
 			<Option target="Pandar40P"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc">
 			<Option target="Pandar40P"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p_internal.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p_internal.h">
 			<Option target="Pandar40P"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc">
 			<Option target="Pandar40PSDK"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/tcp_command_client.c">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/tcp_command_client.c">
 			<Option target="Pandar40PSDK"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/tcp_command_client.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/tcp_command_client.h">
 			<Option target="Pandar40PSDK"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/util.c">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/util.c">
 			<Option target="Pandar40PSDK"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/util.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/util.h">
 			<Option target="Pandar40PSDK"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/ProcessPointCloud.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/ProcessPointcloud.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/WalkTest.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/WalkTest.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/WalkTest.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/WalkTest.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/framework.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/framework.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/framework.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/framework.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/tools_function.cpp">
+		<Unit filename="/home/he/桌面/DockingGuidance/tools_function.cpp">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/tools_function.h">
+		<Unit filename="/home/he/桌面/DockingGuidance/tools_function.h">
 			<Option target="Docking_Guidance2"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/CMakeLists.txt">
+		<Unit filename="/home/he/桌面/DockingGuidance/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/local/share/pcl-1.8/PCLConfig.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/local/share/pcl-1.8/PCLConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/local/share/pcl-1.8/PCLConfigVersion.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/local/share/pcl-1.8/PCLConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/UseVTK.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/UseVTK.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig-Java.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig-Java.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig-Python.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig-Python.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig-Tcl.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig-Tcl.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfigQt.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfigQt.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfigVersion.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKTargets-release.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKTargets-release.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKTargets.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/VTKTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/../../../../usr/lib/vtk-5.8/CMake/vtkMakeInstantiator.cmake">
+		<Unit filename="/home/he/桌面/DockingGuidance/../../../../usr/lib/vtk-5.8/CMake/vtkMakeInstantiator.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\vtk-5.8\CMake\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/CMakeLists.txt">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Pandar40P\"/>
 		</Unit>
-		<Unit filename="/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/CMakeLists.txt">
+		<Unit filename="/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Pandar40P\src\Pandar40P\"/>
 		</Unit>
 	</Project>
