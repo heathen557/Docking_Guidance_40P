@@ -276,7 +276,7 @@ void AircraftDetect::flowCloud(const CloudConstPtr cloud)
             } else {
                 target_detectionAndTrack(cloud);
             }
-        } else    //否则直接跟踪目标，而不进行长度的判断
+        } else    //否则直接跟踪目标，而不进行飞机长度的判断
         {
             target_detectionAndTrack(cloud);
         }
