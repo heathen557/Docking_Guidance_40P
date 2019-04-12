@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/he/桌面/DockingGuidance
+CMAKE_SOURCE_DIR = /home/he/CLionProjects/DockingGuidance
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/he/桌面/DockingGuidance/cmake-build-debug
+CMAKE_BINARY_DIR = /home/he/CLionProjects/DockingGuidance/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/he/桌面/DockingGuidance/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/he/下载/clion-2018.3.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/he/clion-2018.3.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles /home/he/桌面/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/progress.marks
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/he/桌面/DockingGuidance/cmake-build-debug/CMakeFiles 0
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles /home/he/CLionProjects/DockingGuidance/cmake-build-debug/Pandar40P/CMakeFiles/progress.marks
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/he/CLionProjects/DockingGuidance/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/clean
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/preinstall
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/preinstall
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Pandar40P/CMakeFiles/Pandar40PSDK.dir/rule:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/CMakeFiles/Pandar40PSDK.dir/rule
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Pandar40P/CMakeFiles/Pandar40PSDK.dir/rule
 .PHONY : Pandar40P/CMakeFiles/Pandar40PSDK.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ Pandar40PSDK: Pandar40P/CMakeFiles/Pandar40PSDK.dir/rule
 
 # fast build rule for target.
 Pandar40PSDK/fast:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/build
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/build
 .PHONY : Pandar40PSDK/fast
 
 src/pandar40p_sdk.o: src/pandar40p_sdk.cc.o
@@ -131,7 +131,7 @@ src/pandar40p_sdk.o: src/pandar40p_sdk.cc.o
 
 # target to build an object file
 src/pandar40p_sdk.cc.o:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.o
 .PHONY : src/pandar40p_sdk.cc.o
 
 src/pandar40p_sdk.i: src/pandar40p_sdk.cc.i
@@ -140,7 +140,7 @@ src/pandar40p_sdk.i: src/pandar40p_sdk.cc.i
 
 # target to preprocess a source file
 src/pandar40p_sdk.cc.i:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.i
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.i
 .PHONY : src/pandar40p_sdk.cc.i
 
 src/pandar40p_sdk.s: src/pandar40p_sdk.cc.s
@@ -149,7 +149,7 @@ src/pandar40p_sdk.s: src/pandar40p_sdk.cc.s
 
 # target to generate assembly for a file
 src/pandar40p_sdk.cc.s:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.s
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/pandar40p_sdk.cc.s
 .PHONY : src/pandar40p_sdk.cc.s
 
 src/tcp_command_client.o: src/tcp_command_client.c.o
@@ -158,7 +158,7 @@ src/tcp_command_client.o: src/tcp_command_client.c.o
 
 # target to build an object file
 src/tcp_command_client.c.o:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.o
 .PHONY : src/tcp_command_client.c.o
 
 src/tcp_command_client.i: src/tcp_command_client.c.i
@@ -167,7 +167,7 @@ src/tcp_command_client.i: src/tcp_command_client.c.i
 
 # target to preprocess a source file
 src/tcp_command_client.c.i:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.i
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.i
 .PHONY : src/tcp_command_client.c.i
 
 src/tcp_command_client.s: src/tcp_command_client.c.s
@@ -176,7 +176,7 @@ src/tcp_command_client.s: src/tcp_command_client.c.s
 
 # target to generate assembly for a file
 src/tcp_command_client.c.s:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.s
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/tcp_command_client.c.s
 .PHONY : src/tcp_command_client.c.s
 
 src/util.o: src/util.c.o
@@ -185,7 +185,7 @@ src/util.o: src/util.c.o
 
 # target to build an object file
 src/util.c.o:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.o
 .PHONY : src/util.c.o
 
 src/util.i: src/util.c.i
@@ -194,7 +194,7 @@ src/util.i: src/util.c.i
 
 # target to preprocess a source file
 src/util.c.i:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.i
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.i
 .PHONY : src/util.c.i
 
 src/util.s: src/util.c.s
@@ -203,7 +203,7 @@ src/util.s: src/util.c.s
 
 # target to generate assembly for a file
 src/util.c.s:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.s
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(MAKE) -f Pandar40P/CMakeFiles/Pandar40PSDK.dir/build.make Pandar40P/CMakeFiles/Pandar40PSDK.dir/src/util.c.s
 .PHONY : src/util.c.s
 
 # Help Target
@@ -235,6 +235,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/he/桌面/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/he/CLionProjects/DockingGuidance/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

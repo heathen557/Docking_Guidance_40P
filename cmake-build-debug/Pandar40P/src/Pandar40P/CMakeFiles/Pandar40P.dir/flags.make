@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC --std=c++11 -g   -fext-numeric-literals -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/. -I/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/include -I/usr/local/include/pcl-1.8 -I/usr/include/eigen3 
+CXX_INCLUDES = -I/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/. -I/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/include -I/usr/local/include/pcl-1.8 -I/usr/include/eigen3 
 

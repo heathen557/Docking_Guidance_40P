@@ -56,7 +56,7 @@ pandar40p/point_types.h
 pcl/point_types.h
 -
 
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/input.cc
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/input.cc
 arpa/inet.h
 -
 errno.h
@@ -78,21 +78,21 @@ iostream
 sstream
 -
 src/input.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/src/input.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/src/input.h
 
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p.cc
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p.cc
 pandar40p/pandar40p.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p/pandar40p.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p/pandar40p.h
 src/pandar40p_internal.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/src/pandar40p_internal.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/src/pandar40p_internal.h
 
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/pandar40p_internal.cc
 sstream
 -
 src/input.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/src/input.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/src/input.h
 src/pandar40p_internal.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/Pandar40P/src/src/pandar40p_internal.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/Pandar40P/src/src/pandar40p_internal.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

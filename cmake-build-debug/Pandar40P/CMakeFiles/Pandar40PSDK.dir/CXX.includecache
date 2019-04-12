@@ -48,13 +48,13 @@ pandar40p/point_types.h
 pcl/point_types.h
 -
 
-/home/he/桌面/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/pandar40p_sdk.cc
 pandar40p_sdk/pandar40p_sdk.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/pandar40p_sdk/pandar40p_sdk.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/pandar40p_sdk/pandar40p_sdk.h
 src/tcp_command_client.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/src/tcp_command_client.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/src/tcp_command_client.h
 yaml-cpp/yaml.h
-/home/he/桌面/DockingGuidance/Pandar40P/src/yaml-cpp/yaml.h
+/home/he/CLionProjects/DockingGuidance/Pandar40P/src/yaml-cpp/yaml.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

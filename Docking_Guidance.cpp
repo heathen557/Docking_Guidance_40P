@@ -757,13 +757,13 @@ int main() {
                     if (0 == atoi(azResult[4]))  //检测机身长度
                     {
                         std::cout << "开启检测机身长度" << std::endl;
-                        isDetec_AirplaneLength = true;
+                        isDetec_AirplaneLength = false;
 
 
                     } else if (1 == atoi(azResult[4]))   //不检测机身长度
                     {
                         std::cout << "不检测机身长度" << std::endl;
-                        isDetec_AirplaneLength = false;
+                        isDetec_AirplaneLength = true;
                     }
 
                     if (0 == atoi(azResult[5]))          //检测两个引擎
