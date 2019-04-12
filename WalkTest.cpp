@@ -14,6 +14,7 @@ WalkTest *WalkTest::pThis_ = NULL;
 
 void WalkTest::setParameter()
 {
+    check_mode_ = 111111111111;   //0:自检模式   1：目标检测过程中的自检
     delay_count = 0;
     origin_distance_ = 150;
     end_distance_= 120;
@@ -38,11 +39,17 @@ void WalkTest::setParameter()
     //clip_bottom_pos_ = end_point0_.y + 1.5;
     cluster_size_min_ = 30;//70;//_minPoints;
     cluster_size_max_ = 500;//2000;//_maxPoints;
+    search_radius_ = 1.2; // 再优化
     cluster_tolerance_ = 0.4;
     target_min_height_ = 0.5;
     target_max_height_ = 1.9;
     target_min_width_ = 0.3;
     target_max_width_ = 0.9;
+    region_points_size_ = 111111111;
+    for (int i = 0; i < region_points_size_; ++i) {
+        region_x_[i] = 11111111111;
+        region_y_[i] = 11111111111;
+    }
     mild_point0_ = {con_msg.mild_point0_x, con_msg.mild_point0_y};//0.01, -4.83;
     mild_point1_ = {con_msg.mild_point1_x, con_msg.mild_point1_y};//0.28, -34.6
     end_point0_ = {con_msg.end_point0_x, con_msg.end_point0_y};//1.03, -4.88
@@ -152,13 +159,11 @@ WalkTest::WalkTest(std::string &calib_file, std::string &pcap_file,
 
 WalkTest::WalkTest(std::string &calib_file, std::string &ip, int port,
                    pcl::visualization::PointCloudColorHandler<pcl::PointXYZI> &handler)
-: calibration_file_(calib_file)
-, ip_(ip)
-, port_(port)
+        : calibration_file_(calib_file), ip_(ip), port_(port)
 //, handler_(handler)
 //, cloud_viewer_("3D viewer")
 //, interface_(boost::asio::ip::address::from_string(ip_), port_, calibration_file_)
-, pandar40p_(ip_, 2368, 10110, lidarCallback, gpsCallback, 15000, 0,  string("hesai40"))
+        , pandar40p_(ip_, 2368, 10110, lidarCallback, gpsCallback, 15000, 0, string("hesai40"))
 {
     std::cout<<"行人检测的构造函数已经进来了"<<std::endl;
 
@@ -242,13 +247,16 @@ float WalkTest::calculateSimilarity2(ClusterPtr cluster, CloudPtr model_cloud)
     return score;
 }
 
-ClusterPtr WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr)//, ClusterPtr likelihood_target)
+void
+WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr, ClusterPtr target_cluster)//, ClusterPtr likelihood_target)
 {
+    int target_id = 100; // 避免下面的比较id时一致，设置一个类似越界的id，后考虑优化
+    vector<pcl::PointIndices> cluster_indices;
+    vector<ClusterPtr> clusters;
+    vector<ClusterPtr> likelihood_clusters;
     CloudPtr removed_points_cloud(new Cloud);
     CloudPtr clipped_cloud(new Cloud);
     CloudPtr onlyfloor_cloud(new Cloud);
-    vector<pcl::PointIndices> cluster_indices;
-    vector<ClusterPtr> likelihood_clusters;
     ClusterPtr empty_cluster(new Cluster());
     //ClusterPtr likelihood_target;
     if (remove_points_upto_ > 0)
@@ -284,36 +292,118 @@ ClusterPtr WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr)//, ClusterP
                 cluster_indices = euclideanCluster(nofloor_cloud_, cluster_size_min_, cluster_size_max_, cluster_tolerance_);
             }
             //differenceNormalSegmentation
-            if (getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_, target_min_width_, target_max_width_, &likelihood_clusters))
+            //cluster_indices < 1 时返回false 后再完善逻辑
+//            getCloudFromCluster(nofloor_cloud_, cluster_indices, clusters);
+//            for (int i = 0; i < clusters.size(); ++i)
+//            {
+//                float interval_distance = calculatePointDistance(pre_target_centroid_, clusters[i]->getCentroid());
+//                if (cloudinROI(clusters[i], region_points_size_, region_x_, region_x_) && interval_distance > )
+//                {
+//                    cout << "ROI has Interferon..." << endl;
+//                }
+//
+//                if (clusters[i] >  <)
+//                {
+//                    likelihood_clusters.push_back(clusters[i]);
+//                }
+//
+//            }
+
+//            if (likelihood_clusters.size() >= 1)
+//            {
+//
+//            }
+
+            if (cluster_indices.size() != 0)
             {
-                //succed_detect_ = true;
-                succed_detect_counter_++;
-                vector<float> feature;
-                float min_dist = 100; //考虑用系统语言定义的max代替
-                int min_id = 0;
-                for (int i = 0; i < likelihood_clusters.size(); ++i)
-                {
-                    feature = extractClusterFeature(likelihood_clusters[i]);
-                    float similarity = calculateSimilarity(feature, model_feature_);
-                    //float similarity2 = calculateSimilarity2(likelihood_clusters[i], model_cloud_);  //model_cloud后可先处理好，不每次都处理
-                    cout << "Similarity: " << similarity << endl;
-                    if (similarity < min_dist)
-                    {
-                        min_dist = similarity;
-                        min_id = i;
+                getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_,
+                                    target_min_width_, target_max_width_, &clusters, &likelihood_clusters);
+                if (likelihood_clusters.size() != 0) {
+                    succed_detect_counter_++;
+                    vector<float> feature;
+                    float min_dist = 100; //考虑用系统语言定义的max代替
+                    int min_id = 0;
+                    for (int i = 0; i < likelihood_clusters.size(); ++i) {
+                        feature = extractClusterFeature(likelihood_clusters[i]);
+                        float similarity = calculateSimilarity(feature, model_feature_);
+                        //float similarity2 = calculateSimilarity2(likelihood_clusters[i], model_cloud_);  //model_cloud后可先处理好，不每次都处理
+                        cout << "Similarity: " << similarity << endl;
+                        if (similarity < min_dist) {
+                            min_dist = similarity;
+                            min_id = i;
+                        }
+                    }
+                    //likelihood_target = likelihood_clusters[min_id];
+                    //return true;
+                    succed_detect_ = true;
+                    target_id = min_id;
+                    target_cluster = likelihood_clusters[target_id];
+                    //return likelihood_clusters[target_id];
+                } else {
+                    //succed_detect_ = false;
+                    //return false;
+                    succed_detect_ = false;
+                    target_cluster = empty_cluster;
+                    //return empty_cluster;
+                }
+
+                //check if ROI has interferon;
+                for (int i = 0; i < clusters.size(); ++i) {
+                    if (succed_target_) {
+                        float interval_distance = calculatePointDistance(pre_target_centroid_,
+                                                                         clusters[i]->getCentroid());
+                        if (cloudinROI(clusters[i], region_points_size_, region_x_, region_x_) &&
+                            interval_distance > search_radius_)//暂定大于搜索半径
+                        {
+                            //需要累计障碍物个数吗，需要一检测到障碍物就提示吗？
+                            cout << "ROI has Interferon..." << endl;
+                        }
+                    } else {
+                        if (cloudinROI(clusters[i], region_points_size_, region_x_, region_x_) &&
+                            clusters[i]->getId() != target_id) //此id比较可否用于飞机检测那边的障碍物检测处理
+                        {
+                            //在此考虑 likelihood_clusters.size() == 0 的情况；此时 target_id 为 默认的越界值，上述条件也包含了likelihood_clusters.size() == 0的情况
+                            cout << "ROI has Interferon..." << endl;
+                        }
                     }
                 }
-                //likelihood_target = likelihood_clusters[min_id];
-                //return true;
-                succed_detect_ = true;
-                return likelihood_clusters[min_id];
-            }
-            else
-            {
-                //succed_detect_ = false;
-                //return false;
+
+//            if (getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_, target_min_width_, target_max_width_, &likelihood_clusters))
+//            {
+//                //succed_detect_ = true;
+//                succed_detect_counter_++;
+//                vector<float> feature;
+//                float min_dist = 100; //考虑用系统语言定义的max代替
+//                int min_id = 0;
+//                for (int i = 0; i < likelihood_clusters.size(); ++i)
+//                {
+//                    feature = extractClusterFeature(likelihood_clusters[i]);
+//                    float similarity = calculateSimilarity(feature, model_feature_);
+//                    //float similarity2 = calculateSimilarity2(likelihood_clusters[i], model_cloud_);  //model_cloud后可先处理好，不每次都处理
+//                    cout << "Similarity: " << similarity << endl;
+//                    if (similarity < min_dist)
+//                    {
+//                        min_dist = similarity;
+//                        min_id = i;
+//                    }
+//                }
+//                //likelihood_target = likelihood_clusters[min_id];
+//                //return true;
+//                succed_detect_ = true;
+//                return likelihood_clusters[min_id];
+//            }
+//            else
+//            {
+//                //succed_detect_ = false;
+//                //return false;
+//                succed_detect_ = false;
+//                return empty_cluster;
+//            }
+            } else {
+                cout << "Clustering failue" << endl;
+                zlog_warn(c, "聚类出现异常,Clustering failue！");
                 succed_detect_ = false;
-                return empty_cluster;
+                target_cluster = empty_cluster;
             }
         }
         else
@@ -321,7 +411,8 @@ ClusterPtr WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr)//, ClusterP
             cout << "removefloor failue" << endl;
             zlog_warn(c,"过滤地面出现异常,removefloor failue！");
             succed_detect_ = false;
-            return empty_cluster;
+            target_cluster = empty_cluster;
+            //return empty_cluster;
         }
     }
     else
@@ -329,9 +420,27 @@ ClusterPtr WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr)//, ClusterP
         cout << "Region has no point cloud" << endl;
         zlog_warn(c,"区域没有点云数据，Region has no point cloud");
         succed_detect_ = false;
-        return empty_cluster;
+        target_cluster = empty_cluster;
+        //return empty_cluster;
     }
     //return likelihood_target; //
+}
+
+void WalkTest::checkROI(const CloudConstPtr &cloud) {
+    boost::mutex::scoped_lock lock(mtx_);
+    CloudPtr ROI_cloud(new Cloud);
+    CloudPtr nofloor_cloud(new Cloud);
+    CloudPtr onlyfloor_cloud(new Cloud);
+    vector<pcl::PointIndices> cluster_indices;
+
+    if (cloud_id_ > 10) {
+        appointRegion(cloud, ROI_cloud, region_points_size_, region_x_, region_y_);
+        removeFloor(ROI_cloud, nofloor_cloud, onlyfloor_cloud, 0.1, 0.1);
+        cluster_indices = euclideanCluster(nofloor_cloud, cluster_size_min_, cluster_size_max_, cluster_tolerance_);
+        if (cluster_indices.size() != 0) {
+            cout << "ROI has Interferon..." << endl;
+        }
+    }
 }
 
 void WalkTest::processCloud(const CloudConstPtr &cloud)
@@ -340,7 +449,7 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
     //cloud_id_++;
     if (cloud_id_ > 10 )//&& cloud_id_ % 1 == 0)
     {
-        float radius = 1.2; //后可考虑根据速度及抽帧数来确定
+        //float radius = 1.2; //后可考虑根据速度及抽帧数来确定
         drawed_cloud_.reset(new pcl::PointCloud<pcl::PointXYZRGB>);
         vector<int> detect_target_indices;
         vector<int> track_target_indices;
@@ -360,7 +469,7 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
         }
         else
         {
-            detect_target_cluster = detectTarget(cloud);
+            detectTarget(cloud, detect_target_cluster);
             if (succed_detect_ == true)//detectTarget(cloud, detect_target_cluster)) //此處是指針傳參成功了嗎
             {
                 detect_target_indices = detect_target_cluster->getPointIndices();
@@ -420,7 +529,8 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
             }
 
             cout << "track search for target..." << endl;
-            if (findTarget(nofloor_cloud_, pre_target_centroid_, radius, &track_target_indices))
+            if (findTarget(nofloor_cloud_, pre_target_centroid_, search_radius_,
+                           &track_target_indices)) //radius 移出做类成员变量
             {
                 detect_flag_ = true;
 
@@ -463,8 +573,8 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
 
                 //current_target_indices = detect_target_indices;
                 origin_distance_ = detect_target_distance;
-                status_ud = Plane_Straight_line_UD(end_point0_, end_point1_, detect_cen);
-                end_distance_ = -status_ud.offset;
+                status_ud = Plane_Straight_line_UD(direction_, end_point0_, end_point1_, detect_cen);
+                end_distance_ = status_ud.offset;
 //                if (mild_point0_.y >= end_point0_.y || mild_point1_.y >= end_point0_.y)
 //                {
 //                    end_distance_ = status_ud.offset;
@@ -488,8 +598,8 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
 
                     //current_target_indices = track_target_indices;
                     origin_distance_ = track_target_distance;
-                    status_ud = Plane_Straight_line_UD(end_point0_, end_point1_, track_cen);
-                    end_distance_ = -status_ud.offset;
+                    status_ud = Plane_Straight_line_UD(direction_, end_point0_, end_point1_, track_cen);
+                    end_distance_ = status_ud.offset;
 //                    if (mild_point0_.y >= end_point0_.y || mild_point1_.y >= end_point0_.y)
 //                    {
 //                        end_distance_ = status_ud.offset;
@@ -583,17 +693,22 @@ void WalkTest::flowCloud(const CloudConstPtr cloud)
     if (cloud_id_ % 1 == 0)
     {
         time.tic();
-        processCloud(cloud);
-        cout << "Process " << cloud_id_ << "th frame cost " << time.toc() << "ms" << endl;
-        cout << "***************distance:" << origin_distance_ << endl;
-        if (!succed_target_)
+        if (check_mode_ == 0) // 0: self checking
         {
+            checkROI(cloud);
+        } else {
+            processCloud(cloud);
+            cout << "Process " << cloud_id_ << "th frame cost " << time.toc() << "ms" << endl;
+            cout << "***************distance:" << origin_distance_ << endl;
+            if (!succed_target_) {
 //                end_distance_ = pre_end_distance_;
 //                position_ = pre_position_;
 //                offset_ = pre_offset_;
-            sprintf(fname, "./%s/%04d.pcd", "lost", cloud_id_);
-            pcl::io::savePCDFile(fname, *cloud);
+                sprintf(fname, "./%s/%04d.pcd", "lost", cloud_id_);
+                pcl::io::savePCDFile(fname, *cloud);
+            }
         }
+
     }
 
     cout << "******************" << "distance: " << end_distance_ << "*****************" << endl;

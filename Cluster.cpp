@@ -301,10 +301,9 @@ bool Cluster::isValid()
 //	valid_cluster_ = in_valid;
 //}
 //
-//int Cluster::GetId()
-//{
-//	return id_;
-//}
+int Cluster::getId() {
+	return id_;
+}
 
 Cluster::~Cluster() {
 	// TODO Auto-generated destructor stub

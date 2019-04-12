@@ -55,6 +55,10 @@ struct control_msg {
     float right_point1_y;
     float heigth_distance_threahold;
 
+    int detecPointsSize;
+    float detecPointX[50];
+    float detecPointY[50];
+
 } ;
 
 //消息队列的声明

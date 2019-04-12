@@ -3,7 +3,27 @@
 //
 
 #include "tools_function.h"
-POSINFO Plane_Straight_line_LR(const Input_Num &num1,const Input_Num &num2,Input_Num Rec_values)
+
+
+//hash_t hash_(char const* str)
+//{
+//    hash_t ret{basis};
+//
+//    while(*str){
+//        ret ^= *str;
+//        ret *= prime;
+//        str++;
+//    }
+//
+//    return ret;
+//}
+//
+//constexpr hash_t hash_compile_time(char const* str, hash_t last_value = basis)
+//{
+//    return *str ? hash_compile_time(str+1, (*str ^ last_value) * prime) : last_value;
+//}
+
+POSINFO Plane_Straight_line_LR(const Input_Num &num1, const Input_Num &num2, Input_Num Rec_values)
 {
     float Y;
     float K;
@@ -56,7 +76,7 @@ POSINFO Plane_Straight_line_LR(const Input_Num &num1,const Input_Num &num2,Input
 
 }
 
-POSINFO Plane_Straight_line_UD(const Input_Num &num1,const Input_Num &num2,Input_Num Rec_values)
+POSINFO Plane_Straight_line_UD(bool direction, Input_Num &num1, const Input_Num &num2, Input_Num Rec_values)
 {
     float K;
     float b;
@@ -78,24 +98,36 @@ POSINFO Plane_Straight_line_UD(const Input_Num &num1,const Input_Num &num2,Input
     }
     else
     {
-        //std::cout << "NOT ON PATH" << std::endl;
-        if (Rec_values.y > K * Rec_values.x + b)
-        {
-            //offset_ =
-            //std::cout << "L" << std::endl;
-            status.position = U;
-            status.offset = Dis;
-            return status;
+        if (direction) {
+            //std::cout << "NOT ON PATH" << std::endl;
+            if (Rec_values.y > K * Rec_values.x + b) {
+                //offset_ =
+                //std::cout << "L" << std::endl;
+                status.position = U;
+                status.offset = Dis;
+                return status;
+            } else {
+                //offset =
+                status.position = D;
+                status.offset = -Dis;
+                return status;
+                // std::cout << "R" <<std::endl;
+            }
+        } else {
+            if (Rec_values.y > K * Rec_values.x + b) {
+                //offset_ =
+                //std::cout << "L" << std::endl;
+                status.position = D;
+                status.offset = -Dis;
+                return status;
+            } else {
+                //offset =
+                status.position = U;
+                status.offset = Dis;
+                return status;
+                // std::cout << "R" <<std::endl;
+            }
         }
-        else
-        {
-            //offset =
-            status.position = D;
-            status.offset = -Dis;
-            return status;
-            // std::cout << "R" <<std::endl;
-        }
-
     }
 }
 

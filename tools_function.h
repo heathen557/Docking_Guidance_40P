@@ -13,6 +13,10 @@
 
 using namespace std;
 
+//typedef std::uint64_t hash_t;
+//constexpr hash_t prime = 0x100000001B3ull;
+//constexpr hash_t basis = 0xCBF29CE484222325ull;
+
 typedef struct Input_Num
 {
     float x;
@@ -25,8 +29,12 @@ typedef struct POSINFO
     float offset;
 }POSINFO;
 
-POSINFO Plane_Straight_line_LR(const Input_Num &num1,const Input_Num &num2,Input_Num Rec_values);
-POSINFO Plane_Straight_line_UD(const Input_Num &num1,const Input_Num &num2,Input_Num Rec_values);
+
+//hash_t hash_(char const* str);
+//constexpr hash_t hash_compile_time(char const* str, hash_t last_value = basis);
+POSINFO Plane_Straight_line_LR(const Input_Num &num1, const Input_Num &num2, Input_Num Rec_values);
+
+POSINFO Plane_Straight_line_UD(bool direction, Input_Num &num1, const Input_Num &num2, Input_Num Rec_values);
 float minkowsky(const vector<float > &v1, const vector<float> &v2, float m);
 float calculateSimilarity(const vector<float> &v1, const vector<float> &v2);
 float calculateVelocity(vector<float> &p);

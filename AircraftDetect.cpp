@@ -402,7 +402,7 @@ void AircraftDetect::calculate_aircraftLength(const CloudConstPtr &cloud)
         float side_distance = side_aircraft_fuselage->getCentroid().y;
         Input_Num fuselage_cen = {side_aircraft_fuselage->getCentroid().x, side_distance};
         orign_distance_ = side_distance;
-        POSINFO side_status = Plane_Straight_line_UD(end_point0_, end_point1_, fuselage_cen);
+        POSINFO side_status = Plane_Straight_line_UD(direction_, end_point0_, end_point1_, fuselage_cen);
         end_distance_ = side_status.offset;
         PointType cluster_centre;
         cluster_centre.x = side_aircraft_fuselage->getCentroid().x;
@@ -635,6 +635,7 @@ void AircraftDetect::target_detectionAndTrack(const CloudConstPtr &cloud)
 
 ClusterPtr AircraftDetect::detectTarget(const CloudConstPtr &in_cloud_ptr) {
     vector<pcl::PointIndices> cluster_indices;
+    vector<ClusterPtr> clusters;
     vector<ClusterPtr> likelihood_clusters;
     ClusterPtr empty_cluster(new Cluster());
 
@@ -648,14 +649,15 @@ ClusterPtr AircraftDetect::detectTarget(const CloudConstPtr &in_cloud_ptr) {
 
     //add judge cluster_indices.size == 0
     //differenceNormalSegmentation
-    if (getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_, target_min_width_,
-                            target_max_width_, &likelihood_clusters)) {
-        //succed_detect_ = true;
-        //succed_detect_counter_++;
-        vector<float> feature;
-        float min_dist = 100; //考虑用系统语言定义的max代替
-        int min_id = 0;
-        for (int i = 0; i < likelihood_clusters.size(); ++i) {
+
+    if (cluster_indices.size() != 0) {
+        getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_, target_min_width_,
+                            target_max_width_, &clusters, &likelihood_clusters);
+        if (likelihood_clusters.size() != 0) {
+            vector<float> feature;
+            float min_dist = 100; //考虑用系统语言定义的max代替
+            int min_id = 0;
+            for (int i = 0; i < likelihood_clusters.size(); ++i) {
 //            feature = extractClusterFeature(likelihood_clusters[i]);
 //            float similarity = calculateSimilarity(feature, model_feature_);
 //            //float similarity2 = calculateSimilarity2(likelihood_clusters[i], model_cloud_);  //model_cloud后可先处理好，不每次都处理
@@ -665,24 +667,59 @@ ClusterPtr AircraftDetect::detectTarget(const CloudConstPtr &in_cloud_ptr) {
 //                min_dist = similarity;
 //                min_id = i;
 //            }
-            if (fabs(likelihood_clusters[i]->getMaxPoint().y) >
-                30) // 预先设置好 各类机型的标准 几何参数吗 （有时可能会扫到机轮部位影响，安装高度确定的话 可否虑除阈值高度下的部分）， cluster_size 的设定// 禄口机场数据测试选定？
-            {
-                min_id = i;
+                if (fabs(likelihood_clusters[i]->getMaxPoint().y) >
+                    30) // 预先设置好 各类机型的标准 几何参数吗 （有时可能会扫到机轮部位影响，安装高度确定的话 可否虑除阈值高度下的部分）， cluster_size 的设定// 禄口机场数据测试选定？
+                {
+                    min_id = i;
+                }
             }
+            succed_detect_head_counter_++;
+            //cout << "succed_detect_counter: " << succed_detect_counter_ << endl;
+            succed_detect_front_head_ = true;
+            return likelihood_clusters[min_id];
+        } else {
+            //succed_detect_ = false;
+            //return false;
+            succed_detect_front_head_ = false;
+            return empty_cluster;
         }
+    }
+
+//    if (getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_, target_min_width_,
+//                            target_max_width_, &clusters, &likelihood_clusters)) {
+        //succed_detect_ = true;
+        //succed_detect_counter_++;
+//        vector<float> feature;
+//        float min_dist = 100; //考虑用系统语言定义的max代替
+//        int min_id = 0;
+//        for (int i = 0; i < likelihood_clusters.size(); ++i) {
+////            feature = extractClusterFeature(likelihood_clusters[i]);
+////            float similarity = calculateSimilarity(feature, model_feature_);
+////            //float similarity2 = calculateSimilarity2(likelihood_clusters[i], model_cloud_);  //model_cloud后可先处理好，不每次都处理
+////            cout << "Similarity: " << similarity << endl;
+////            if (similarity < min_dist)
+////            {
+////                min_dist = similarity;
+////                min_id = i;
+////            }
+//            if (fabs(likelihood_clusters[i]->getMaxPoint().y) >
+//                30) // 预先设置好 各类机型的标准 几何参数吗 （有时可能会扫到机轮部位影响，安装高度确定的话 可否虑除阈值高度下的部分）， cluster_size 的设定// 禄口机场数据测试选定？
+//            {
+//                min_id = i;
+//            }
+//        }
         //likelihood_target = likelihood_clusters[min_id];
         //return true;
-        succed_detect_head_counter_++;
-        //cout << "succed_detect_counter: " << succed_detect_counter_ << endl;
-        succed_detect_front_head_ = true;
-        return likelihood_clusters[min_id];
-    } else {
-        //succed_detect_ = false;
-        //return false;
-        succed_detect_front_head_ = false;
-        return empty_cluster;
-    }
+//        succed_detect_head_counter_++;
+//        //cout << "succed_detect_counter: " << succed_detect_counter_ << endl;
+//        succed_detect_front_head_ = true;
+//        return likelihood_clusters[min_id];
+//    } else {
+//        //succed_detect_ = false;
+//        //return false;
+//        succed_detect_front_head_ = false;
+//        return empty_cluster;
+//    }
 
 }
 
@@ -716,7 +753,7 @@ void AircraftDetect::targetToProcess(vector<int> currentTarget_indices, ClusterP
     }
     Input_Num nose_coord = {currentTargetCluster->getCentroid().x,
                             currentTargetCluster->getMaxPoint().y}; //front_aircraft_head->getCentroid().x该为对应的机鼻点或者就这样// 后改为nose_y
-    POSINFO status_ud = Plane_Straight_line_UD(end_point0_, end_point1_, nose_coord);
+    POSINFO status_ud = Plane_Straight_line_UD(direction_, end_point0_, end_point1_, nose_coord);
     end_distance_ = status_ud.offset; // 正负方向判断
     Input_Num head_cen = {aircraftFrontHeadCluster->getCentroid().x,
                           aircraftFrontHeadCluster->getCentroid().y};//用centroid更穩定些

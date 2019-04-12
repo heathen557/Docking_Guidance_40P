@@ -20,6 +20,7 @@
 #include <pcl/segmentation/region_growing.h>
 #include <pcl/filters/passthrough.h>
 #include <pcl/sample_consensus/sac_model_circle3d.h>
+#include <pcl/sample_consensus/sac_model_cylinder.h>
 #include <pcl/sample_consensus/ransac.h>
 #include <pcl/features/fpfh.h>
 #include <pcl/registration/ia_ransac.h>
@@ -31,6 +32,7 @@
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/filters/approximate_voxel_grid.h>
 #include <pcl/filters/statistical_outlier_removal.h>
+
 
 #include "Cluster.h"
 #include "tools_function.h"
@@ -45,6 +47,7 @@ typedef pcl::PointCloud<pcl::Normal> PointNormal;
 typedef pcl::PointCloud<pcl::FPFHSignature33> FpfhFeature;
 typedef FpfhFeature::Ptr FpfhFeaturePtr;
 
+PointType XYZRGB2XYZI(pcl::PointXYZRGB in_point);
 float calculatePointDistance(PointType p1, pcl::PointXYZ p2); //参考pcl里是如何使用PointT来包含多个种类的
 float calculateSideLength(const CloudPtr &in_cloud_ptr);
 void transformPointCloud(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr);
@@ -65,6 +68,13 @@ void clipCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, bool d
 
 void clipCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, float min_x, float max_x, float min_y,
                float max_y);
+
+bool pnpoly(PointType point, int points_size, float *region_x, float *region_y);
+
+bool cloudinROI(ClusterPtr cluster, int points_size, float *region_x, float *region_y);
+
+void appointRegion(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, int points_size, float *region_x,
+                   float *region_y);
 void removeFloor(const CloudPtr &in_cloud_ptr, CloudPtr out_nofloor_cloud_ptr,
                  CloudPtr out_onlyfloor_cloud_ptr, float in_max_height = 0.2, float in_floor_max_angle = 0.1);
 vector<pcl::PointIndices> regiongrowingSegmentation(const CloudPtr &in_cloud_ptr);
@@ -77,10 +87,10 @@ bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radi
                   Eigen::VectorXf *coefficients, CloudPtr out_cloud_ptr);
 bool findTarget(const CloudPtr &in_cloud_ptr, PointType centre, float radius, vector<int> *cloud_indices);
 bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices> cluster_indices, vector<ClusterPtr> *target);
-bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices> cluster_indices,
+
+void getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices> cluster_indices,
                          float target_min_height, float target_max_height,
-                         float target_max_length, float target_min_length,
+                         float target_max_length, float target_min_length, vector<ClusterPtr> *clusters,
                          vector<ClusterPtr> *target); //, vector<int> *target_indices);
 
 #endif //DOCKING_GUIDANCE2_PROCESSPOINTCLOUD_H
-

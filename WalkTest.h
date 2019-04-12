@@ -21,13 +21,16 @@ extern int show_personOrAircarft;
 
 class WalkTest
 {
+    int check_mode_;
+    int region_points_size_;
     int delay_count;       //延迟20帧没有目标后 发送目标丢失命令  2019-03-25下午添加 测试正常版本
     int port_, cloud_id_;
     int lost_counter_;
     int cluster_size_min_, cluster_size_max_;
     int succed_detect_counter_;
     //int priority_;
-    float remove_points_upto_, clip_min_height_, clip_max_height_, clip_right_pos_, clip_left_pos_, clip_bottom_pos_, cluster_tolerance_, target_min_height_, target_max_height_, target_min_width_, target_max_width_;
+    float remove_points_upto_, clip_min_height_, clip_max_height_, clip_right_pos_, clip_left_pos_, clip_bottom_pos_, cluster_tolerance_, target_min_height_, target_max_height_, target_min_width_, target_max_width_, search_radius_;
+    float *region_x_, *region_y_;
     float pre_time_, pre_distance_, pre_end_distance_, pre_offset_;
     //float mild_x_, endline_y_;
     float x_precision_, y_precision_;
@@ -78,7 +81,11 @@ public:
     vector<float> extractClusterFeature(ClusterPtr cluster);
     FpfhFeaturePtr computeFpfhFeature(const CloudPtr &in_cloud_ptr, KdtreePtr tree);
     float calculateSimilarity2(ClusterPtr cluster, CloudPtr model_cloud);
-    ClusterPtr detectTarget(const CloudConstPtr &in_cloud_ptr);//, ClusterPtr likelihood_target);//std::vector<int> *target_indices);
+
+    //ClusterPtr detectTarget(const CloudConstPtr &in_cloud_ptr);//, ClusterPtr likelihood_target);//std::vector<int> *target_indices);
+    void detectTarget(const CloudConstPtr &in_cloud_ptr, ClusterPtr target_cluster);
+
+    void checkROI(const CloudConstPtr &cloud);
     void processCloud(const CloudConstPtr &cloud);
     void flowCloud(const CloudConstPtr cloud);
     static void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp);

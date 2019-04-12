@@ -2,6 +2,16 @@
 // Created by luffy7n on 18-10-30.
 //
 #include "ProcessPointcloud.h"
+
+PointType XYZRGB2XYZI(pcl::PointXYZRGB in_point) {
+    PointType out_point;
+    out_point.x = in_point.x;
+    out_point.y = in_point.y;
+    out_point.z = in_point.z;
+    out_point.intensity = 0;
+    return out_point;
+}
+
 float calculatePointDistance(PointType p1, pcl::PointXYZ p2)
 {
     float x_d = p1.x - p2.x;
@@ -194,6 +204,70 @@ void clipCloud(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, bool d
     }
 }
 
+bool pnpoly(PointType point, int points_size, float *region_x, float *region_y) {
+    int i, j = 0;
+    bool result = false;
+    for (int i = 0, j = points_size - 1; i < points_size; j = i++) {
+        if ((region_y[i] > point.y != region_y[j] > point.y) &&
+            (point.x < (region_x[j] - region_x[i]) * (point.y - region_y[i]) / (region_y[j] - region_y[i]) + point.x)) {
+            result = true;
+        }
+    }
+    return result;
+}
+
+bool cloudinROI(ClusterPtr cluster, int points_size, float *region_x, float *region_y) {
+    int min_x_id, min_y_id, max_x_id, max_y_id;
+    bool min_x_point_in, min_y_point_in, max_x_point_in, max_y_point_in;
+    PointType min_x_point, min_y_point, max_x_point, max_y_point;
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cluster_cloud;
+    cluster_cloud = cluster->getCloud();
+    float min_x = cluster_cloud->points[0].x;
+    float max_x = cluster_cloud->points[0].x;
+    float min_y = cluster_cloud->points[0].y;
+    float max_y = cluster_cloud->points[0].y;
+    for (int i = 1; i < cluster_cloud->points.size(); ++i) {
+        if (min_x > cluster_cloud->points[i].x) {
+            min_x = cluster_cloud->points[i].x;
+            min_x_id = i;
+        }
+        if (min_y > cluster_cloud->points[i].y) {
+            min_y = cluster_cloud->points[i].y;
+            min_y_id = i;
+        }
+        if (max_x < cluster_cloud->points[i].x) {
+            max_x = cluster_cloud->points[i].x;
+            max_x_id = i;
+        }
+        if (max_y < cluster_cloud->points[i].y) {
+            max_y = cluster_cloud->points[i].y;
+            max_y_id = i;
+        }
+    }
+    min_x_point = XYZRGB2XYZI(cluster_cloud->points[min_x_id]);
+    min_y_point = XYZRGB2XYZI(cluster_cloud->points[min_y_id]);
+    max_x_point = XYZRGB2XYZI(cluster_cloud->points[max_x_id]);
+    max_y_point = XYZRGB2XYZI(cluster_cloud->points[max_y_id]);
+    min_x_point_in = pnpoly(min_x_point, points_size, region_x, region_y);
+    min_y_point_in = pnpoly(min_y_point, points_size, region_x, region_y);
+    max_x_point_in = pnpoly(max_x_point, points_size, region_x, region_y);
+    max_y_point_in + pnpoly(max_y_point, points_size, region_x, region_y);
+    if (min_x_point_in || min_y_point_in || max_x_point_in || max_y_point_in) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void appointRegion(const CloudConstPtr &in_cloud_ptr, CloudPtr out_cloud_ptr, int points_size, float *region_x,
+                   float *region_y) {
+    for (int i = 0; i < in_cloud_ptr->points.size(); ++i) {
+        if (pnpoly(in_cloud_ptr->points[i], points_size, region_x, region_y)) {
+            out_cloud_ptr->points.push_back(in_cloud_ptr->points[i]);
+        }
+    }
+}
+
 void removeFloor(const CloudPtr &in_cloud_ptr, CloudPtr out_nofloor_cloud_ptr,
                  CloudPtr out_onlyfloor_cloud_ptr, float in_max_height, float in_floor_max_angle)
 {
@@ -287,7 +361,6 @@ vector<pcl::PointIndices> euclideanCluster(const CloudPtr &in_cloud_ptr, int clu
 bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radius,
                   Eigen::VectorXf *coefficients, CloudPtr out_cloud_ptr)
 {
-
     std::vector<int> inliers_indicies;
     pcl::SampleConsensusModelCircle3D<PointType>::Ptr model_circle(
             new pcl::SampleConsensusModelCircle3D<PointType>(in_cloud_ptr));
@@ -309,8 +382,6 @@ bool detectCircle(const CloudPtr &in_cloud_ptr, float min_radius, float max_radi
         pcl::copyPointCloud<PointType>(*in_cloud_ptr, inliers_indicies, *out_cloud_ptr);
         return true;
     }
-
-
 }
 
 bool findTarget(const CloudPtr &in_cloud_ptr, PointType centre, float radius, vector<int> *cloud_indices)
@@ -359,9 +430,9 @@ bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, std::vector<pcl::PointInd
     }
 }
 
-bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices> cluster_indices,
+void getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices> cluster_indices,
                          float target_min_height, float target_max_height,
-                         float target_min_width, float target_max_width,
+                         float target_min_width, float target_max_width, vector<ClusterPtr> *clusters,
                          vector<ClusterPtr> *target)//std::vector<int> *target_indices)  //默认参数变量如何写
 {
     int cluster_id = 0;
@@ -375,6 +446,7 @@ bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices>
     {
         ClusterPtr cluster(new Cluster());
         cluster->setCloud(in_cloud_ptr, i->indices, cluster_id, 255, 0, 0); //, (int)colors_[cluster_id].val[0], (int)colors_[cluster_id].val[1], (int)colors_[cluster_id].val[2]);
+        clusters->push_back(cluster);
         transformPointCloud(cluster->getCloud(), cluster_cloud);
         *all_cluster_cloud += *cluster_cloud;
         cluster_cloud->clear();
@@ -392,17 +464,15 @@ bool getCloudFromCluster(const CloudPtr &in_cloud_ptr, vector<pcl::PointIndices>
         //clusters.push_back(cluster);
         cluster_id++;
     }
-    if (target->size() != 0)
-    {
-        cout << "检测到符合几何参数的目标的个数为 " << target->size() << endl;
-        zlog_info(c, "检测到符合几何参数的目标的个数为:%d \n ", target->size());
-        //all_cluster_cloud_ = all_cluster_cloud;
-        return true;
-    }
-    else
-    {
-        //cout << cloud_id_ <<"th Frame has None Target :" << endl;
-        return false;
-    }
+//    if (target->size() != 0)
+//    {
+//        cout << "Number of targets is " << target->size() << endl;
+//        //all_cluster_cloud_ = all_cluster_cloud;
+//        return true;
+//    }
+//    else
+//    {
+//        //cout << cloud_id_ <<"th Frame has None Target :" << endl;
+//        return false;
+//    }
 }
-
