@@ -77,7 +77,7 @@ void LidarHandler() {
             _workstatus = 3;
             aircraft_detect.run();
         }
-    } else if (2 == workMode_){
+    } else if (2 == workMode_ || con_msg.detectionModel == 0) {
         if (ip == "") {
             std::cout << pcapFile << std::endl;
             WalkTest walktest(hdlCalibration, pcapFile, color_handler);
@@ -155,6 +155,7 @@ void initSqlite3Bases() {
     sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
     zlog_error(c, zErrMsg);
     cout << zErrMsg << endl;
+
     //插入数据
     sql = "INSERT INTO \"AIRPLANEMODEL_TAB\" VALUES('A380-300' , 1.5 , 22.01, 18.9, 50.1, 22.2 );";
     sqlite3_exec(db, sql, 0, 0, &zErrMsg);
@@ -177,10 +178,38 @@ void initSqlite3Bases() {
 
 
     /***************创建存储监测区域 的数据表 2019-4-8*******************************/
-    sql = "CREATE TABLE DATECTIONAREA_TAB(AREA_x float, AREA_Y float)";
+    sql = "CREATE TABLE DETECTIONAREA_TAB(AREA_x float, AREA_Y float)";
     sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
     zlog_error(c, zErrMsg);
     cout << zErrMsg << endl;
+    zlog_error(c, "创建检测区域表已经进来了～～～");
+
+    if (NULL == zErrMsg)     //如果数据表中为空，则初始化检测数据
+    {
+        // FOUR POINTS
+        sql = "INSERT INTO \"DETECTIONAREA_TAB\" VALUES(-29,-2)";
+        sqlite3_exec(db, sql, 0, 0, &zErrMsg);
+        zlog_error(c, zErrMsg);
+        cout << zErrMsg << endl;
+
+        sql = "INSERT INTO \"DETECTIONAREA_TAB\" VALUES(18,-2)";
+        sqlite3_exec(db, sql, 0, 0, &zErrMsg);
+        zlog_error(c, zErrMsg);
+        cout << zErrMsg << endl;
+
+        sql = "INSERT INTO \"DETECTIONAREA_TAB\" VALUES(18,-55)";
+        sqlite3_exec(db, sql, 0, 0, &zErrMsg);
+        zlog_error(c, zErrMsg);
+        cout << zErrMsg << endl;
+
+        sql = "INSERT INTO \"DETECTIONAREA_TAB\" VALUES(-29,-55)";
+        sqlite3_exec(db, sql, 0, 0, &zErrMsg);
+        zlog_error(c, zErrMsg);
+        cout << zErrMsg << endl;
+    }
+
+
+
 
 
 
@@ -277,25 +306,27 @@ void selectInfoFromBerthTAB(char *airplane_model) {
 
 int main() {
 
+    int rc;
+    rc = zlog_init("DockingGuidance.conf");
+    if (rc) {
+        printf("zlog init failed\n");
+        return -1;
+    }
+    c = zlog_get_category("lion");
+    if (!c) {
+        printf("get category fail\n");
+        zlog_fini();
+        return -2;
+    }
+
+
+
     initSqlite3Bases();
     CreateBerthInfo_table();                         //泊位号
 
 //    init_log();
 
-    int rc;
-    rc = zlog_init("DockingGuidance.conf");
-    if (rc)
-    {
-        printf("zlog init failed\n");
-        return -1;
-    }
-    c = zlog_get_category("lion");
-    if(!c)
-    {
-        printf("get category fail\n");
-        zlog_fini();
-        return -2;
-    }
+
 
 
 //    selectInfoFromPARAMETER_TAB();
@@ -620,11 +651,14 @@ int main() {
                 workMode_ = workMode.GetInt();
                 if (3 == workMode_)       // "3":自检模式； "2"：表示检测模式； “1”：行人检测
                 {
-
+                    con_msg.detectionModel = 0;
                 } else if (2 == workMode_)
                 {
+                    con_msg.detectionModel = 1;
                     _aircraft_detect = false;
                 }else if(1 == workMode_){     //"1":表示飞机检测
+
+                    con_msg.detectionModel = 1;
                     _aircraft_detect = true;
                 }
 
@@ -723,7 +757,7 @@ int main() {
                     /**********************从区域检测表当中提取检测点（个数和具体的值）***********************************/
                     nrow = 0;
                     ncolumn = 0;
-                    sql = "SELECT * FROM DATECTIONAREA_TAB;";
+                    sql = "SELECT * FROM DETECTIONAREA_TAB;";
                     sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
                     if (nrow < 1) {
                         std::cout << "检索环境检测参数时有误，请核对之！" << std::endl;
@@ -733,10 +767,17 @@ int main() {
 
                     zlog_info(c, "检测到的参数；列表中的行数为：%d", nrow);   //检测点的个数为 nrow
 
-                    for (int i = 0; i < (nrow + 1) * ncolumn; i++) {
-                        printf("azResult[%d] = %s\n", i, azResult[i]);
-                        zlog_info(c, "when this time the azREsult[%d] = %s \n", i, azResult[i]);
+                    con_msg.detecPointsSize = nrow;
 
+                    for (int i = 2; i < (nrow + 1) * ncolumn; i += 2) {
+                        con_msg.detecPointX[i / 2 - 1] = atof(azResult[i]);
+                        con_msg.detecPointY[i / 2 - 1] = atof(azResult[1 + i]);
+
+                        printf("con_msg.detecPointX  %d ,%f\n", i / 2 - 1, con_msg.detecPointX[i / 2 - 1]);
+                        printf("con_msg.detecPointY  %d ,%f\n", i / 2 - 1, con_msg.detecPointY[i / 2 - 1]);
+
+                        zlog_info(c, "con_msg.detecPointX  %d ,%f\n", i / 2 - 1, con_msg.detecPointX[i / 2 - 1]);
+                        zlog_info(c, "con_msg.detecPointY  %d ,%f\n", i / 2 - 1, con_msg.detecPointY[i / 2 - 1]);
                     }
 
                     /*************************从场景检测参数中获取 检测信息 机身长度(0:不检测  1：检测)，引擎个数（0：双个引擎， 1：单个引擎）********************************/
@@ -1333,7 +1374,7 @@ int main() {
 
                 //  清空已经有的数据
                 char *zErrMsg;
-                const char *sql = "DELETE FROM DATECTIONAREA_TAB";
+                const char *sql = "DELETE FROM DETECTIONAREA_TAB";
                 sqlite3_exec(db, sql, 0, 0, &zErrMsg);
                 zlog_error(c, zErrMsg);
                 cout << zErrMsg << endl;
@@ -1360,7 +1401,7 @@ int main() {
                         zlog_info(c, "coordinates_x = %f,coordinates_y = %f", coordinates_x, coordinates_y);
 
                         //插入到数据表当中
-                        const char *temp = "INSERT INTO \"DATECTIONAREA_TAB\" VALUES(";
+                        const char *temp = "INSERT INTO \"DETECTIONAREA_TAB\" VALUES(";
                         ostrstream oss;
                         oss << temp << coordinates_x << "," << coordinates_y << ");" << '\0';
                         sql = oss.str();
@@ -1369,7 +1410,7 @@ int main() {
                         cout << zErrMsg << endl;
 
                         /***************创建存储监测区域 的数据表 *******************************/
-//                        sql = "CREATE TABLE DATECTIONAREA_TAB(AREA_x float, AREA_Y float)";
+//                        sql = "CREATE TABLE DETECTIONAREA_TAB(AREA_x float, AREA_Y float)";
                         //回复前端信息
                         const char *send_buf;
                         if (NULL == zErrMsg) {

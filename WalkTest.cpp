@@ -14,7 +14,7 @@ WalkTest *WalkTest::pThis_ = NULL;
 
 void WalkTest::setParameter()
 {
-    check_mode_ = 111111111111;   //0:自检模式   1：目标检测过程中的自检
+    check_mode_ = con_msg.detectionModel;   //0:自检模式   1：目标检测过程中的自检
     delay_count = 0;
     origin_distance_ = 150;
     end_distance_= 120;
@@ -45,10 +45,10 @@ void WalkTest::setParameter()
     target_max_height_ = 1.9;
     target_min_width_ = 0.3;
     target_max_width_ = 0.9;
-    region_points_size_ = 111111111;
+    region_points_size_ = con_msg.detecPointsSize;            //检测点个数
     for (int i = 0; i < region_points_size_; ++i) {
-        region_x_[i] = 11111111111;
-        region_y_[i] = 11111111111;
+        region_x_[i] = con_msg.detecPointX[i];
+        region_y_[i] = con_msg.detecPointY[i];
     }
     mild_point0_ = {con_msg.mild_point0_x, con_msg.mild_point0_y};//0.01, -4.83;
     mild_point1_ = {con_msg.mild_point1_x, con_msg.mild_point1_y};//0.28, -34.6
@@ -86,12 +86,6 @@ void WalkTest::setParameter()
 
 void WalkTest::initializeParameter()
 {
-
-    zlog_warn(c,"test warn");
-    zlog_debug(c,"test debug");
-    zlog_error(c,"test error");
-
-
     cloud_id_ = 0;
     lost_counter_ = 21;
     detect_flag_ = false;
@@ -173,7 +167,32 @@ WalkTest::WalkTest(std::string &calib_file, std::string &ip, int port,
     //cout << "ok.............." << endl;
     initializeParameter();
 
+    localfileTest();
+
 }
+
+void WalkTest::localfileTest() {
+    int i = 0;
+
+    while (1) {
+        drawed_cloud_.reset(new pcl::PointCloud<pcl::PointXYZRGB>);
+
+        i++;
+        string fileName = "12-25/" + std::to_string(i) + ".pcd";
+        pcl::PointCloud<pcl::PointXYZI>::Ptr cloud_per(new pcl::PointCloud<pcl::PointXYZI>);
+        if (pcl::io::loadPCDFile(fileName, *cloud_per) == -1) {
+            zlog_error(c, "pcd路径出错，或者文件读取完毕！！");
+            std::cout << "pcd路径出错，或者文件读取完毕！！" << std::endl;
+            break;
+        }
+//        zlog_debug(c,"第 %d   个pcd文件的大小为：%d,",i,cloud_per->size());
+        pThis_->flowCloud(cloud_per);
+
+        usleep(10000);
+    }
+}
+
+
 
 vector<float> WalkTest::extractClusterFeature(ClusterPtr cluster)
 {
@@ -313,7 +332,7 @@ WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr, ClusterPtr target_clus
 //            {
 //
 //            }
-
+            cout << "nofloor_cloud_: " << nofloor_cloud_->points.size() << endl;
             if (cluster_indices.size() != 0)
             {
                 getCloudFromCluster(nofloor_cloud_, cluster_indices, target_min_height_, target_max_height_,
@@ -348,6 +367,7 @@ WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr, ClusterPtr target_clus
                 }
 
                 //check if ROI has interferon;
+                cout << "clusters:" << clusters.size() << endl;
                 for (int i = 0; i < clusters.size(); ++i) {
                     if (succed_target_) {
                         float interval_distance = calculatePointDistance(pre_target_centroid_,
@@ -357,6 +377,11 @@ WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr, ClusterPtr target_clus
                         {
                             //需要累计障碍物个数吗，需要一检测到障碍物就提示吗？
                             cout << "ROI has Interferon..." << endl;
+                            zlog_warn(c, "行人检测过程中，检测区域内发现障碍物");
+                            _displayinfo.obstacledetection = 1;
+
+                        } else {
+                            _displayinfo.obstacledetection = 0;
                         }
                     } else {
                         if (cloudinROI(clusters[i], region_points_size_, region_x_, region_x_) &&
@@ -364,6 +389,10 @@ WalkTest::detectTarget(const CloudConstPtr &in_cloud_ptr, ClusterPtr target_clus
                         {
                             //在此考虑 likelihood_clusters.size() == 0 的情况；此时 target_id 为 默认的越界值，上述条件也包含了likelihood_clusters.size() == 0的情况
                             cout << "ROI has Interferon..." << endl;
+                            zlog_warn(c, "行人检测过程中，检测区域内发现障碍物");
+                            _displayinfo.obstacledetection = 1;
+                        } else {
+                            _displayinfo.obstacledetection = 0;
                         }
                     }
                 }
@@ -438,7 +467,15 @@ void WalkTest::checkROI(const CloudConstPtr &cloud) {
         removeFloor(ROI_cloud, nofloor_cloud, onlyfloor_cloud, 0.1, 0.1);
         cluster_indices = euclideanCluster(nofloor_cloud, cluster_size_min_, cluster_size_max_, cluster_tolerance_);
         if (cluster_indices.size() != 0) {
-            cout << "ROI has Interferon..." << endl;
+            cout << "ROI has Interferon...行人检测时，自检模式下检测到有障碍物！！\n" << endl;
+            zlog_warn(c, "行人检测时，自检模式下检测到有障碍物！！\n");
+            _selfCheckinfo.obstacle_flag = 1;
+        } else {
+
+            cout << "ROI has Interferon...行人检测时，自检模式下没有障碍物！！\n" << endl;
+            zlog_warn(c, "行人检测时，自检模式下没有障碍物！！\n");
+            _selfCheckinfo.obstacle_flag = 0;
+
         }
     }
 }
@@ -469,6 +506,7 @@ void WalkTest::processCloud(const CloudConstPtr &cloud)
         }
         else
         {
+            cout << "<< **********  " << endl;
             detectTarget(cloud, detect_target_cluster);
             if (succed_detect_ == true)//detectTarget(cloud, detect_target_cluster)) //此處是指針傳參成功了嗎
             {
@@ -695,6 +733,9 @@ void WalkTest::flowCloud(const CloudConstPtr cloud)
         time.tic();
         if (check_mode_ == 0) // 0: self checking
         {
+            std::cout << " 已经进入自检模式！！" << std::endl;
+            zlog_debug(c, "已经进入自检模式！！");
+
             checkROI(cloud);
         } else {
             processCloud(cloud);
@@ -705,7 +746,7 @@ void WalkTest::flowCloud(const CloudConstPtr cloud)
 //                position_ = pre_position_;
 //                offset_ = pre_offset_;
                 sprintf(fname, "./%s/%04d.pcd", "lost", cloud_id_);
-                pcl::io::savePCDFile(fname, *cloud);
+                //pcl::io::savePCDFile(fname, *cloud);
             }
         }
 
@@ -766,42 +807,6 @@ void WalkTest::gpsCallback(int timestamp)
 }
 
 
-//void WalkTest::viewPointCloud(pcl::visualization::PCLVisualizer &viz)
-//{
-//    boost::mutex::scoped_lock lock (mtx_);
-//    std::cout << "<Esc>, \'q\', \'Q\': quit the program" << std::endl;
-//    if (addline_)
-//    {
-//        viz.addLine(mild_p0_, mild_p1_, "mildline");
-//        viz.addLine(mild_p0l_, mild_p1l_, "mildline1");
-//        viz.addLine(mild_p0r_, mild_p1r_, "mildline2");
-//        viz.addLine(end_p0_, end_p1_, "endline");
-//        viz.addLine(end_p0u_, end_p1u_, "endline1");
-//        viz.addLine(end_p0d_, end_p1d_, "endline2");
-//        addline_ = false;
-//    }
-//    if (succed_target_)
-//    {
-//        if (!viz.updatePointCloud(drawed_cloud_, "drawed_cloud"))
-//        {
-//            viz.addPointCloud(drawed_cloud_, "drawed_cloud");
-//            viz.resetCameraViewpoint("drawed_cloud");
-//        }
-//    }
-//    else
-//    {
-//        if (src_cloud_)
-//        {
-//            handler_.setInputCloud(src_cloud_);
-//            if (!viz.updatePointCloud<pcl::PointXYZI>(src_cloud_, handler_, "src_cloud"))
-//            {
-//                viz.addPointCloud(src_cloud_, handler_, "src_cloud");
-//                viz.resetCameraViewpoint("src_cloud");
-//            }
-//        }
-//        //調試看前面代碼有無必要添加
-//    }
-//}
 
 void WalkTest::viewPointCloud() //參照github上相關例程優化顯示
 {
@@ -849,40 +854,10 @@ void WalkTest::viewPointCloud() //參照github上相關例程優化顯示
 
 
 
-//void WalkTest::run()
-//{
-//    boost::function<void(const boost::shared_ptr<const Cloud> &)> f =
-//            boost::bind(&WalkTest::rawCloud, this, _1);
-//    boost::signals2::connection c = interface_.registerCallback(f);
-//    //cout << "ok..........." << endl;
-//
-//    //cloud_viewer_.runOnVisualizationThread(boost::bind(&WalkTest::viewPointCloud, this, _1), "viewPointCloud");
-//
-//    interface_.start();
-//    //cout << "ok..........." << endl;
-//
-//    //controlKey(cloud_id_);
-//    viewPointCloud();
-//
-////    while (!cloud_viewer_.wasStopped())
-////    {
-////        boost::this_thread::sleep(boost::posix_time::microseconds(1000));
-////        if (_run_flag == false)
-////        {
-////            break;
-////        }
-////    }
-//
-//
-//
-//    _run_flag == false;
-//    cout<<"walktest read finish"<<endl;
-//    interface_.stop();
-//    c.disconnect();
-//}
 
 void WalkTest::run()
 {
+    cout << "walktest run" << endl;
     show_personOrAircarft = 1;
 
     //pdsk_.start();

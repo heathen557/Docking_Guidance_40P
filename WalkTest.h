@@ -30,7 +30,7 @@ class WalkTest
     int succed_detect_counter_;
     //int priority_;
     float remove_points_upto_, clip_min_height_, clip_max_height_, clip_right_pos_, clip_left_pos_, clip_bottom_pos_, cluster_tolerance_, target_min_height_, target_max_height_, target_min_width_, target_max_width_, search_radius_;
-    float *region_x_, *region_y_;
+    float region_x_[50], region_y_[50];
     float pre_time_, pre_distance_, pre_end_distance_, pre_offset_;
     //float mild_x_, endline_y_;
     float x_precision_, y_precision_;
@@ -94,5 +94,7 @@ public:
     //void viewPointCloud(pcl::visualization::PCLVisualizer &viz);
     void viewPointCloud();
     void run();
+
+    void localfileTest();
 };
 #endif //DOCKING_GUIDANCE2_WALKTEST_H

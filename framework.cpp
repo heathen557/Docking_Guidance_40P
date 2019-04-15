@@ -29,6 +29,7 @@ using namespace rapidjson;
 std::mutex _mtx;
 int _READYTOSENDFLAG = 0;
 DISPLAYINFO _displayinfo;
+SELFCHECKINFO _selfCheckinfo;
 int _workstatus = 0 ;
 extern struct control_msg con_msg;
 
@@ -86,10 +87,7 @@ void socket_UDP() {
             _mtx.lock();
             _READYTOSENDFLAG = 0;
             _mtx.unlock();
-            //displayinfo.craft = "B777";
-            //displayinfo.position = "haha";
-            //_displayinfo.distance = i%40;
-            //i++;
+
             len_craft = sprintf(buf_tmp, "%s", _displayinfo.craft.c_str());
             flight.SetString(buf_tmp, len_craft, allocator);
             doc["craft"] = flight;
@@ -142,6 +140,14 @@ void Send_localsocket(){
     Document doc;
     doc.SetObject();
     Document::AllocatorType &allocator = doc.GetAllocator(); //获取分配器
+
+    /*****new seldDetection 2019-4-12*********/
+    Document selfDetec_doc;
+    selfDetec_doc.SetObject();
+    Document::AllocatorType &self_allocator = selfDetec_doc.GetAllocator(); //获取分配器
+
+
+
     /*initialzation*/
     _displayinfo.craft = "A380";
     _displayinfo.distance = 50.0;
@@ -163,12 +169,24 @@ void Send_localsocket(){
     doc.AddMember("@table",1,allocator);
     doc.AddMember("@src","lidar",allocator);
     doc.AddMember("workstatus",_workstatus,allocator);
+    doc.AddMember("obstacledetection", _displayinfo.obstacledetection, allocator);
+    doc.AddMember("occlusiondetect", _displayinfo.occlusiondetect, allocator);
     doc.AddMember("detectflag", _displayinfo.detectflag, allocator);
     doc.AddMember("craft", flight, allocator);
     doc.AddMember("position", position, allocator);
     doc.AddMember("distance", _displayinfo.distance, allocator);
     doc.AddMember("speed", _displayinfo.speed, allocator);
     doc.AddMember("offset", _displayinfo.offset, allocator);
+
+
+
+    /*****new seldDetection 2019-4-12*********/
+
+
+    selfDetec_doc.AddMember("@table", 17, self_allocator);
+    selfDetec_doc.AddMember("@src", "lidar", self_allocator);
+    selfDetec_doc.AddMember("obstacledetect", 0, self_allocator);
+    selfDetec_doc.AddMember("occlusiondetect", 1, self_allocator);
 
 
     //定义发送消息队列变量
@@ -222,10 +240,8 @@ void Send_localsocket(){
 
         }
 
+
         //发送算法的结果数据
-
-
-
         if (_READYTOSENDFLAG)
         {
 //            std::cout << "发送本地socket时,标识位~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
@@ -251,28 +267,42 @@ void Send_localsocket(){
             }
 
             //---------------------------------------------
-            len_craft = sprintf(buf_tmp, "%s", _displayinfo.craft.c_str());
-            flight.SetString(buf_tmp, len_craft, allocator);
-            doc["craft"] = flight;
-            int len_position = sprintf(buf_tmp, "%s", _displayinfo.position.c_str());
-            position.SetString(buf_tmp, len_position, allocator);
-            memset(buf_tmp, 0, sizeof(buf_tmp));
-            doc["position"] = position;
-            _displayinfo.distance = round(_displayinfo.distance * 100) / 100;
-            doc["distance"] = _displayinfo.distance;
-            doc["speed"] = _displayinfo.speed;
-            doc["offset"] = _displayinfo.offset;
-            doc["detectflag"] = _displayinfo.detectflag;
-            doc["workstatus"] = _workstatus;
             StringBuffer buffer;
             Writer<StringBuffer> writer(buffer);
-            doc.Accept(writer);
+            if (0 == con_msg.detectionModel)  //自检模式下 发送表17
+            {
+
+                selfDetec_doc["obstacledetect"] = _selfCheckinfo.obstacle_flag;
+                selfDetec_doc["occlusiondetect"] = _selfCheckinfo.occlusion_flag;
+                selfDetec_doc.Accept(writer);
+                zlog_debug(c, "自检模式发送已经进来了,string = %d", buffer.GetLength());
+
+            } else {                     //非自检模式下 发送表1
+
+                len_craft = sprintf(buf_tmp, "%s", _displayinfo.craft.c_str());
+                flight.SetString(buf_tmp, len_craft, allocator);
+                doc["craft"] = flight;
+                int len_position = sprintf(buf_tmp, "%s", _displayinfo.position.c_str());
+                position.SetString(buf_tmp, len_position, allocator);
+                memset(buf_tmp, 0, sizeof(buf_tmp));
+                doc["position"] = position;
+                _displayinfo.distance = round(_displayinfo.distance * 100) / 100;
+                doc["distance"] = _displayinfo.distance;
+                doc["speed"] = _displayinfo.speed;
+                doc["offset"] = _displayinfo.offset;
+                doc["detectflag"] = _displayinfo.detectflag;
+                doc["workstatus"] = _workstatus;
+                doc["obstacledetection"] = _displayinfo.obstacledetection;
+                doc["occlusiondetect"] = _displayinfo.occlusiondetect;
+
+                doc.Accept(writer);
+            }
+
+
+
 
             std::cout << "上传的数据为：" << buffer.GetString() << "\n\n\n" << std::endl;
-//            LOG__(LOGID_I, "要发送的数据为： %s\n", buffer.GetString());
             zlog_debug(c, "上传的数据为：%s", buffer.GetString());
-
-
 
             //---------------------------------------------
 //            char *ch = "{\"craft\":\"WalkTest\",\"distance\":27.0,\"speed\":0.0,\"position\":\"LEFT\",\"offset\":1.3835633748444607,\"detectflag\":1}";

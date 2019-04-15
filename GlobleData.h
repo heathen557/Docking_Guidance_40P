@@ -55,9 +55,14 @@ struct control_msg {
     float right_point1_y;
     float heigth_distance_threahold;
 
-    int detecPointsSize;
-    float detecPointX[50];
+    /***********检测区域参数*********/
+    int detectionModel;       //检测模式：0：自检  1：运行过程中检测
+    int detecPointsSize;      //检测点个数
+    float detecPointX[50];    //检测点的坐标
     float detecPointY[50];
+
+
+    /*****************************/
 
 } ;
 

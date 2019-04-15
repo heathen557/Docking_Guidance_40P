@@ -31,14 +31,20 @@ typedef struct DISPLAYINFO{
     std::string position;
     double offset;
     int detectflag;
+    int obstacledetection;   //  0 :无障碍 1:有障碍
+    int occlusiondetect;        //  0 :无遮挡 1:有遮挡
 }DISPLAYINFO;
 
-
+typedef struct SELFCHECK {
+    int obstacle_flag;       //  0 :无障碍 1:有障碍
+    int occlusion_flag;      //  0 :无遮挡 1:有遮挡
+} SELFCHECKINFO;
 
 extern zlog_category_t *c;
 extern std::mutex _mtx;
 extern int _READYTOSENDFLAG;
 extern DISPLAYINFO _displayinfo;
+extern SELFCHECKINFO _selfCheckinfo;
 
 
 
