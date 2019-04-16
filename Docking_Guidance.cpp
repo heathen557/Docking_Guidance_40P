@@ -780,7 +780,7 @@ int main() {
                         zlog_info(c, "con_msg.detecPointY  %d ,%f\n", i / 2 - 1, con_msg.detecPointY[i / 2 - 1]);
                     }
 
-                    /*************************从场景检测参数中获取 检测信息 机身长度(0:不检测  1：检测)，引擎个数（0：双个引擎， 1：单个引擎）********************************/
+                    /*************************从场景检测参数中获取 检测信息 是否检测机身长度(0:不检测  1：检测)，检测的引擎个数（0：双个引擎， 1：单个引擎）********************************/
                     nrow = 0;
                     ncolumn = 0;
                     sql = "SELECT * FROM  SCENEPARA_TAB";
@@ -817,6 +817,38 @@ int main() {
                         isDetec_DoubleScene = false;
                         std::cout << "检测单个引擎" << std::endl;
                     }
+
+                    /***************************从数据库中获取 标准机身长度、翼展长度、引擎间距  add 2019-4-16 **************************************/
+                    model = CFTP.GetString();
+                    nrow = 0;
+                    ncolumn = 0;
+                    const char *stand_sql = "SELECT * FROM AIRPLANEMODEL_TAB WHERE AIRPLANE_MODEL LIKE '";
+                    ostrstream stand_oss;
+                    stand_oss << stand_sql << model << "';" << '\0';
+
+                    sql = stand_oss.str();
+                    std::cout << "查询语句是：" << sql << std::endl;
+                    printf("查询语句是%s\n", sql);
+
+                    sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
+
+                    if (nrow < 1) {
+                        std::cout << "检索机型的标准参数时有误，请核对之！" << std::endl;
+                        zlog_warn(c, "检索机型标准参数时出现错误，数据库中不存在，请核对之\n");
+                        continue;
+                    }
+
+                    for (int i = 0; i < (nrow + 1) * ncolumn; i++) {
+                        printf("azResult[%d] = %s\n", i, azResult[i]);
+                        zlog_info(c, "检索机型的标准参数 azREsult[%d] = %s \n", i, azResult[i]);
+
+                    }
+                    con_msg.standard_aircraftLength = atof(azResult[10]);    //机身长度
+                    con_msg.standard_wingLength = atof(azResult[7]);         //翼展长度
+                    con_msg.standard_engineSpace = atof(azResult[9]);       //引擎外间距
+
+
+
 
 
                     _run_flag = true;    //”1“：算法开始检测

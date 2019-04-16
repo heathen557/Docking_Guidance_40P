@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Docking_Guidance.cpp" line="1391" />
+    <bookmark url="file://$PROJECT_DIR$/Docking_Guidance.cpp" line="1423" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
@@ -16,17 +16,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="1、行人障碍添加完毕版本&#10;2、检测区域表添加初始化数据部分">
+    <list default="true" id="c786776c-e16b-46aa-aad1-b83ce1807b0b" name="Default" comment="控制信息中添加标准值（机身长度，引擎间距，翼展长度）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Docking_Guidance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Docking_Guidance.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GlobleData.h" beforeDir="false" afterPath="$PROJECT_DIR$/GlobleData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WalkTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/WalkTest.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/Cluster.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Docking_Guidance2.dir/framework.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/framework.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework.h" beforeDir="false" afterPath="$PROJECT_DIR$/framework.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Pandar40P/src/Pandar40P/libPandar40P.a" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GlobleData.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1218">
-              <caret line="58" column="22" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="22" />
+            <state relative-caret-position="576">
+              <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
               <folding>
                 <element signature="e#44#70#0" expanded="true" />
               </folding>
@@ -80,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2698">
-              <caret line="1377" column="54" lean-forward="true" selection-start-line="1377" selection-start-column="54" selection-end-line="1377" selection-end-column="54" />
+            <state relative-caret-position="407">
+              <caret line="848" lean-forward="true" selection-start-line="848" selection-end-line="848" />
             </state>
           </provider>
         </entry>
@@ -101,7 +97,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2268">
+            <state relative-caret-position="488">
               <caret line="108" column="4" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="25" />
               <folding>
                 <element signature="e#174#214#0" expanded="true" />
@@ -111,31 +107,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/framework.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-              <folding>
-                <element signature="e#43#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/framework.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="295" column="70" selection-start-line="295" selection-start-column="70" selection-end-line="295" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3990">
-              <caret line="190" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="-3381">
+              <caret line="244" column="28" selection-start-line="244" selection-start-column="28" selection-end-line="244" selection-end-column="28" />
               <folding>
                 <element signature="e#42#69#0" expanded="true" />
               </folding>
@@ -147,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>flowCloud</find>
       <find>addPointCloud</find>
       <find>cost</find>
       <find>The coordinate of target is</find>
@@ -177,6 +151,7 @@
       <find>checkROI</find>
       <find>initSqlite3Bases</find>
       <find>DETECTIONAREA_TAB</find>
+      <find>AIRPLANEMODEL_TAB</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,12 +181,12 @@
         <option value="$PROJECT_DIR$/ProcessPointcloud.h" />
         <option value="$PROJECT_DIR$/AircraftDetect.cpp" />
         <option value="$PROJECT_DIR$/Cluster.cpp" />
-        <option value="$PROJECT_DIR$/GlobleData.h" />
         <option value="$PROJECT_DIR$/WalkTest.h" />
-        <option value="$PROJECT_DIR$/Docking_Guidance.cpp" />
         <option value="$PROJECT_DIR$/framework.h" />
         <option value="$PROJECT_DIR$/WalkTest.cpp" />
         <option value="$PROJECT_DIR$/framework.cpp" />
+        <option value="$PROJECT_DIR$/GlobleData.h" />
+        <option value="$PROJECT_DIR$/Docking_Guidance.cpp" />
       </list>
     </option>
   </component>
@@ -511,7 +486,7 @@
       <workItem from="1555029886678" duration="52000" />
       <workItem from="1555029942736" duration="1122000" />
       <workItem from="1555031596151" duration="25188000" />
-      <workItem from="1555288511532" duration="5449000" />
+      <workItem from="1555288511532" duration="16399000" />
     </task>
     <task id="LOCAL-00001" summary="第一次尝试提交">
       <created>1553570373454</created>
@@ -604,11 +579,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555046867256</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="1、行人障碍添加完毕版本&#10;2、检测区域表添加初始化数据部分">
+      <created>1555296361144</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1555296361219</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="766829000" />
+    <option name="totallyTimeSpent" value="777779000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -627,7 +609,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.50512445" side_tool="true" weight="0.22826087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17981073" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37644586" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35856992" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -636,7 +618,7 @@
       <window_info anchor="bottom" id="CMake" order="8" weight="0.15200868" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.33859095" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.31335437" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.31230283" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -711,7 +693,8 @@
     <MESSAGE value="行人障碍物检测添加前版本" />
     <MESSAGE value="行人检测合并初版，还未进行逻辑添加" />
     <MESSAGE value="1、行人障碍添加完毕版本&#10;2、检测区域表添加初始化数据部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、行人障碍添加完毕版本&#10;2、检测区域表添加初始化数据部分" />
+    <MESSAGE value="控制信息中添加标准值（机身长度，引擎间距，翼展长度）" />
+    <option name="LAST_COMMIT_MESSAGE" value="控制信息中添加标准值（机身长度，引擎间距，翼展长度）" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -926,16 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GlobleData.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="58" column="22" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="22" />
-          <folding>
-            <element signature="e#44#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WalkTest.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2037">
@@ -950,30 +923,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
+    <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2268">
-          <caret line="108" column="4" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="25" />
-          <folding>
-            <element signature="e#174#214#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="504">
+          <caret line="394" column="63" selection-start-line="394" selection-start-column="63" selection-end-line="394" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AircraftDetect.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3990">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="-3381">
+          <caret line="244" column="28" selection-start-line="244" selection-start-column="28" selection-end-line="244" selection-end-column="28" />
           <folding>
             <element signature="e#42#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
+    <entry file="file://$PROJECT_DIR$/framework.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2698">
-          <caret line="1377" column="54" lean-forward="true" selection-start-line="1377" selection-start-column="54" selection-end-line="1377" selection-end-column="54" />
+        <state relative-caret-position="3717">
+          <caret line="295" column="70" selection-start-line="295" selection-start-column="70" selection-end-line="295" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -987,17 +957,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WalkTest.cpp">
+    <entry file="file://$PROJECT_DIR$/AircraftDetect.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="394" column="63" selection-start-line="394" selection-start-column="63" selection-end-line="394" selection-end-column="63" />
+        <state relative-caret-position="488">
+          <caret line="108" column="4" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="25" />
+          <folding>
+            <element signature="e#174#214#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework.cpp">
+    <entry file="file://$PROJECT_DIR$/GlobleData.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="295" column="70" selection-start-line="295" selection-start-column="70" selection-end-line="295" selection-end-column="70" />
+        <state relative-caret-position="576">
+          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding>
+            <element signature="e#44#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Docking_Guidance.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="848" lean-forward="true" selection-start-line="848" selection-end-line="848" />
         </state>
       </provider>
     </entry>

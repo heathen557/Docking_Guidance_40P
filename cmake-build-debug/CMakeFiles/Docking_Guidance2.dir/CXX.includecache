@@ -46,12 +46,6 @@ pandar40p/point_types.h
 pcl/point_types.h
 -
 
-/home/he/CLionProjects/DockingGuidance/AircraftDetect.cpp
-AircraftDetect.h
-/home/he/CLionProjects/DockingGuidance/AircraftDetect.h
-GlobleData.h
-/home/he/CLionProjects/DockingGuidance/GlobleData.h
-
 /home/he/CLionProjects/DockingGuidance/AircraftDetect.h
 pandar40p_sdk/pandar40p_sdk.h
 /home/he/CLionProjects/DockingGuidance/pandar40p_sdk/pandar40p_sdk.h
@@ -124,10 +118,6 @@ iostream
 zconf.h
 -
 
-/home/he/CLionProjects/DockingGuidance/ProcessPointCloud.cpp
-ProcessPointcloud.h
-/home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
-
 /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
 pcl/console/time.h
 -
@@ -186,39 +176,11 @@ Cluster.h
 tools_function.h
 /home/he/CLionProjects/DockingGuidance/tools_function.h
 
-/home/he/CLionProjects/DockingGuidance/WalkTest.cpp
-zlog.h
-/home/he/CLionProjects/DockingGuidance/zlog.h
-WalkTest.h
-/home/he/CLionProjects/DockingGuidance/WalkTest.h
-GlobleData.h
-/home/he/CLionProjects/DockingGuidance/GlobleData.h
-
 /home/he/CLionProjects/DockingGuidance/WalkTest.h
 pandar40p_sdk/pandar40p_sdk.h
 /home/he/CLionProjects/DockingGuidance/pandar40p_sdk/pandar40p_sdk.h
 ProcessPointcloud.h
 /home/he/CLionProjects/DockingGuidance/ProcessPointcloud.h
-
-/home/he/CLionProjects/DockingGuidance/framework.cpp
-framework.h
-/home/he/CLionProjects/DockingGuidance/framework.h
-math.h
--
-sys/socket.h
--
-sys/types.h
--
-sys/un.h
--
-unistd.h
--
-linux/tcp.h
--
-netinet/in.h
--
-GlobleData.h
-/home/he/CLionProjects/DockingGuidance/GlobleData.h
 
 /home/he/CLionProjects/DockingGuidance/framework.h
 iostream
@@ -479,10 +441,6 @@ emmintrin.h
 -
 arm_neon.h
 -
-
-/home/he/CLionProjects/DockingGuidance/tools_function.cpp
-tools_function.h
-/home/he/CLionProjects/DockingGuidance/tools_function.h
 
 /home/he/CLionProjects/DockingGuidance/tools_function.h
 iostream

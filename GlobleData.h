@@ -61,8 +61,11 @@ struct control_msg {
     float detecPointX[50];    //检测点的坐标
     float detecPointY[50];
 
+    /******机型判断时所需要的参数********************/
+    float standard_aircraftLength;
+    float standard_wingLength;
+    float standard_engineSpace;
 
-    /*****************************/
 
 } ;
 
