@@ -1,8 +1,8 @@
 /*
 * Company: LES
 * Auth: LKK GX LL ZWT
-* Date: 18/06/23
-* Decription:
+* Date: 19/04/28
+* Decription: alter the table AIRPLANEMODEL_TAB
 */
 
 #include <iostream>
@@ -150,14 +150,31 @@ void initSqlite3Bases() {
     zlog_error(c, zErrMsg);
     cout << zErrMsg << endl;
 
-    //创建AIRPLANEMODEL_TAB表
-    sql = "CREATE TABLE AIRPLANEMODEL_TAB(AIRPLANE_MODEL VARCHAR(30) PRIMARY KEY,WING_LENGTH float,ENGINE_INNER float,ENGINE_OUTER float,AIRPLANE_LENGTH float,NOSE_HEIGHT float);";
+    //创建AIRPLANEMODEL_TAB表  2019-4-28
+//    sql = "CREATE TABLE AIRPLANEMODEL_TAB(AIRPLANE_MODEL VARCHAR(30) PRIMARY KEY,WING_LENGTH float,ENGINE_INNER float,ENGINE_OUTER float,AIRPLANE_LENGTH float,NOSE_HEIGHT float);";
+    sql = "CREATE TABLE AIRPLANEMODEL_TAB(AIRPLANE_MODEL VARCHAR(30) PRIMARY KEY, \
+            WING_LENGTH_1 float, WING_LENGTH_2 float,WING_ADJUST float,WING_POS_OFFSET float,WING_NEG_OFFSET float,\
+            ENGINE_INNER float,ENGINE_INNER_ADJUST float,ENGINE_INNER_POS_OFFSET float,ENGINE_INNER_NEG_OFFSET float,\
+            ENGINE_OUTER float,ENGINE_OUTER_ADJUST float,ENGINE_OUTER_POS_OFFSET float,ENGINE_OUTER_NEG_OFFSET float,\
+            AIRCRAFT_LENGTH float,AIRCRAFT_LENGTH_ADJUST float,AIRCRAFT_LENGTH_POS_OFFSET float,AIRCRAFT_LENGTH_NEG_OFFSET float,\
+            AIRCRAFT_HEIGHT float,AIRCRAFT_HEIGHT_POS_OFFSET float,AIRCRAFT_HEIGHT_NEG_OFFSET float,\
+            AIRCRAFT_WIDTH float,AIRCRAFT_WIDTH_POS_OFFSET float,AIRCRAFT_WIDTH_NEG_OFFSET float,\
+            NOSE_HEIGHT float,NOSE_HEIGHT_POS_OFFSET float,NOSE_HEIGHT_NEG_OFFSET float,\
+            NOSE_DOOR float,NOSE_DOOR_POS_OFFSET float,NOSE_DOOR_NEG_OFFSET float);";
+
     sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
     zlog_error(c, zErrMsg);
     cout << zErrMsg << endl;
 
     //插入数据
-    sql = "INSERT INTO \"AIRPLANEMODEL_TAB\" VALUES('A380-300' , 1.5 , 22.01, 18.9, 50.1, 22.2 );";
+    sql = "INSERT INTO \"AIRPLANEMODEL_TAB\" VALUES('B737-800' , 1.0 , 2.0, 3.0, 4.0, 5.0, "
+          "6, 7, 8, 9,"
+          "10, 11, 12, 13,"
+          "14, 15, 16, 17,"
+          "18, -19, 20,"
+          "21, 22, 23,"
+          "24, 25, 26,"
+          "27, 28, 29 );";
     sqlite3_exec(db, sql, 0, 0, &zErrMsg);
     zlog_error(c, zErrMsg);
     cout << zErrMsg << endl;
@@ -238,7 +255,7 @@ void CreateBerthInfo_table() {
     sql = "CREATE TABLE BERTH_TAB(AIRPLANE_MODEL VARCHAR(30) PRIMARY KEY,STOP1_X float,STOP1_Y float,STOP2_X float,STOP2_Y float,CENTER1_X float,CENTER1_Y float,CENTER2_X float,CENTER2_Y float,FOREIGN KEY(AIRPLANE_MODEL) REFERENCES AIRPLANEMODEL_TAB(AIRPLANE_MODEL));";
     sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
     //插入数据
-    sql = "INSERT INTO \"BERTH_TAB\" VALUES('A380-300',1.5 ,22.01, 18.9, 50.1, 22.2, 22.01, 18.9, 50.1 );";
+    sql = "INSERT INTO \"BERTH_TAB\" VALUES('B737-800', 9.0, -32.89, -4.0, -33.89, 0.41, -32.0, 1.27, -45.0 );";
     sqlite3_exec(db, sql, 0, 0, &zErrMsg);
 //    std::cout << "泊位信息表中插入数据：" << zErrMsg << std::endl;
 
@@ -639,7 +656,8 @@ int main() {
 
                 if(!(d.HasMember("workMode")&&d.HasMember("workCommand")&&d.HasMember("airplane")))
                 {
-                    std::cout<<"接收到的命令有误，请珂珂检查之^-^"<<std::endl;
+//                    std::cout<<"接收到的命令有误，请珂珂检查之^-^"<<std::endl;
+                    printf("接收到的命令有误，请珂珂检查之^-^");
                     zlog_error(c,"接收到的开始检测命令有误，缺少字段，请珂珂检查之^-^！\n");
                     continue ;
                 }
@@ -677,7 +695,7 @@ int main() {
                     sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
 
                     if(nrow<1){
-                        std::cout<<"行人检测参数不存在；"<<std::endl;
+                        printf("行人检测参数在数据库中不存在\n");
                         zlog_warn(c,"行人检测参数在数据库中不存在\n");
                         continue;
 
@@ -710,7 +728,7 @@ int main() {
 
                     if(nrow<1)
                     {
-                        std::cout<<"机型输入有误，请核对之！"<<std::endl;
+                        printf("开始检测命令机型输入有误，数据库中不存在，请核对之\n");
                         zlog_warn(c,"开始检测命令机型输入有误，数据库中不存在，请核对之\n");
                         continue;
                     }
@@ -736,7 +754,7 @@ int main() {
                     sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
                     if(nrow<1)
                     {
-                        std::cout<<"检索环境检测参数时有误，请核对之！"<<std::endl;
+                        printf("检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
                         zlog_warn(c,"检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
                         continue;
                     }
@@ -760,7 +778,7 @@ int main() {
                     sql = "SELECT * FROM DETECTIONAREA_TAB;";
                     sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
                     if (nrow < 1) {
-                        std::cout << "检索环境检测参数时有误，请核对之！" << std::endl;
+                        printf("检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
                         zlog_warn(c, "检索环境检测参数时出现错误，数据库中不存在，请核对之\n");
                         continue;
                     }
@@ -786,7 +804,7 @@ int main() {
                     sql = "SELECT * FROM  SCENEPARA_TAB";
                     sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
                     if (nrow < 1) {
-                        std::cout << "检索场景检测参数时有误，请核对之！" << std::endl;
+                        printf("检索场景检测参数时出现错误，数据库中不存在，请核对之\n");
                         zlog_warn(c, "检索场景检测参数时出现错误，数据库中不存在，请核对之\n");
                         continue;
                     }
@@ -833,7 +851,7 @@ int main() {
                     sqlite3_get_table(db, sql, &azResult, &nrow, &ncolumn, &zErrMsg);
 
                     if (nrow < 1) {
-                        std::cout << "检索机型的标准参数时有误，请核对之！" << std::endl;
+                        printf("检索机型标准参数时出现错误，数据库中不存在，请核对之\n");
                         zlog_warn(c, "检索机型标准参数时出现错误，数据库中不存在，请核对之\n");
                         continue;
                     }
@@ -846,8 +864,38 @@ int main() {
                     con_msg.standard_aircraftLength = atof(azResult[10]);    //机身长度
                     con_msg.standard_wingLength = atof(azResult[7]);         //翼展长度
                     con_msg.standard_engineSpace = atof(azResult[9]);       //引擎外间距
+                    con_msg.wingLength1 = atof(azResult[31]);
+                    con_msg.wingLength2 = atof(azResult[32]);
+                    con_msg.wingLengthAdjust = atof(azResult[33]);
+                    con_msg.wingLengthPosOffset = atof(azResult[34]);
+                    con_msg.wingLengthNegOffset = atof(azResult[35]);
+                    con_msg.engineInner = atof(azResult[36]);
+                    con_msg.engineInnerAdjust = atof(azResult[37]);
+                    con_msg.engineInnerPosOffset = atof(azResult[38]);
+                    con_msg.engineInnerNegOffset = atof(azResult[39]);
+                    con_msg.engineOuter = atof(azResult[40]);
+                    con_msg.engineOuterAdjust = atof(azResult[41]);
+                    con_msg.engineOuterPosOffset = atof(azResult[42]);
+                    con_msg.engineOuterNegOffset = atof(azResult[43]);
+                    con_msg.planeLength = atof(azResult[44]);
+                    con_msg.planeLengthAdjust = atof(azResult[45]);
+                    con_msg.planeLengthPosOffet = atof(azResult[46]);
+                    con_msg.planeLengthNegOffset = atof(azResult[47]);
+                    con_msg.planeHeight = atof(azResult[48]);
+                    con_msg.planeHeightPosOffset = atof(azResult[49]);
+                    con_msg.planeHeightPosOffset = atof(azResult[50]);
+                    con_msg.planeWidth = atof(azResult[51]);
+                    con_msg.planeWidthPosOffset = atof(azResult[52]);
+                    con_msg.planeWidthNegOffset = atof(azResult[53]);
+                    con_msg.noseHeight = atof(azResult[54]);
+                    con_msg.noseHeightPosOffset = atof(azResult[55]);
+                    con_msg.noseHeightNegOffset = atof(azResult[56]);
+                    con_msg.noseDoor = atof(azResult[57]);
+                    con_msg.noseDoorPosOffset = atof(azResult[58]);
+                    con_msg.noseDoorNegOffset = atof(azResult[59]);
 
 
+                    printf("抽样 飞机长度=%f， 最后值：%f", con_msg.planeLength, con_msg.noseDoorNegOffset);
 
 
 
@@ -865,34 +913,73 @@ int main() {
                 Value &v = d["msg"];
                 assert(v.IsObject());
 
-                if(!(v.HasMember("CFTP") && v.HasMember("wing") && v.HasMember("engineInner") && v.HasMember("engineOuter") && v.HasMember("length") && v.HasMember("noseheight")))
+                if (!(v.HasMember("CFTP") && v.HasMember("wingLength1") && v.HasMember("wingLength2") &&
+                      v.HasMember("wingLengthAdjust") && v.HasMember("wingLengthPosOffset") &&
+                      v.HasMember("wingLengthNegOffset") &&
+                      v.HasMember("engineInner") && v.HasMember("engineInnerAdjust") &&
+                      v.HasMember("engineInnerPosOffset") && v.HasMember("engineInnerNegOffset") &&
+                      v.HasMember("engineOuter")
+                      && v.HasMember("engineOuterAdjust") && v.HasMember("engineOuterPosOffset") &&
+                      v.HasMember("engineOuterNegOffset") && v.HasMember("planeLength") &&
+                      v.HasMember("planeLengthAdjust")
+                      && v.HasMember("planeLengthPosOffet") && v.HasMember("planeLengthNegOffset") &&
+                      v.HasMember("planeHeight") && v.HasMember("planeHeightPosOffset") &&
+                      v.HasMember("planeHeightNegOffset")
+                      && v.HasMember("planeWidth") && v.HasMember("planeWidthPosOffset") &&
+                      v.HasMember("planeWidthNegOffset") && v.HasMember("noseHeight") &&
+                      v.HasMember("noseHeightPosOffset")
+                      && v.HasMember("noseHeightNegOffset") && v.HasMember("noseDoor") &&
+                      v.HasMember("noseDoorPosOffset") && v.HasMember("noseDoorNegOffset")))
                 {
-                    std::cout<<"添加机型时，接收到的数据有误！！"<<std::endl;
+//                    std::cout<<"添加机型时，接收到的数据有误！！"<<std::endl;
+                    printf("接收到添加机型命令时，接收到的数据缺少字段！！\n");
                     zlog_warn(c,"接收到添加机型命令时，接收到的数据缺少字段！！\n");
                     continue;
                 }
 
                 const char *model = v["CFTP"].GetString();
-//                std::cout << "接收到的数据数据为1 -> " << model << std::endl;
-
-                float wing_ =  atof(v["wing"].GetString());
-//                std::cout << "接收到的数据数据为2 -> " << wing_ << std::endl;
-
-                float engineInner_ = atof(v["engineInner"].GetString());
-//                std::cout << "接收到的数据数据为3 -> " << engineInner_ << std::endl;
-
-                float engineOuter_ = atof(v["engineOuter"].GetString());
-//                std::cout << "接收到的数据数据为4 -> " << engineOuter_ << std::endl;
-
-                float length_ = atof(v["length"].GetString()) ;
-//                std::cout << "接收到的数据数据为5 -> " << length_ << std::endl;
-
-                float noseheight_ = atof(v["noseheight"].GetString()) ;
-//                std::cout << "接收到的数据数据为6 -> " << noseheight_ << std::endl;
+                float wingLength1 = atof(v["wingLength1"].GetString());
+                float wingLength2 = atof(v["wingLength2"].GetString());
+                float wingLengthAdjust = atof(v["wingLengthAdjust"].GetString());
+                float wingLengthPosOffset = atof(v["wingLengthPosOffset"].GetString());
+                float wingLengthNegOffset = atof(v["wingLengthNegOffset"].GetString());
+                float engineInner = atof(v["engineInner"].GetString());
+                float engineInnerAdjust = atof(v["engineInnerAdjust"].GetString());
+                float engineInnerPosOffset = atof(v["engineInnerPosOffset"].GetString());
+                float engineInnerNegOffset = atof(v["engineInnerNegOffset"].GetString());
+                float engineOuter = atof(v["engineOuter"].GetString());
+                float engineOuterAdjust = atof(v["engineOuterAdjust"].GetString());
+                float engineOuterPosOffset = atof(v["engineOuterPosOffset"].GetString());
+                float engineOuterNegOffset = atof(v["engineOuterNegOffset"].GetString());
+                float planeLength = atof(v["planeLength"].GetString());
+                float planeLengthAdjust = atof(v["planeLengthAdjust"].GetString());
+                float planeLengthPosOffet = atof(v["planeLengthPosOffet"].GetString());
+                float planeLengthNegOffset = atof(v["planeLengthNegOffset"].GetString());
+                float planeHeight = atof(v["planeHeight"].GetString());
+                float planeHeightPosOffset = atof(v["planeHeightPosOffset"].GetString());
+                float planeHeightNegOffset = atof(v["planeHeightNegOffset"].GetString());
+                float planeWidth = atof(v["planeWidth"].GetString());
+                float planeWidthPosOffset = atof(v["planeWidthPosOffset"].GetString());
+                float planeWidthNegOffset = atof(v["planeWidthNegOffset"].GetString());
+                float noseHeight = atof(v["noseHeight"].GetString());
+                float noseHeightPosOffset = atof(v["noseHeightPosOffset"].GetString());
+                float noseHeightNegOffset = atof(v["noseHeightNegOffset"].GetString());
+                float noseDoor = atof(v["noseDoor"].GetString());
+                float noseDoorPosOffset = atof(v["noseDoorPosOffset"].GetString());
+                float noseDoorNegOffset = atof(v["noseDoorNegOffset"].GetString());
 
                 const char *at = "INSERT INTO AIRPLANEMODEL_TAB VALUES(";
                 ostrstream oss;
-                oss << at<<"'"<<model << "',"<<wing_<<","<<engineInner_<<","<<engineOuter_<<","<<length_<<","<<noseheight_<<");"<<'\0';
+                oss << at << "'" << model << "'," << wingLength1 << "," << wingLength2 << "," << wingLengthAdjust << ","
+                    << wingLengthPosOffset << "," << wingLengthNegOffset << "," <<
+                    engineInner << "," << engineInnerAdjust << "," << engineInnerPosOffset << ","
+                    << engineInnerNegOffset << "," << engineOuter << "," << engineOuterAdjust << "," <<
+                    engineOuterPosOffset << "," << engineOuterNegOffset << "," << planeLength << ","
+                    << planeLengthAdjust << "," << planeLengthPosOffet << "," << planeLengthNegOffset << "," <<
+                    planeHeight << "," << planeHeightPosOffset << "," << planeHeightNegOffset << "," << planeWidth
+                    << "," << planeWidthPosOffset << "," << planeWidthNegOffset << "," <<
+                    noseHeight << "," << noseHeightPosOffset << "," << noseHeightNegOffset << "," << noseDoor << ","
+                    << noseDoorPosOffset << "," << noseDoorNegOffset << ");" << '\0';
                 const char *temp_sql = oss.str();
                 std::cout << temp_sql<<std::endl;
 
@@ -937,7 +1024,23 @@ int main() {
                         Value &v = ques[i];
                         assert(v.IsObject());
 
-                        if(!(v.HasMember("CFTP") && v.HasMember("wing") && v.HasMember("engineInner") && v.HasMember("engineOuter") && v.HasMember("length") && v.HasMember("noseheight")))
+                        if (!(v.HasMember("CFTP") && v.HasMember("wingLength1") && v.HasMember("wingLength2") &&
+                              v.HasMember("wingLengthAdjust") && v.HasMember("wingLengthPosOffset") &&
+                              v.HasMember("wingLengthNegOffset") &&
+                              v.HasMember("engineInner") && v.HasMember("engineInnerAdjust") &&
+                              v.HasMember("engineInnerPosOffset") && v.HasMember("engineInnerNegOffset") &&
+                              v.HasMember("engineOuter")
+                              && v.HasMember("engineOuterAdjust") && v.HasMember("engineOuterPosOffset") &&
+                              v.HasMember("engineOuterNegOffset") && v.HasMember("planeLength") &&
+                              v.HasMember("planeLengthAdjust")
+                              && v.HasMember("planeLengthPosOffet") && v.HasMember("planeLengthNegOffset") &&
+                              v.HasMember("planeHeight") && v.HasMember("planeHeightPosOffset") &&
+                              v.HasMember("planeHeightNegOffset")
+                              && v.HasMember("planeWidth") && v.HasMember("planeWidthPosOffset") &&
+                              v.HasMember("planeWidthNegOffset") && v.HasMember("noseHeight") &&
+                              v.HasMember("noseHeightPosOffset")
+                              && v.HasMember("noseHeightNegOffset") && v.HasMember("noseDoor") &&
+                              v.HasMember("noseDoorPosOffset") && v.HasMember("noseDoorNegOffset")))
                         {
                             std::cout<<"修改机型参数时，接收到的命令有误！！！"<<std::endl;
 //                            LOG__(LOGID_I,"修改机型参数时，接收到的命令有误，缺少字段！！！\n");
@@ -946,17 +1049,35 @@ int main() {
                         }
 
                         const char *model = v["CFTP"].GetString();
-//                        std::cout << "接收到的数据数据为temp -> " << model << std::endl;
-                        double wing_ = atof(v["wing"].GetString()) ;
-//                        std::cout << "接收到的数据数据为stop1x_ -> " << stop1x_ << std::endl;
-                        double engineInner_ = atof(v["engineInner"].GetString()) ;
-//                        std::cout << "接收到的数据数据为stop1y_ -> " << stop1y_ << std::endl;
-                        double engineOuter_ = atof(v["engineOuter"].GetString()) ;
-//                        std::cout << "接收到的数据数据为stop2x_ -> " << stop2x_ << std::endl;
-                        double length_ = atof(v["length"].GetString());
-//                        std::cout << "接收到的数据数据为stop2x_ -> " << stop2y_ << std::endl;
-                        double noseheight_ = atof(v["noseheight"].GetString()) ;
-//                        std::cout << "接收到的数据数据为middle1x_ -> " << middle1x_ << std::endl;
+                        float wingLength1 = atof(v["wingLength1"].GetString());
+                        float wingLength2 = atof(v["wingLength2"].GetString());
+                        float wingLengthAdjust = atof(v["wingLengthAdjust"].GetString());
+                        float wingLengthPosOffset = atof(v["wingLengthPosOffset"].GetString());
+                        float wingLengthNegOffset = atof(v["wingLengthNegOffset"].GetString());
+                        float engineInner = atof(v["engineInner"].GetString());
+                        float engineInnerAdjust = atof(v["engineInnerAdjust"].GetString());
+                        float engineInnerPosOffset = atof(v["engineInnerPosOffset"].GetString());
+                        float engineInnerNegOffset = atof(v["engineInnerNegOffset"].GetString());
+                        float engineOuter = atof(v["engineOuter"].GetString());
+                        float engineOuterAdjust = atof(v["engineOuterAdjust"].GetString());
+                        float engineOuterPosOffset = atof(v["engineOuterPosOffset"].GetString());
+                        float engineOuterNegOffset = atof(v["engineOuterNegOffset"].GetString());
+                        float planeLength = atof(v["planeLength"].GetString());
+                        float planeLengthAdjust = atof(v["planeLengthAdjust"].GetString());
+                        float planeLengthPosOffet = atof(v["planeLengthPosOffet"].GetString());
+                        float planeLengthNegOffset = atof(v["planeLengthNegOffset"].GetString());
+                        float planeHeight = atof(v["planeHeight"].GetString());
+                        float planeHeightPosOffset = atof(v["planeHeightPosOffset"].GetString());
+                        float planeHeightNegOffset = atof(v["planeHeightNegOffset"].GetString());
+                        float planeWidth = atof(v["planeWidth"].GetString());
+                        float planeWidthPosOffset = atof(v["planeWidthPosOffset"].GetString());
+                        float planeWidthNegOffset = atof(v["planeWidthNegOffset"].GetString());
+                        float noseHeight = atof(v["noseHeight"].GetString());
+                        float noseHeightPosOffset = atof(v["noseHeightPosOffset"].GetString());
+                        float noseHeightNegOffset = atof(v["noseHeightNegOffset"].GetString());
+                        float noseDoor = atof(v["noseDoor"].GetString());
+                        float noseDoorPosOffset = atof(v["noseDoorPosOffset"].GetString());
+                        float noseDoorNegOffset = atof(v["noseDoorNegOffset"].GetString());
 
 
                         const char *at = "SELECT COUNT(*) FROM AIRPLANEMODEL_TAB WHERE AIRPLANE_MODEL=";
@@ -986,9 +1107,34 @@ int main() {
                             std::cout<<"已经找到所要修改的机型参数 AIRPLANEMODEL_TAB "<<std::endl;
 
                             ostrstream update_oss;
-                            const char *update = "UPDATE AIRPLANEMODEL_TAB SET WING_LENGTH=";
-                            update_oss<<update<<wing_<<",ENGINE_INNER="<<engineInner_<<",ENGINE_OUTER="<<engineOuter_<<",AIRPLANE_LENGTH="<<length_
-                                      <<",NOSE_HEIGHT="<<noseheight_<<" WHERE AIRPLANE_MODEL="<<"'"<<model<<"'"<<";"<<'\0';
+                            const char *update = "UPDATE AIRPLANEMODEL_TAB SET WING_LENGTH_1=";
+                            update_oss << update << wingLength1 << ",WING_LENGTH_2=" << wingLength2 << ",WING_ADJUST="
+                                       << wingLengthAdjust
+                                       << ",WING_POS_OFFSET=" << wingLengthPosOffset << ",WING_NEG_OFFSET="
+                                       << wingLengthNegOffset
+                                       << ",ENGINE_INNER=" << engineInner << ",ENGINE_INNER_ADJUST="
+                                       << engineInnerAdjust << ",ENGINE_INNER_POS_OFFSET=" << engineInnerPosOffset
+                                       << ",ENGINE_INNER_NEG_OFFSET=" << engineInnerNegOffset << ",ENGINE_OUTER="
+                                       << engineOuter
+                                       << ",ENGINE_OUTER_ADJUST=" << engineOuterAdjust << ",ENGINE_OUTER_POS_OFFSET="
+                                       << engineOuterPosOffset
+                                       << ",ENGINE_OUTER_NEG_OFFSET=" << engineOuterNegOffset << ",AIRCRAFT_LENGTH="
+                                       << planeLength
+                                       << ",AIRCRAFT_LENGTH_ADJUST=" << planeLengthAdjust
+                                       << ",AIRCRAFT_LENGTH_POS_OFFSET=" << planeLengthPosOffet
+                                       << ",AIRCRAFT_LENGTH_NEG_OFFSET=" << planeLengthNegOffset << ",AIRCRAFT_HEIGHT="
+                                       << planeHeight
+                                       << ",AIRCRAFT_HEIGHT_POS_OFFSET=" << planeHeightPosOffset
+                                       << ",AIRCRAFT_HEIGHT_NEG_OFFSET=" << planeHeightNegOffset
+                                       << ",AIRCRAFT_WIDTH=" << planeWidth << ",AIRCRAFT_WIDTH_POS_OFFSET="
+                                       << planeWidthPosOffset
+                                       << ",AIRCRAFT_WIDTH_NEG_OFFSET =" << planeWidthNegOffset << ",NOSE_HEIGHT="
+                                       << noseHeight
+                                       << ",NOSE_HEIGHT_POS_OFFSET=" << noseHeightPosOffset
+                                       << ",NOSE_HEIGHT_NEG_OFFSET=" << noseHeightNegOffset
+                                       << ",NOSE_DOOR=" << noseDoor << ",NOSE_DOOR_POS_OFFSET=" << noseDoorPosOffset
+                                       << ",NOSE_DOOR_NEG_OFFSET=" << noseDoorNegOffset << " WHERE AIRPLANE_MODEL="
+                                       << "'" << model << "'" << ";" << '\0';
 
                             char *update_sql = update_oss.str();
                             std::cout << update_sql<<std::endl;

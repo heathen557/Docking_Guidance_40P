@@ -61,10 +61,42 @@ struct control_msg {
     float detecPointX[50];    //检测点的坐标
     float detecPointY[50];
 
-    /******机型判断时所需要的参数********************/
+    /******机型参数表中的参数********************/
     float standard_aircraftLength;
     float standard_wingLength;
     float standard_engineSpace;
+
+    float wingLength1;
+    float wingLength2;
+    float wingLengthAdjust;
+    float wingLengthPosOffset;
+    float wingLengthNegOffset;
+    float engineInner;
+    float engineInnerAdjust;
+    float engineInnerPosOffset;
+    float engineInnerNegOffset;
+    float engineOuter;
+    float engineOuterAdjust;
+    float engineOuterPosOffset;
+    float engineOuterNegOffset;
+    float planeLength;
+    float planeLengthAdjust;
+    float planeLengthPosOffet;
+    float planeLengthNegOffset;
+    float planeHeight;
+    float planeHeightPosOffset;
+    float planeHeightNegOffset;
+    float planeWidth;
+    float planeWidthPosOffset;
+    float planeWidthNegOffset;
+    float noseHeight;
+    float noseHeightPosOffset;
+    float noseHeightNegOffset;
+    float noseDoor;
+    float noseDoorPosOffset;
+    float noseDoorNegOffset;
+
+
 
 
 } ;
@@ -72,7 +104,7 @@ struct control_msg {
 //消息队列的声明
 struct my_msg_st {
     long int my_msg_type;
-    char some_text[1024];
+    char some_text[4096];
 };
 
 

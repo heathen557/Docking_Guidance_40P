@@ -129,7 +129,7 @@ void Send_localsocket(){
 
     int connect_fd;
     int ret;
-    char send_buff[1024];
+    char send_buff[4096];
     static struct sockaddr_un srv_addr;
 
     //--------------
@@ -337,7 +337,7 @@ void Recvsocket_UDP() {
     struct sockaddr_in my_addr;             //服务器网络地址结构体
     struct sockaddr_in remote_addr;         //客户端网络地址结构体
     int sin_size;
-    char buf[1024];                         //数据传送的缓冲区
+    char buf[4096];                         //数据传送的缓冲区
     memset(&my_addr, 0, sizeof(my_addr));   //数据初始化--清零
     my_addr.sin_family = AF_INET;           //设置为IP通信
     my_addr.sin_addr.s_addr = INADDR_ANY;   //服务器IP地址--允许连接到所有本地地址上
@@ -362,7 +362,7 @@ void Recvsocket_UDP() {
     /////////////////////消息队列的初始化///////////
     struct my_msg_st some_data;
     int msgid;
-    char buffer[1024];
+    char buffer[4096];
 
     //创建消息队列
     msgid = msgget((key_t) 1234, 0666 | IPC_CREAT);
@@ -387,7 +387,7 @@ void Recvsocket_UDP() {
         //写入到消息队列
         some_data.my_msg_type = 1;
         strcpy(some_data.some_text, buf);
-        if (msgsnd(msgid, (void *) &some_data, 1024, 0) == -1) {
+        if (msgsnd(msgid, (void *) &some_data, 4096, 0) == -1) {
             fprintf(stderr, "msgsed failed\n");
             exit(EXIT_FAILURE);
         }
@@ -406,7 +406,7 @@ void Recv_localSocket()
     int com_fd;
     int ret;
     int i;
-    static char rcv_buff[1024];
+    static char rcv_buff[4096];
     int len;
     struct sockaddr_un clt_addr;
     struct sockaddr_un srv_addr;
@@ -417,7 +417,7 @@ void Recv_localSocket()
     /////////////////////消息队列的初始化///////////
     struct my_msg_st some_data;
     int msgid;
-    char buffer[1024];
+    char buffer[4096];
     //创建消息队列
     msgid = msgget((key_t) 1234, 0666 | IPC_CREAT);
     if (msgid == -1) {
@@ -464,7 +464,7 @@ void Recv_localSocket()
 
         //read and printf client send info
         for(i=0;i<4;i++){
-            memset(rcv_buff,0,1024);
+            memset(rcv_buff, 0, 4096);
             int num = read(com_fd,rcv_buff,sizeof(rcv_buff));
             if(0 < num)
             {
@@ -473,7 +473,7 @@ void Recv_localSocket()
                 //写入到消息队列
                 some_data.my_msg_type = 1;
                 strcpy(some_data.some_text, rcv_buff);
-                if (msgsnd(msgid, (void *) &some_data, 1024, 0) == -1) {
+                if (msgsnd(msgid, (void *) &some_data, 4096, 0) == -1) {
                     fprintf(stderr, "msgsed failed\n");
                     exit(EXIT_FAILURE);
                 }
